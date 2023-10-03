@@ -21,7 +21,7 @@ function Navbar() {
         <div className='flex justify-end items-end bg-black w-full gap-[38px] px-[117px]'>
            {
             navData.map((element,idx)=> {
-              return <div className='flex flex-row gap-2 py-[11px]'>
+              return <div className='flex flex-row gap-2 py-[11px]' key = {idx}>
               <Image src={element.img} width={24} height={24} alt='phone-number' 
               className={`${idx === 1 ? '' : ''}  `}
               />

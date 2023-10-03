@@ -3,7 +3,7 @@ import React from 'react'
 
 function OurApp() {
   return (
-    <div className='flex flex-row items-center justify-center gap-[165px] mt-[168px] w-full'>
+    <div className='flex flex-row items-center justify-center px-[128px] gap-[165px] mt-[168px] w-full'>
             <div className='text-[#838383] text-center flex flex-col items-center'>
                 <p className='font-bold text-[20px] leading-[22px]'>OUR MOBILE APP</p>
                 <h1 className='font-normal text-4xl leading-[46px] mt-6'>Bid On-the-Go!</h1>

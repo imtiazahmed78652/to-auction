@@ -29,7 +29,7 @@ function AboutUs() {
                 <div className='flex flex-col gap-[36px] '>
            {
             data.map((element,idx)=> {
-                return <div className='flex flex-col '>
+                return <div className='flex flex-col ' key={idx}>
                 <div className='flex flex-row items-center gap-4'>
                 <Image src = "/tick.png" alt = '' width = {30} height = {30} className=''/>
                 <h1 className='font-bold text-xl   text-[#3A3A3A]'>{element.name}</h1>

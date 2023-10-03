@@ -30,7 +30,7 @@ function WhatOurClientSays() {
         <div className='mt-[64px] flex flex-row items-center gap-[24px] '>
         {
             clients.map((element,idx)=> {
-                return <div className='w-[539px] h-[546px]'>
+                return <div className='w-[539px] h-[546px]' key={idx}>
                 <div className='w-full h-[388px] relative'>
                     <div className='absolute right-2 top-2 w-[64px] h-[64px] bg-white rounded-full flex flex-row items-center justify-center'>
                             <Image src = '/Play.png' width={28} height={28} alt='Play button'/>

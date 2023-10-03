@@ -30,7 +30,7 @@ function Faqs() {
                
             {
                 faqs.map((element,idx)=> {
-                    return <div className={`${idx === 3 ? 'border-b-[2px] border-[#D4D2E3]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
+                    return <div key={idx} className={`${idx === 3 ? 'border-b-[2px] border-[#D4D2E3]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
                     <div>
                     <h1 className='font-normal text-[20px] leading-[38px]'>{element.question}</h1>
                    {

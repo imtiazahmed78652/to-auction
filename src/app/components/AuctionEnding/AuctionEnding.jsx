@@ -98,7 +98,7 @@ function AuctionEnding() {
         >
       {
         swiperData.map((element,idx)=> {
-            return <SwiperSlide>
+            return <SwiperSlide key = {idx}>
             <ProductCard/>
         </SwiperSlide>
         })

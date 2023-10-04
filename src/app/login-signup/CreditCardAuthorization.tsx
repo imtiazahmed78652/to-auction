@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react'
 const CreditCardAuthorization: React.FC<{
     headingText: string;
-    onNext: () => void;
+    onNext: (text:string) => void;
     onClose:() => void;
   }> = ({ headingText, onNext,onClose }) => {
     const [state, setState] = React.useState(false)

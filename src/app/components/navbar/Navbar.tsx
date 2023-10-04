@@ -44,7 +44,7 @@ function Navbar() {
           index === idx && <div className='absolute  right-20 top-10 bg-white text-black w-[317px] px-[25px] py-[26px] text-center rounded-[8px] z-40'>
             {element.elements?.map((item,idx)=> {
               const isLastElement = idx === element.elements.length - 1;
-              return <div className={` border-[#DDDDDD] py-[23px] ${isLastElement ? 'border-b-0' : 'border-b-[1px]'}`}>{item}</div>
+              return <div key = {idx} className={` border-[#DDDDDD] py-[23px] ${isLastElement ? 'border-b-0' : 'border-b-[1px]'}`}>{item}</div>
             })}
           </div>
         }

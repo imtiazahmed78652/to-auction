@@ -6,7 +6,7 @@ import Paginations from './Paginations';
 
 const EnterCardDetails: React.FC<{
     headingText: string;
-    onNext: () => void;
+    onNext: (text:string) => void;
   }> = ({ headingText, onNext }) => {
   return (
     <div className='flex flex-col items-center justify-center mt-[50px]'>

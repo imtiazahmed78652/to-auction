@@ -2,11 +2,11 @@ import React from "react";
 import { Pagination } from "swiper/modules";
 import Paginations from "./Paginations";
 import Image from "next/image";
-
-const SelectInterest: React.FC<{
-  headingText: string;
-  onNext: () => void;
-}> = ({ headingText, onNext }) => {
+type Props = {
+    headingText:string,
+  onNext: (text: string) => void;
+};
+const SelectInterest: React.FC<Props> = ({ headingText, onNext }) => {
   const data = [
     {
       img: "/hand-bag.png",
@@ -30,7 +30,7 @@ const SelectInterest: React.FC<{
         <div className="w-[400px] grid grid-cols-2 gap-6 place-items-center">
           {data.map((element, idx) => {
             return (
-              <div className="w-[188px] h-[50px] border-[2px] rounded-[38px] flex flex-row items-center justify-center gap-4">
+              <div key={idx} className="w-[188px] h-[50px] border-[2px] rounded-[38px] flex flex-row items-center justify-center gap-4">
                 <Image src={element.img} width={25} height={28} alt="" />
                 <h1>{element.name}</h1>
               </div>

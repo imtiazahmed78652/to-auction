@@ -30,8 +30,8 @@ React.useEffect(()=> {
     if(isEnterMobileNumber === 1) {
         setHeadingText('Enter Mobile Number')
     }
-    console.log(headingText)
-},[isEnterMobileNumber])
+    
+},[])
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 ${

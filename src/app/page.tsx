@@ -8,10 +8,11 @@ import AuctionEnding from './components/AuctionEnding/AuctionEnding'
 import AboutUs from './components/aboutus/AboutUs'
 import PopularCategories from './components/PopularCategories/PopularCategories'
 import WhatOurClientSays from './components/WhatOurClientSays/WhatOurClientSays'
-import OurApp from './OurApp/OurApp'
+// import OurApp from './components/OurApp/OurApp'
 import GetInTouch from './components/GetInTouch/GetInTouch'
 import Faqs from './components/Faqs/Faqs'
 import Subscribe from './components/Subscribe/Subscribe'
+import OurApp from './components/OurApp/OurApp'
 export default function Home() {
   return (
     <main className="w-full flex flex-col justify-center  bg-white ">
@@ -24,6 +25,7 @@ export default function Home() {
       <AboutUs/>
       <PopularCategories/>
       <WhatOurClientSays/>
+      {/* <OurApp/> */}
       <OurApp/>
       <GetInTouch/>
       <Faqs/>

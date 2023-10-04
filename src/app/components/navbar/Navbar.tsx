@@ -1,7 +1,13 @@
+'use client'
+import LoginSignup from '@/app/login-signup/LoginSignup';
 import Image from 'next/image'
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 // import '../../src/app/globals.css'
 function Navbar() {
+  const [isModalOpen,setIsModalOpen] = useState(false);
+  const toggleModal  = () => {
+    setIsModalOpen (!isModalOpen);
+  }
   const navData = [
     {
       img:'/call.svg',
@@ -16,6 +22,7 @@ function Navbar() {
       des:'English',
     },
   ]
+
   return (
     <div className='w-full'>
         <div className='flex justify-end items-end bg-black w-full gap-[38px] px-[117px]'>
@@ -32,18 +39,21 @@ function Navbar() {
         </div>
         <div className='px-[128px] flex flex-row items-center justify-between w-full py-5 bg-slate-800'>
           <div className='flex flex-row items-center gap-8'>
-            <Image src = '/hamburger.svg' width = {27} height = {10} alt='Hamburger Menu' />
-            <Image src = '/Search.svg' width = {24} height = {24} alt='Hamburger Menu'/>
+            <Image src = '/hamburger.svg' width = {27} height = {10} alt='Hamburger Menu' className='cursor-pointer'/>
+            <Image src = '/Search.svg' width = {24} height = {24} alt='Hamburger Menu' className='cursor-pointer'/>
           </div>
-          <div >
-            <Image src = "/tp-auction-logo.svg" width={295} height={41} alt = "Tp-Auction Logo"/>
+          <div className=''>
+            <Image src = "/tp-auction-logo.svg" width={295} height={41} alt = "Tp-Auction Logo" className='cursor-pointer'/>
           </div>
           <div className='flex flex-row items-center gap-12'>
-            <div className='text-white font-normal text-xs leading-[18px]'>SELL WITH US</div>
-            <div className='text-white font-normal text-xs leading-[18px]'>BUY WITH US</div>
-            <button className='bg-[#3AAE2A] w-[128px] h-[50px] rounded-[4px] hover:bg-[#3a6834]'>Login</button>
+            <div className='text-white font-normal text-xs leading-[18px] hover:text-[#3AAE2A] cursor-pointer'>SELL WITH US</div>
+            <div className='text-white font-normal text-xs leading-[18px] hover:text-[#3AAE2A] cursor-pointer'>BUY WITH US</div>
+            <button className='bg-[#3AAE2A] w-[128px] h-[50px] rounded-[4px] hover:bg-[#3a6834] ' onClick = {toggleModal}>Login</button>
           </div>
          </div>
+        {
+          isModalOpen && <LoginSignup isOpen = {isModalOpen} onClose = {toggleModal}/>
+        } 
     </div>
   )
 }

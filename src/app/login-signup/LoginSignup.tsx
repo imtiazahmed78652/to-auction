@@ -31,7 +31,7 @@ React.useEffect(()=> {
         setHeadingText('Enter Mobile Number')
     }
     
-},[])
+},[isEnterMobileNumber])
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 ${
@@ -185,7 +185,7 @@ React.useEffect(()=> {
         } 
         {
            headingText === 'Login' && <div className="mt-4 font-normal text-sm leading-[18px]">
-           Don't have account?{" "}
+           Don&apos;t have account?{" "}
            <span className="text-[#3AAE2A]"> Register </span>
          </div>
         } 

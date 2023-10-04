@@ -30,7 +30,7 @@ const SelectPaymentMethod: React.FC<{
           <div className="w-[400px] flex flex-col gap-6">
             {paymentMethod.map((element, idx) => {
               return (
-                <div className="flex flex-row items-center justify-between border-[1px] rounded-[6px] h-[48px] px-6">
+                <div key={idx} className="flex flex-row items-center justify-between border-[1px] rounded-[6px] h-[48px] px-6">
                   <div className="flex flex-row items-center gap-4">
                     <Image
                       src={element.img}
@@ -50,7 +50,7 @@ const SelectPaymentMethod: React.FC<{
 
           <div className="flex flex-row items-center justify-between mt-10 gap-6">
           <button className="w-[188px] h-[56px] text-[#3AAE2A]">
-            I'll do it later
+            I&apos;ll do it later
           </button>
           <button className="w-[188px] h-[56px] bg-[#3AAE2A] text-white rounded-[8px]" onClick={()=> onNext('Enter Card Details')}>
             Verify

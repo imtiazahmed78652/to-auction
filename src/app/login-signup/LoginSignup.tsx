@@ -57,11 +57,11 @@ React.useEffect(()=> {
           </div>
 
 {
-    headingText === "Enter a mobile number" && <EnterMobileNumber text = {headingText} onNext={nextModal} />
+    headingText === "Enter a mobile number" && <EnterMobileNumber headingText = {headingText} onNext={nextModal} />
 }
 
 {
-    headingText === 'Select interest' && <SelectInterest onNext = {nextModal}/>
+    headingText === 'Select interest' && <SelectInterest headingText={headingText} onNext = {nextModal}/>
 }
 {
     headingText === 'choose payment method' && <SelectPaymentMethod headingText= {headingText} onNext = {nextModal}/>

@@ -3,7 +3,7 @@ import Paginations from "./Paginations";
 import Image from "next/image";
 const SelectPaymentMethod: React.FC<{
   headingText: string;
-  onNext: () => void;
+  onNext: (text:string) => void;
 }> = ({ headingText, onNext }) => {
   const paymentMethod = [
     {

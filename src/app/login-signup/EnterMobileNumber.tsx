@@ -2,11 +2,11 @@ import Image from "next/image";
 import React from "react";
 import { Pagination } from "swiper/modules";
 import Paginations from "./Paginations";
-
-const EnterMobileNumber: React.FC<{
+type Props = {
   headingText: string;
   onNext: () => void;
-}> = ({ headingText, onNext }) => {
+};
+const EnterMobileNumber: React.FC<Props> = ({ headingText, onNext }) => {
   return (
     <div className="flex flex-col items-center justify-center mt-[49px]">
       <Paginations />

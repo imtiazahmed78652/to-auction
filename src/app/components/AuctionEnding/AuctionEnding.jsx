@@ -8,7 +8,9 @@ import "swiper/css/navigation";
 import "./auctionEnding.css";
 import { Keyboard, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
-function AuctionEnding() {
+import CurrentAuction from "../current-auctions/CurrentAuction";
+import CompletedAuctions from "../CompletedAuctions/CompletedAuctions";
+function FeatureLots() {
   const swiperData = [
     {
       img: "/watch-01.png",
@@ -78,11 +80,12 @@ function AuctionEnding() {
   ];
 
   return (
+    <>
     <div className="px-[128px] mt-[175px] ">
       <div className=" flex flex-col items-center ">
         <h1 className="text-[36px] font-normal leading-[46px] text-[#686868]">
           {" "}
-          Auction Ending
+          Feature Lots
         </h1>
         <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-[32px] "></div>
       </div>
@@ -111,7 +114,8 @@ function AuctionEnding() {
         </Swiper>
         {/* <ProductCard/> */}
       </div>
-
+          <CurrentAuction/>
+          <CompletedAuctions/>
       <div className="mt-[299px] flex flex-col justify-center items-center">
         <h1 className="font-normal text-4xl leading-[46px] text-[#686868]">
           How It Works?
@@ -142,7 +146,8 @@ function AuctionEnding() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
-export default AuctionEnding;
+export default FeatureLots;

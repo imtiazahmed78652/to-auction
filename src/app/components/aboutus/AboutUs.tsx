@@ -22,28 +22,14 @@ function AboutUs() {
   return (
     <div className='flex flex-row items-center justify-center bg-blue-100 mt-[264px]'>
 
-    <div className='px-[115px] py-[141px] flex flex-row items-center justify-center gap-[141px]'>
-        <div className='w-[704px] flex flex-col gap-[72px] h-[606px]'>
-                <h1 className='font-normal text-4xl  leading-[46px] text-[#BCD7C9]'>The best part <span className='text-[#3AAE2A]'> about us?</span></h1>
-                <div className='flex flex-col gap-[36px] '>
-           {
-            data.map((element,idx)=> {
-                return <div className='flex flex-col ' key={idx}>
-                <div className='flex flex-row items-center gap-4'>
-                <Image src = "/tick.png" alt = '' width = {30} height = {30} className=''/>
-                <h1 className='font-bold text-xl   text-[#3A3A3A]'>{element.name}</h1>
-                </div>
-                <div className='font-medium text-[16px] text-[#7D7D7D] leading-[21.86px]'>{element.des}</div>
-            </div>
-            })
-           } 
-            </div>
-        </div>
-        <div className='w-[827px] flex flex-row items-center justify-center h-[606px] bg-cover  border-2 border-red-500' style = {{backgroundImage:'url(/Rectangle-5413555.png)'}}>
-            <div className='w-[128px] h-[128px] rounded-full bg-white flex flex-row items-center justify-center '>
+    <div className='px-[128px] w-full py-[98px] '>
+        <div className='w-[100%] flex flex-row items-center justify-center h-[606px] bg-cover  ' style = {{backgroundImage:'url(/Rectangle-5413555.png)'}}>
+            <div className='w-[128px] cursor-pointer h-[128px] rounded-full bg-white flex flex-row items-center justify-center '>
                 <Image src = "/Play.png" width = {56} height = {56} alt = "Play Button"/>
             </div>
         </div>
+
+
     </div>
     </div>
   )

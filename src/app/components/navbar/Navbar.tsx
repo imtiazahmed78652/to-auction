@@ -3,14 +3,32 @@ import LoginSignup from '@/app/login-signup/LoginSignup';
 import Image from 'next/image'
 import Link from 'next/link';
 import React,{useState, useEffect} from 'react'
+import Sidebar from '../Sidebar/Sidebar';
+import SearchInput from '../Search/SearchInput';
 // import '../../src/app/globals.css'
+
+
 function Navbar() {
   const [isModalOpen,setIsModalOpen] = useState(false);
   const [index,setIndex] = useState<number | null>(null);
+  const [isSearchInputOpen, setIsSearchInputOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsSearchInputOpen(!isSearchInputOpen);
+  };
+
   const toggleModal  = () => {
     setIsModalOpen (!isModalOpen);
   }
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleCloseSidebar = () => {
+    setIsSidebarOpen(false);
+  };
   const navData = [
     {
       img:'/call.svg',
@@ -31,7 +49,7 @@ function Navbar() {
   ]
 
   return (
-    <div className='w-full'>
+    <div className='w-full fixed top-0 z-50'>
         <div className='flex justify-end items-end relative bg-black w-full gap-[38px] px-[117px]'>
            {
             navData.map((element,idx)=> {
@@ -55,8 +73,12 @@ function Navbar() {
         </div>
         <div className='px-[128px] flex flex-row items-center justify-between w-full py-5 bg-slate-800'>
           <div className='flex flex-row items-center gap-8'>
+            <div className=''  onClick={handleSidebarToggle}>
             <Image src = '/hamburger.svg' width = {27} height = {10} alt='Hamburger Menu' className='cursor-pointer'/>
+            </div>
+            <div onClick={handleButtonClick}>
             <Image src = '/Search.svg' width = {24} height = {24} alt='Hamburger Menu' className='cursor-pointer'/>
+            </div>
           </div>
           <div className=''>
             <Link href='/'>
@@ -72,6 +94,10 @@ function Navbar() {
         {
           isModalOpen && <LoginSignup isOpen = {isModalOpen} onClose = {toggleModal}/>
         } 
+
+<Sidebar isOpen={isSidebarOpen} onClose={handleCloseSidebar} />
+
+<SearchInput onButtonClick = {handleButtonClick} isSearchInputOpen= {isSearchInputOpen}/>
     </div>
   )
 }

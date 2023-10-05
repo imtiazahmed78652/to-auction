@@ -1,6 +1,7 @@
 'use client'
 import LoginSignup from '@/app/login-signup/LoginSignup';
 import Image from 'next/image'
+import Link from 'next/link';
 import React,{useState, useEffect} from 'react'
 // import '../../src/app/globals.css'
 function Navbar() {
@@ -58,7 +59,9 @@ function Navbar() {
             <Image src = '/Search.svg' width = {24} height = {24} alt='Hamburger Menu' className='cursor-pointer'/>
           </div>
           <div className=''>
+            <Link href='/'>
             <Image src = "/tp-auction-logo.svg" width={295} height={41} alt = "Tp-Auction Logo" className='cursor-pointer'/>
+            </Link>
           </div>
           <div className='flex flex-row items-center gap-12'>
             <div className='text-white font-normal text-xs leading-[18px] hover:text-[#3AAE2A] cursor-pointer'>SELL WITH US</div>

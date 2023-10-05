@@ -5,6 +5,7 @@ import SelectInterest from "./SelectInterest";
 import SelectPaymentMethod from "./SelectPaymentMethod";
 import EnterCardDetails from "./EnterCardDetails";
 import CreditCardAuthorization from "./CreditCardAuthorization";
+import FloatingInput from "../components/input/Input";
 
 const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
@@ -46,7 +47,9 @@ React.useEffect(()=> {
         
             
           <div className="h-[61px] w-full  px-[26.19px] py-[25px] flex flex-row items-center justify-between">
-            <div></div>
+            <div>
+              
+            </div>
             <div className="font-normal text-lg leading-[18px] text-[#9C9C9C]">
               {headingText}
             </div>
@@ -93,11 +96,13 @@ React.useEffect(()=> {
 
            {
             headingText=== 'Register an Account' && <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
-            <input
+            {/* <input
               type="text"
               className=" outline-none  pl-[24px] pr-4 w-full h-full"
               placeholder="Full Name"
-            />
+            /> */}
+            <FloatingInput  label = 'Full Name' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
+
             <Image alt="" src="/email-box.png" width={18} height={14} />
         </div> 
            } 
@@ -105,21 +110,19 @@ React.useEffect(()=> {
 {
     headingText === 'Login' || headingText === 'Register an Account' ? 
     <>
-    <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
-                <input
-                  type="text"
-                  className=" outline-none  pl-[24px] pr-4 w-full h-full"
-                  placeholder="Email"
-                />
+    <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#878787] ">
+                
+                <FloatingInput  label = 'Email' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
                 <Image alt="" src="/email-box.png" width={18} height={14} />
               </div>
 
-              <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
-                <input
+              <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787]  border-[#878787] ">
+                {/* <input
                   type="text"
                   className=" outline-none  pl-[24px] pr-4 w-full h-full"
                   placeholder="Password"
-                />
+                /> */}
+                <FloatingInput label = 'Password' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
                 <Image alt="" src="/Lock.svg" width={18} height={14} />
               </div>
     
@@ -130,11 +133,12 @@ React.useEffect(()=> {
 
               {
                 headingText ==='Register an Account' && <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
-                <input
+                {/* <input
                   type="text"
                   className=" outline-none  pl-[24px] pr-4 w-full h-full"
                   placeholder="Confirm Password"
-                />
+                /> */}
+                <FloatingInput  label = 'Full Name' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
                 <Image alt="" src="/Lock.svg" width={18} height={14} />
               </div>
               }

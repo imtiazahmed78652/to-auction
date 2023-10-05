@@ -40,7 +40,7 @@ React.useEffect(()=> {
       }`}
     >
       
-      <div className="modal-content bg-white bg-opacity-20 flex flex-row justify-center items-center w-full h-full p-4 overflow-auto">
+      <div className="modal-content bg-black bg-opacity-[25%] flex flex-row justify-center items-center w-full h-full p-4 overflow-auto">
         {/* Modal content goes here */}
 
         <div className="bg-white rounded-[20px] w-[529px] pb-[43px]">
@@ -125,12 +125,8 @@ React.useEffect(()=> {
                 <FloatingInput label = 'Password' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
                 <Image alt="" src="/Lock.svg" width={18} height={14} />
               </div>
-    
     </> : ""
-}              
-
-
-
+}
               {
                 headingText ==='Register an Account' && <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
                 {/* <input

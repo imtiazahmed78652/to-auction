@@ -1,13 +1,11 @@
+import React from 'react'
+import Image from 'next/image'
 
-import Image from "next/image";
-import React from "react";
-import FloatingInput from "../input/Input";
-
-function CurrentAuction() {
+function UpComingAuctions() {
   return (
-    <div className=" mt-[175px] flex flex-col items-center justify-center">
+    <div className="px-[128px] mt-[175px] flex flex-col items-center justify-center">
       <h1 className="font-normal text-[36px] leading-[46px] text-[#686868]">
-        Upcomming Auction
+        Upcoming Auctions
       </h1>
       <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-[32px]"></div>
       <div className="flex flex-row items-center mt-[64px] gap-6">
@@ -116,7 +114,7 @@ function CurrentAuction() {
             </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default CurrentAuction;
+export default UpComingAuctions

@@ -127,8 +127,7 @@ function Navbar() {
                     })}
                     </div>
                     <button className="w-[420px] h-[60px] bg-[#3AAE2A] text-white rounded-[4px]">Apply</button>
-                  </div>
-                  
+                  </div>   
                 </div>
               )}
             </>

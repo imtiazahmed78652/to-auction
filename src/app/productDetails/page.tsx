@@ -301,6 +301,10 @@ function ProductDetails() {
                         </div>
 
                     </div>
+                    {/* <div className="w-20 h-20 rounded-full bg-gradient-to-b flex flex-row items-center justify-center from-blue-500 to-transparent">
+                        <div className='w-[100px] h-[15px] bg-green-900 rounded-full rotate-45'></div>
+                    </div> */}
+
 
                     <div className='mt-16  flex flex-row  gap-[101px]'>
                         <div className='flex flex-col'>

@@ -79,10 +79,10 @@ React.useEffect(()=> {
 {
     headingText === 'Login' || headingText === 'Register an Account' ? <div className="flex flex-row items-center justify-center mt-[53px]  ">
     <div className="flex flex-row items-center w-[400px] border-b-[1px]">
-      <button className={`w-[200px] h-[50px] hover:bg-[#3AAE2A] hover:bg-opacity-20 hover:border-b-[3px] border-[#3AAE2A] cursor-pointer ${headingText === 'Login' ? 'bg-[#3AAE2A] bg-opacity-20 border-b-[3px] border-[#3AAE2A]' : ''}`} onClick={()=> setHeadingText('Login')}>
+      <button className={`w-[200px] h-[50px] hover:bg-[#3AAE2A] hover:bg-opacity-[15%] hover:border-b-[3px] border-[#3AAE2A] cursor-pointer ${headingText === 'Login' ? 'bg-[#3AAE2A] bg-opacity-[15%] border-b-[3px] border-[#3AAE2A]' : ''}`} onClick={()=> setHeadingText('Login')}>
         Login
       </button>
-      <button className={`w-[200px] h-[50px] hover:bg-[#3AAE2A] hover:bg-opacity-20 hover:border-b-[3px] border-[#3AAE2A] cursor-pointer ${headingText === 'Register an Account' ? 'bg-[#3AAE2A] bg-opacity-20 border-b-[3px] border-[#3AAE2A]' : ''}`} onClick={()=> setHeadingText('Register an Account')}>
+      <button className={`w-[200px] h-[50px] hover:bg-[#3AAE2A] hover:bg-opacity-[15%] hover:border-b-[3px] border-[#3AAE2A] cursor-pointer ${headingText === 'Register an Account' ? 'bg-[#3AAE2A] bg-opacity-[15%] border-b-[3px] border-[#3AAE2A]' : ''}`} onClick={()=> setHeadingText('Register an Account')}>
         Register
       </button>
     </div>
@@ -95,7 +95,7 @@ React.useEffect(()=> {
             <div className="flex flex-col items-center gap-[16px] mt-8 w-[400px]">
 
            {
-            headingText=== 'Register an Account' && <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
+            headingText=== 'Register an Account' && <div className="w-[400px] h-[46px] border-[1px]  rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
             {/* <input
               type="text"
               className=" outline-none  pl-[24px] pr-4 w-full h-full"
@@ -110,13 +110,13 @@ React.useEffect(()=> {
 {
     headingText === 'Login' || headingText === 'Register an Account' ? 
     <>
-    <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#878787] ">
+    <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                 
                 <FloatingInput  label = 'Email' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
                 <Image alt="" src="/email-box.png" width={18} height={14} />
               </div>
 
-              <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787]  border-[#878787] ">
+              <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787]  border-[#DDDDDD] ">
                 {/* <input
                   type="text"
                   className=" outline-none  pl-[24px] pr-4 w-full h-full"
@@ -128,13 +128,13 @@ React.useEffect(()=> {
     </> : ""
 }
               {
-                headingText ==='Register an Account' && <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#878787] ">
+                headingText ==='Register an Account' && <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                 {/* <input
                   type="text"
                   className=" outline-none  pl-[24px] pr-4 w-full h-full"
                   placeholder="Confirm Password"
                 /> */}
-                <FloatingInput  label = 'Full Name' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
+                <FloatingInput  label = 'Confirm Password' className = 'outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]'/>
                 <Image alt="" src="/Lock.svg" width={18} height={14} />
               </div>
               }

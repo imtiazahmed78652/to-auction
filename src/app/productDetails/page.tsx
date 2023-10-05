@@ -255,7 +255,7 @@ function ProductDetails() {
                 <div className='flex flex-col items-center gap-[32px] mt-6'>
                   {
                     biddingHistory.map((element,idx)=> {
-                        return <div className='flex flex-row items-center justify-between w-full'>
+                        return <div key={idx} className='flex flex-row items-center justify-between w-full'>
                         <h1 className='font-bold text-base leading-[18px] text-[#737373] basis-1/4 '>{element.name}</h1>
                         <p className='font-semibold text-base leading-[18px] text-[#737373] basis-1/4'>{element.time}</p>
                         <div className='font-bold text-base leading-[18px] text-[#1D1D1D] basis-1/4' >{element.price}</div>
@@ -308,7 +308,7 @@ function ProductDetails() {
                         <div className='flex flex-row items-center gap-8'>
                          {
                             ['/twitter-2.png','/instagram-two.png','/facebook-two.png'].map((element,idx)=> {
-                                return <div className='w-[72px] h-[72px] border-[1px] flex flex-row items-center justify-center border-[#D9D9D9]'>
+                                return <div key={idx} className='w-[72px] h-[72px] border-[1px] flex flex-row items-center justify-center border-[#D9D9D9]'>
                                 <Image width = {36} height = {36}  src = {element} alt = ''/>
                             </div>
                             })

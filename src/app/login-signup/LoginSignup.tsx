@@ -6,6 +6,7 @@ import SelectPaymentMethod from "./SelectPaymentMethod";
 import EnterCardDetails from "./EnterCardDetails";
 import CreditCardAuthorization from "./CreditCardAuthorization";
 import FloatingInput from "../components/input/Input";
+import { monumentum } from "../layout";
 
 const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
@@ -50,7 +51,7 @@ React.useEffect(()=> {
             <div>
               
             </div>
-            <div className="font-normal text-lg leading-[18px] text-[#9C9C9C]">
+            <div className={` ${monumentum.className} font-normal text-lg leading-[18px] text-[#9C9C9C]`}>
               {headingText}
             </div>
             {/* <div ></div> */}

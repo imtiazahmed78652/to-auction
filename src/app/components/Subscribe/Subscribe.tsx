@@ -1,3 +1,4 @@
+import { monumentum } from '@/app/layout'
 import React from 'react'
 
 function Subscribe() {
@@ -6,7 +7,7 @@ function Subscribe() {
         <div>
         <p className='font-bold text-[20px] leading-[22px] text-center'>GET THE LATEST UPDATES</p>
 
-        <h1 className='font-normal text-[36px] leading-[46px] text-center'>Subscribe to our Newsletter</h1>
+        <h1 className={`font-normal text-[36px] leading-[46px] text-center ${monumentum.className}`}>Subscribe to our Newsletter</h1>
         <div className='flex flex-row items-center justify-between w-[814px] h-[72px] rounded-[8px] mt-[85px] bg-white '>
             <input type="text" className='outline-none w-full h-full px-[25px] rounded-[8px] text-[#9795B5]' placeholder='Email'/>
             <button className='w-[184px] h-[72px] bg-[#3AAE2A] rounded-[8px] text-lg font-normal leading-[30px]'>Singup</button>

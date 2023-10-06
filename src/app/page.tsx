@@ -33,7 +33,7 @@ export default function Home() {
       <OurApp/>
       {/* <GetInTouch/> */}
       {/* <Faqs/> */}
-      {/* <Subscribe/> */}
+      <Subscribe/>
       <Footer/>
       </div>
     </main>

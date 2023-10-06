@@ -54,8 +54,8 @@ function Navbar() {
   ];
 
   return (
-    <div className="w-full fixed top-0 z-50">
-      <div className="flex justify-end items-end relative bg-black w-full gap-[38px] px-[117px]">
+    <div className="w-full sticky max-w-full left-auto right-auto top-0 z-50 block">
+      <div className="flex   justify-end items-end relative bg-black w-full gap-[38px] px-[117px]">
         {navData.map((element, idx) => {
           return (
             <>

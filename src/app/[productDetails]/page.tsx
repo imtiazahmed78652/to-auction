@@ -1,10 +1,14 @@
-
+'use client'
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
 import Image from 'next/image'
+import { monumentum } from '../layout'
+import { useRouter } from 'next/router'
 
 function ProductDetails() {
+    const router = useRouter();
+    console.log(router)
     const data = [
            {
                 name:'Year',
@@ -130,6 +134,7 @@ function ProductDetails() {
                     </div>
             </div>
         </div>
+
         <div className='flex flex-row items-center gap-[112px]'>
             <div className='flex flex-row items-center gap-6'>
                 <div className='w-[161px] h-[50px] gap-2 flex flex-row items-center justify-center border-[1px] border-[#707070] rounded-[4px] '>
@@ -207,7 +212,7 @@ function ProductDetails() {
             
         </div>
         <div className='w-[679px] font-normal text-[30px] leading-[25px]'>
-            <h1 className='mt-[48px] font-normal  text-3xl leading-[25px]'>Centrix Automate Open Heart</h1>
+            <h1 className={` ${monumentum.className} mt-[96px] font-normal  text-3xl leading-[25px]'`}>Centrix Automate Open Heart</h1>
             <p className='font-semibold text-base leading-[18px] mt-6 text-[#878787]'>Product ID: <span className='text-[#878787]'>116519</span></p>
             <div className='mt-[34px] w-full border-[1px] border-[#D9D9D9] px-[47px] py-[40px]'>
                     <input type="text" className='px-[27px] w-[583px] h-[60px] rounded-[4px] bg-[#E7E7E7] outline-none text-base font-medium leading-[18px] ' placeholder='$200' />

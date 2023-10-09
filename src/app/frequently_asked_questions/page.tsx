@@ -45,7 +45,7 @@ function Faqs() {
                 faqs.map((element,idx)=> {
                     return <div key={idx} className={`${idx === 3 ? 'border-b-[2px] border-[#D4D2E3]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
                     <div>
-                    <h1 className='font-semobild text-[20px] leading-[27px]'>{element.question}</h1>
+                    <h1 className='font-semobild text-[20px] leading-[27px] max-h-'>{element.question}</h1>
                    {
                     state === idx && <p className='w-[753px] mt-[16px] '>{element.answer}</p>
                    } 

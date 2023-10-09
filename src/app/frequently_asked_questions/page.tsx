@@ -1,5 +1,9 @@
 'use client'
+import Image from 'next/image';
 import React,{useState} from 'react'
+import Navbar from '../components/navbar/Navbar';
+import Footer from '../components/footer/Footer';
+import { monumentum } from '../layout';
 
 function Faqs() {
     const [state, setState] = useState(0);
@@ -22,22 +26,33 @@ function Faqs() {
         },
     ]
   return (
-    <div className='mt-[250px] flex flex-col items-center justify-center text-[#686868]'>
-        <h1 className='font-normal text-[36px] leading-[46px]'>Frequently Asked Questions</h1>
-        <p className='font-normal text-[18px] leading-[30px] text-[#8F8F8F] w-[596px] text-center mt-[31px]'>Cras tincidunt lobortis feugiat vivamus at morbi leo urna molestie atole elementum eu facilisis faucibus interdum posuere.</p>
+    <>
+    <Navbar/>
+    <div className='mt-[32px] flex flex-col px-[128px]  text-[#686868]'>
+        <div className='flex flex-row items-center gap-4'>
+            <p className='font-semibold text-xs text-[#BCBCBC] leading-[18px]'>Home</p>
+            <Image src = '/dropdown.png' alt = '' width = {4} height = {7}/>
+            <p>Categories</p>
+            <Image src = '/dropdown.png' alt = '' width = {4} height = {7}/>
+            <p>Jewellery</p>
+        </div>
+        <h1 className={`font-normal text-[24px] leading-[25px] mt-16 text-black ${monumentum.className} `}>FAQs</h1>
+        {/* <p className='font-normal text-[18px] leading-[30px] text-[#8F8F8F] w-[596px]  mt-[31px]'>Cras tincidunt lobortis feugiat vivamus at morbi leo urna molestie atole elementum eu facilisis faucibus interdum posuere.</p> */}
 
-        <div className='mt-[87px] w-[1164px] flex flex-col '>
+        <div className='mt-[123px] w-[1164px] flex flex-col '>
                
             {
                 faqs.map((element,idx)=> {
                     return <div key={idx} className={`${idx === 3 ? 'border-b-[2px] border-[#D4D2E3]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
                     <div>
-                    <h1 className='font-normal text-[20px] leading-[38px]'>{element.question}</h1>
+                    <h1 className='font-semobild text-[20px] leading-[27px]'>{element.question}</h1>
                    {
                     state === idx && <p className='w-[753px] mt-[16px] '>{element.answer}</p>
                    } 
                     </div>
-                    <div className='w-[30px] h-[2px] bg-[#8D8BA7] cursor-pointer'></div>
+                    <div className='w-[38px] h-[38px]  cursor-pointer'>
+                        <Image src = '/plus.png' alt = '' width = {38} height={38}/>
+                    </div>
                 </div>
                 })
             }    
@@ -45,6 +60,8 @@ function Faqs() {
                 
         </div>
     </div>
+    <Footer/>
+    </>
   )
 }
 

@@ -2,13 +2,15 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
-import Image from 'next/image'
+
 import { monumentum } from '../layout'
 import { useRouter } from 'next/router'
+// import { Image } from 'next/image'
+import Image from 'next/image'
 
 function ProductDetails() {
-    const router = useRouter();
-    console.log(router)
+    // const router = useRouter();
+    // console.log(router)
     const data = [
            {
                 name:'Year',

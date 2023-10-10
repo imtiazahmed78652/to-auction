@@ -55,13 +55,14 @@ function Navbar() {
 
   return (
     <div className="w-full sticky max-w-full left-auto right-auto top-0 z-50 block">
-      <div className="flex   justify-end items-end relative bg-black w-full gap-[38px] px-[117px]">
+      <div className="grid place-items-center relative bg-black  w-full  ">
+        <div className="flex flex-row items-end justify-end gap-[38px] w-[1440px] px-[128px]">
         {navData.map((element, idx) => {
           return (
-            <>
+            < >
               {" "}
               <div
-                className="flex flex-row items-center gap-2 py-[11px]"
+                className="flex flex-row items-center gap-2 py-[11px] "
                 key={idx}
                 onClick={() => (index === idx ? setIndex(null) : setIndex(idx))}
               >
@@ -78,6 +79,8 @@ function Navbar() {
               </div>
               {index === idx && (
                 <div className="absolute right-0 top-0 h-[100vh] bg-white flex flex-col  text-black w-[484px] px-[25px] py-[36px] text-center  z-40">
+              
+              
                   <div className="flex flex-row items-center justify-between">
                     <div
                       className="w-[20px] h-[20px]"
@@ -133,8 +136,38 @@ function Navbar() {
             </>
           );
         })}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
-      <div className="px-[128px] flex flex-row items-center justify-between w-full py-5 bg-slate-800">
+
+
+
+
+      <div className="bg-black bg-opacity-[90%] grid place-items-center">
+      <div className="px-[128px] flex flex-row items-center justify-between w-[1440px] py-5 ">
         <div className="flex flex-row items-center gap-8">
           <div className="" onClick={handleSidebarToggle}>
             <Image
@@ -181,6 +214,10 @@ function Navbar() {
           </button>
         </div>
       </div>
+      </div>
+
+
+
       {isModalOpen && (
         <LoginSignup isOpen={isModalOpen} onClose={toggleModal} />
       )}

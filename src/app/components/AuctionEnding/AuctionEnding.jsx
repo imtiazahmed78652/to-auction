@@ -94,7 +94,7 @@ function FeatureLots() {
 
       <div className="mt-[84px] flex flex-row justify-center items-center">
         <Swiper
-          slidesPerView={5}
+          slidesPerView={4}
           spaceBetween={30}
           keyboard={{
             enabled: true,

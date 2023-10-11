@@ -11,7 +11,13 @@ import Payments from "./setting_info_cards/Payments";
 function SettingsAndInfo() {
   const [name, setName] = useState("My Bids");
   const [index, setIndex] = useState(-5);
+  const [payment,setPayments] = useState(false);
+  const togglePayment =(value:boolean) => {
+    console.log('I am toggle payment function')
+    setPayments(value);
+  }
   console.log("This is Index", index);
+
   const sideBar = [
     {
       name: "My Bids",
@@ -253,11 +259,11 @@ function SettingsAndInfo() {
                     winner="MySelf"
                   />
                 )}
-                {name === "Winnings" &&
+                {payment === true ? <div onClick={()=> togglePayment(false)}>I am Payment</div> : name === "Winnings" &&
                   winnings.map((element, idx) => {
                     return (
                       <div key={idx} className="">
-                        <Winnings time = {element.time} title = {element.title} productId = {element.productId} wonFor = {element.wonFor} dateTime = {element.dateTime} status = {element.status}/>
+                        <Winnings payment = {payment} togglePayment = {togglePayment} time = {element.time} title = {element.title} productId = {element.productId} wonFor = {element.wonFor} dateTime = {element.dateTime} status = {element.status}/>
                       </div>
                     );
                   })}

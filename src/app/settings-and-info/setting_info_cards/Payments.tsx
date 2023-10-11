@@ -72,7 +72,7 @@ function Payments({
         <div className="mt-6 relative flex flex-row items-center gap-6">
         {
           cardDetails.map((element,idx)=> {
-            return <div className={` bg-${element.color}  w-[378px] h-[245px] rounded-[12px] p-8 flex flex-col justify-between`}>
+            return <div key={idx} className={` bg-${element.color}  w-[378px] h-[245px] rounded-[12px] p-8 flex flex-col justify-between`}>
             <div className='flex flex-row items-center justify-between'>
               <div className=''>
                 <Image src = '/three-dot-button.png' width = {24} height={24} alt = ''/>

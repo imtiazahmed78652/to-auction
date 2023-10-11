@@ -6,7 +6,8 @@ import SettingsInfoCard from "./setting_info_cards/SettingsInfoCard";
 import Winnings from "./setting_info_cards/Winnings";
 import Footer from "../components/footer/Footer";
 
-import Payments from "./setting_info_cards/payments";
+// import Payments from "./setting_info_cards/payments";
+import Payments from "./setting_info_cards/Payments";
 function SettingsAndInfo() {
   const [name, setName] = useState("My Bids");
   const [index, setIndex] = useState(-5);

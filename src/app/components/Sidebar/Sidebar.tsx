@@ -1,6 +1,7 @@
 // components/Sidebar.tsx
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 interface SidebarProps {
@@ -20,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
     {
       name: "Categories",
-      url: "",
+      url: "/categories",
     },
     {
       name: "Testimonials",
@@ -56,12 +57,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col mt-[157px] gap-[32px] ">
           {sideBarData.map((element, idx) => {
             return (
+              <Link href={element.url} key={idx}>
               <h1
-                key={idx}
+                
                 className="text-base font-semibold text-[#4D4D4D] leading-[18px] cursor-pointer hover:text-[#3AAE2A]"
               >
                 {element.name}
               </h1>
+              </Link>
             );
           })}
           {/* Add your sidebar content here */}

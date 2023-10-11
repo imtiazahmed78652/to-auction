@@ -10,6 +10,8 @@ import { Keyboard, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 import CurrentAuction from "../current-auctions/CurrentAuction";
 import CompletedAuctions from "../CompletedAuctions/CompletedAuctions";
+import { monumentum } from "@/app/layout";
+import { Manrope } from "next/font/google";
 function FeatureLots() {
   const swiperData = [
     {
@@ -83,7 +85,7 @@ function FeatureLots() {
     <>
     <div className="px-[128px] mt-[175px] ">
       <div className=" flex flex-col items-center ">
-        <h1 className="text-[36px] font-normal leading-[46px] text-[#686868]">
+        <h1 className={`text-[36px] font-normal leading-[46px] text-[#686868] ${monumentum.className}`}>
           {" "}
           Feature Lots
         </h1>
@@ -92,7 +94,7 @@ function FeatureLots() {
 
       <div className="mt-[84px] flex flex-row justify-center items-center">
         <Swiper
-          slidesPerView={5}
+          slidesPerView={4}
           spaceBetween={30}
           keyboard={{
             enabled: true,
@@ -117,7 +119,7 @@ function FeatureLots() {
           <CurrentAuction/>
           <CompletedAuctions/>
       <div className="mt-[299px] flex flex-col justify-center items-center">
-        <h1 className="font-normal text-4xl leading-[46px] text-[#686868]">
+        <h1 className={`${monumentum.className} text-[#686868] font-normal text-4xl leading-[46px] text-[#686868]"`}>
           How It Works?
         </h1>
         <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-8"></div>

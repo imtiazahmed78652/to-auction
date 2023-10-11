@@ -54,8 +54,8 @@ const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, 
       />
       <label
         htmlFor="myInput"
-        className={`absolute top-[11px] left-3 text-[#878787] bg-white z-10 transition-all duration-300 ${
-          isFocused  ? 'text-black text-sm -translate-y-5 left-3' : ''
+        className={`absolute text-xs top-[15px] left-3 text-[#878787] bg-white z-10 transition-all duration-300 ${
+          isFocused  ? 'text-black text-xs -translate-y-[22px] left-3' : ''
         }`}
       >
         {label}

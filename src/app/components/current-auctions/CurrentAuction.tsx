@@ -2,12 +2,12 @@
 import Image from "next/image";
 import React from "react";
 import FloatingInput from "../input/Input";
-
+import { monumentum } from "@/app/layout";
 function CurrentAuction() {
   return (
     <div className=" mt-[175px] flex flex-col items-center justify-center">
-      <h1 className="font-normal text-[36px] leading-[46px] text-[#686868]">
-        Upcomming Auction
+      <h1 className={`font-normal text-[36px] leading-[46px] text-[#686868] ${monumentum.className}`}>
+        Current Auction
       </h1>
       <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-[32px]"></div>
       <div className="flex flex-row items-center mt-[64px] gap-6">

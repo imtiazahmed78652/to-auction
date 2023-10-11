@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { monumentum } from '@/app/layout'
 function WhatOurClientSays() {
     const clients = [
         {
@@ -23,9 +24,10 @@ function WhatOurClientSays() {
     ]
   return (
     <div className='mt-[301px] flex flex-col items-center justify-center px-[128px]'>
-        <div className='max-w-[804px] text-center'>
-            <h1 className='font-normal text-[36px] leading-[46px] text-[#686868]'>What our clients say</h1>
-            <p className='font-normal text-[20px] leading-[30px] text-[#8F8F8F]'>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+        <div className='max-w-[804px] text-center flex flex-col items-center'>
+            <h1 className={`${monumentum.className} font-normal text-[36px] leading-[46px] text-[#686868]`}>What our clients say</h1>
+            <div className='w-[286px] h-[4px] bg-[#3AAE2A] mt-[32px]'></div>
+            <p className='font-normal text-[20px] leading-[30px] text-[#8F8F8F] mt-[48px]'>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
         </div>
         <div className='mt-[64px] flex flex-row items-center gap-[24px] '>
         {

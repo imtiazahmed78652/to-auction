@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import './styles.css';
+import { monumentum } from '@/app/layout';
 
 function PopularCategories() {
     const [swiperRef, setSwiperRef] = React.useState(null);
@@ -35,7 +36,8 @@ const categories = [
 ]
   return (
     <div className='mt-[315px] flex flex-col items-center justify-center overflow-hidden'>
-        <h1 className='font-normal text-[36px] leading-[46px] text-[#686868]'>Popular Categories</h1>
+        <h1 className={`font-normal text-[36px] leading-[46px] text-[#686868] ${monumentum.className}`}>Popular Categories</h1>
+        <div className='w-[286px] h-[4px] bg-[#3AAE2A] mt-[32px]'></div>
         <div className='mt-[64px] w-full'>
         <Swiper
         slidesPerView={3}
@@ -50,7 +52,7 @@ const categories = [
         categories.map((element,idx)=> {
             return <SwiperSlide key = {idx}>
             <div className='h-[375px] bg-black flex flex-row bg-no-repeat bg-cover justify-start items-end p-12' style= {{backgroundImage:`url(${element.img})`}}>
-                    <h1 className='text-[48px] font-normal leading-[46px] text-white bottom-0 '>{element.name}</h1>    
+                    <h1 className={`${monumentum.className} text-[48px] font-normal leading-[46px] text-white bottom-0 '`}>{element.name}</h1>    
             </div>   
             </SwiperSlide>
         })

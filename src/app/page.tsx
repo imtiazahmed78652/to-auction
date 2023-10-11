@@ -10,7 +10,7 @@ import PopularCategories from './components/PopularCategories/PopularCategories'
 import WhatOurClientSays from './components/WhatOurClientSays/WhatOurClientSays'
 // import OurApp from './components/OurApp/OurApp'
 import GetInTouch from './components/GetInTouch/GetInTouch'
-import Faqs from './components/Faqs/Faqs'
+import Faqs from './frequently_asked_questions/page'
 import Subscribe from './components/Subscribe/Subscribe'
 import OurApp from './components/OurApp/OurApp'
 import FeatureLots from './components/AuctionEnding/AuctionEnding'
@@ -33,7 +33,7 @@ export default function Home() {
       <OurApp/>
       {/* <GetInTouch/> */}
       {/* <Faqs/> */}
-      {/* <Subscribe/> */}
+      <Subscribe/>
       <Footer/>
       </div>
     </main>

@@ -1,10 +1,16 @@
-
+'use client'
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
+
+import { monumentum } from '../layout'
+import  useRouter  from 'next/router'
+// import { Image } from 'next/image'
 import Image from 'next/image'
 
 function ProductDetails() {
+    // const router = useRouter();
+    // console.log(router)
     const data = [
            {
                 name:'Year',
@@ -130,6 +136,7 @@ function ProductDetails() {
                     </div>
             </div>
         </div>
+
         <div className='flex flex-row items-center gap-[112px]'>
             <div className='flex flex-row items-center gap-6'>
                 <div className='w-[161px] h-[50px] gap-2 flex flex-row items-center justify-center border-[1px] border-[#707070] rounded-[4px] '>
@@ -207,7 +214,7 @@ function ProductDetails() {
             
         </div>
         <div className='w-[679px] font-normal text-[30px] leading-[25px]'>
-            <h1 className='mt-[48px] font-normal  text-3xl leading-[25px]'>Centrix Automate Open Heart</h1>
+            <h1 className={` ${monumentum.className} mt-[96px] font-normal  text-3xl leading-[25px]'`}>Centrix Automate Open Heart</h1>
             <p className='font-semibold text-base leading-[18px] mt-6 text-[#878787]'>Product ID: <span className='text-[#878787]'>116519</span></p>
             <div className='mt-[34px] w-full border-[1px] border-[#D9D9D9] px-[47px] py-[40px]'>
                     <input type="text" className='px-[27px] w-[583px] h-[60px] rounded-[4px] bg-[#E7E7E7] outline-none text-base font-medium leading-[18px] ' placeholder='$200' />
@@ -224,10 +231,8 @@ function ProductDetails() {
                         <h1 className='font-normal text-[18px] leading-[18px] text-[#878787]'>Condition Score:</h1>
                         <p className='font-normal mt-[22px] text-[24px] leading-[18px]'>
                             3/5 {'  '}
-                            <span className='font-semibold text-[20px] leading-[18px] text-[#505050]'> {'  '}Pre-Owned</span>
+                        <span className='font-semibold text-[20px] leading-[18px] text-[#505050]'> {'  '}Pre-Owned</span>
                         </p>
-                        
-                        
                     </div>
                     <div className='w-[234px] h-[124px]'>
                         <Image src = '/Group 39730.png' width={234} height={124} alt = ''/>
@@ -236,14 +241,11 @@ function ProductDetails() {
 
             <div className='mt-[86px] pt-[45px] border-t-[1px] border-[#D9D9D9]'>
                 <div className='flex flex-row items-center justify-between gap-[42px]'>
-                    
                             <Image src = '/logo-one.png' width={75.38} height={75.38} alt = ''/>
                             <Image src = '/logo-two.png' width={75.38} height={75.38} alt = ''/>
                             <Image src = '/logo-three.png' width={75.38} height={75.38} alt = ''/>
                             <Image src = '/logo-four.png' width={75.38} height={75.38} alt = ''/>
                             <Image src = '/logo-five.png' width={75.38} height={75.38} alt = ''/>
-                    
-                    
                 </div>
             </div>
 
@@ -261,8 +263,7 @@ function ProductDetails() {
                         <div className='font-bold text-base leading-[18px] text-[#1D1D1D] basis-1/4' >{element.price}</div>
                     </div>
                     })
-                  }  
-                   
+                  }
                 </div>
             </div>
 
@@ -301,6 +302,10 @@ function ProductDetails() {
                         </div>
 
                     </div>
+                    {/* <div className="w-20 h-20 rounded-full bg-gradient-to-b flex flex-row items-center justify-center from-blue-500 to-transparent">
+                        <div className='w-[100px] h-[15px] bg-green-900 rounded-full rotate-45'></div>
+                    </div> */}
+
 
                     <div className='mt-16  flex flex-row  gap-[101px]'>
                         <div className='flex flex-col'>

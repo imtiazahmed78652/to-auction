@@ -28,7 +28,8 @@ function Faqs() {
   return (
     <>
     <Navbar/>
-    <div className='mt-[32px] flex flex-col px-[128px]  text-[#686868]'>
+    <div className='mt-[32px] flex flex-col items-center justify-center  text-[#686868]'>
+        <div className='w-[1440px] px-[128px]'>
         <div className='flex flex-row items-center gap-4'>
             <p className='font-semibold text-xs text-[#BCBCBC] leading-[18px]'>Home</p>
             <Image src = '/dropdown.png' alt = '' width = {4} height = {7}/>
@@ -43,21 +44,26 @@ function Faqs() {
                
             {
                 faqs.map((element,idx)=> {
-                    return <div key={idx} className={`${idx === 3 ? 'border-b-[2px] border-[#D4D2E3]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
+                   
+                    return  <div className='flex flex-row items-center justify-between'>
+                    <div key={idx} className={`w-[1059px]  ${idx === 3 ? 'border-b-[2px] border-[#D4D2E3] mb-[93px]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
                     <div>
                     <h1 className='font-semobild text-[20px] leading-[27px] max-h-'>{element.question}</h1>
                    {
                     state === idx && <p className='w-[753px] mt-[16px] '>{element.answer}</p>
                    } 
                     </div>
-                    <div className='w-[38px] h-[38px]  cursor-pointer'>
-                        <Image src = '/plus.png' alt = '' width = {38} height={38}/>
+                    
+                </div>
+                <div className='w-[38px] h-[38px]  cursor-pointer'>
+                        <Image src = '/plus.png' alt = '' width = {28} height={28}/>
                     </div>
                 </div>
                 })
             }    
 
                 
+        </div>
         </div>
     </div>
     <Footer/>

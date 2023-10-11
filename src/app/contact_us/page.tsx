@@ -24,17 +24,7 @@ function ContactUs() {
   return (
     <div>
         <Navbar/>
-        {/* <div className='flex  justify-center '>
-            <div className='w-[1440px] px-[128px]'>
-            <div className='flex flex-row items-center gap-4'>
-            <p className='font-semibold text-xs text-[#BCBCBC] leading-[18px]'>Home</p>
-            <Image src = '/dropdown.png' alt = '' width = {4} height = {7}/>
-            <p>Categories</p>
-            <Image src = '/dropdown.png' alt = '' width = {4} height = {7}/>
-            <p>Jewellery</p>
-        </div>
-            </div>
-        </div> */}
+        
         <div className='grid place-items-center'>
           <div className='w-[1440px] px-[128px]'>
         <div className='flex flex-row items-center gap-4 mt-[32.97px]'>
@@ -49,7 +39,7 @@ function ContactUs() {
         <div className='mt-8 flex flex-row items-center gap-6'>
          {
           data.map((element,idx)=> {
-              return <div className='w-[379px] h-[72px] border-[1px] border-[#3AAE2A] rounded-[4px] flex flex-row items-center justify-start pl-6 gap-4'>
+              return <div key={idx} className='w-[379px] h-[72px] border-[1px] border-[#3AAE2A] rounded-[4px] flex flex-row items-center justify-start pl-6 gap-4'>
               <Image src = {element.img} width={32} height={32} alt=''/>
               <div className='flex flex-col gap-3 text-[#3AAE2A]'>
               <h1 className='text-sm font-bold leading-[20px]'>{element.name}</h1>

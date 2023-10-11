@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Navbar from '../components/navbar/Navbar'
 import ProgressBar from '../components/ProgressBar/ProgressBar'
 
-function page() {
+function SellerDashboard() {
   const [value, setValue] = React.useState<number>(50); // Example value
   const maxValue = 100; 
 
@@ -285,7 +285,7 @@ function page() {
                   <div className='flex flex-col items-center gap-4'>
                   {
                     activeItems.map((element,idx)=> {
-                      return  <div className='w-full  py-6 pr-8 pl-6 border-[1px] flex flex-row items-center justify-between border-[#E2E2E2] rounded-[4px]'>
+                      return  <div key={idx} className='w-full  py-6 pr-8 pl-6 border-[1px] flex flex-row items-center justify-between border-[#E2E2E2] rounded-[4px]'>
                       <div className='flex flex-col gap-4'>
                         <p className='flex flex-row items-center gap-[8px] text-[#CCCCCC]'>Bid on: <span className='text-[#6C6C6C] font-bold text-sm leading-[18.9px]'>Decorative Objects Auction (Modern)</span></p>
                         <div className='flex flex-row items-center gap-6 '>
@@ -326,4 +326,4 @@ function page() {
   )
 }
 
-export default page
+export default SellerDashboard;

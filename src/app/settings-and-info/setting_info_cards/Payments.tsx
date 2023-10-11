@@ -20,7 +20,7 @@ function Payments({
 }: PaymentsProps) {
   return (
     <div className=''>
-        <h1 className='font-bold text-sm leading-4 text-[#3AAE2A]'> fdasfadsBag Add Payment Method</h1>
+        <h1 className='font-bold text-sm leading-4 text-[#3AAE2A]'> fdasfadsfasdfdasfadsfdasBag Add Payment Method</h1>
     </div>
   )
 }

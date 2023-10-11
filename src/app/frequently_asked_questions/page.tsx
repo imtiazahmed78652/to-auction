@@ -45,8 +45,8 @@ function Faqs() {
             {
                 faqs.map((element,idx)=> {
                    
-                    return  <div className='flex flex-row items-center justify-between'>
-                    <div key={idx} className={`w-[1059px]  ${idx === 3 ? 'border-b-[2px] border-[#D4D2E3] mb-[93px]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
+                    return  <div key={idx} className='flex flex-row items-center justify-between'>
+                    <div  className={`w-[1059px]  ${idx === 3 ? 'border-b-[2px] border-[#D4D2E3] mb-[93px]' : ''} cursor-pointer border-t-[1px] border-[#D4D2E3] py-[56px] flex flex-row items-center justify-between w-full`} onClick = {()=> setState(idx)}>
                     <div>
                     <h1 className='font-semobild text-[20px] leading-[27px] max-h-'>{element.question}</h1>
                    {

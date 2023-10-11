@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 
-function page() {
+function Category() {
   const [grid,setGrid]  = React.useState(false);
   const data = [
     {
@@ -141,7 +141,7 @@ function page() {
           <div className="w-full flex flex-row justify-end gap-[12px] mt-[26px]">
             {data.map((element, idx) => {
               return (
-                <div className="w-[135px] h-[36px] bg-[#F2F2F2] rounded-[30px] flex flex-row items-center justify-center gap-4">
+                <div key={idx} className="w-[135px] h-[36px] bg-[#F2F2F2] rounded-[30px] flex flex-row items-center justify-center gap-4">
                   <p className="font-medium text-xs leading-[18px] text-[#939393]">
                     Brand: <span>{element.brand}</span>
                   </p>
@@ -234,4 +234,4 @@ function page() {
   );
 }
 
-export default page;
+export default Category;

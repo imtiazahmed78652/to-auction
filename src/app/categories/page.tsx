@@ -40,7 +40,7 @@ function page() {
         <div className='mt-[75.39px] flex flex-row items-center gap-[24px] justify-center '>
           {
             data.map((element,idx)=> {
-                return <Link href={`/productDetails/${element.text}`}>
+                return <Link key={idx} href={`/productDetails/${element.text}`}>
                 <div className='relative transition-transform transform scale-100 hover:scale-95 duration-100 ease-in-out w-[581px] h-[702px] rounded-[12px] flex flex-row items-center gap-[16px]' style = {{backgroundImage:`url(${element.img})`}}>
                 <div className='flex flex-row items-center gap-[16px] absolute bottom-5 left-[37px] text-white'>
                 <div className={` ${monumentum.className} hover:shadow-2xl shadow-white`}>{element.text}</div>

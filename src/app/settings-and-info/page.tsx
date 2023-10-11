@@ -204,7 +204,7 @@ function SettingsAndInfo() {
                 <div className="flex flex-row items-center gap-6">
                   {detail.map((element, idx) => {
                     return (
-                      <div className="px-[16px] h-[34px] rounded-[25px] border-[1px] border-[#E1E1E1] hover:border-[#3AAE2A]  flex flex-row items-center justify-center gap-[8px]">
+                      <div key={idx} className="px-[16px] h-[34px] rounded-[25px] border-[1px] border-[#E1E1E1] hover:border-[#3AAE2A]  flex flex-row items-center justify-center gap-[8px]">
                         <p className="font-normal text-sm leading-[18px]">
                           {element.name}
                         </p>

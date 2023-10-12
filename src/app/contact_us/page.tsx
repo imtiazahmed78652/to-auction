@@ -50,6 +50,8 @@ function ContactUs() {
          } 
           
         </div>
+
+        
         <div className='flex flex-col items-end gap-8 mt-12'>
           <div className='w-full flex flex-col gap-8'>
           <div className='flex flex-row items-center gap-[25px]'>
@@ -68,6 +70,9 @@ function ContactUs() {
             Send Message
           </button>
         </div>
+
+
+
         </div>
         </div>
         <div className='mt-[138px]'>

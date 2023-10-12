@@ -8,6 +8,8 @@ import Footer from "../components/footer/Footer";
 
 // import Payments from "./setting_info_cards/payments";
 import Payments from "./setting_info_cards/Payments";
+import PersonalInformation from "./setting_info_cards/PersonalInformation";
+import Logout from "./setting_info_cards/Logout";
 function SettingsAndInfo() {
   const [name, setName] = useState("My Bids");
   const [index, setIndex] = useState(-5);
@@ -160,7 +162,7 @@ function SettingsAndInfo() {
     },
   ];
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <div className="grid place-content-center">
         <div className="w-[1440px] px-[128px]">
@@ -271,20 +273,28 @@ function SettingsAndInfo() {
                  <Payments/> 
                 )}
                 {name === "Personal Information" && (
-                  <SettingsInfoCard
-                    title="Audemars Piguet"
-                    productId={110066447}
-                    bidAmount={5200}
-                    date="01-08-1996"
-                    time="5:20"
-                    winner="MySelf"
-                  />
+                  <PersonalInformation/>
                 )}
+
+                
               </div>
             </div>
           </div>
         </div>
       </div>
+     {
+      
+     } 
+      {
+        name === 'Logout' &&                 <div className="absolute  top-0  w-full h-full bg-black bg-opacity-[50%] z-40 ">
+                    
+                    <div className="mt-[20%] ml-[35%] w-[528px]  rounded-[8px] bg-white pb-12">
+                    <Logout/>
+                    </div>
+                  
+                
+                </div>
+              }
       <div className="mt-12">
         <Footer />
       </div>

@@ -7,10 +7,11 @@ interface FloatingInputProps {
   label: string;
   className: string;
   value?: string;
+  relative?:string;
   onChange?: (newValue: string) => void; // Make onChange optional
 }
 
-const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, onChange }) => {
+const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, onChange,relative }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {

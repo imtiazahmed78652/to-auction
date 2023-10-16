@@ -10,13 +10,13 @@ import Footer from "../components/footer/Footer";
 import Payments from "./setting_info_cards/Payments";
 import PersonalInformation from "./setting_info_cards/PersonalInformation";
 import Logout from "./setting_info_cards/Logout";
+import PayNow from "./setting_info_cards/PayNow";
 function SettingsAndInfo() {
   const [name, setName] = useState("My Bids");
   const [index, setIndex] = useState(-5);
   const [payment,setPayments] = useState(false);
   const togglePayment =(value:boolean) => {
-    console.log('I am toggle payment function')
-    setPayments(value);
+       setPayments(value);
   }
   console.log("This is Index", index);
 
@@ -261,8 +261,7 @@ function SettingsAndInfo() {
                     winner="MySelf"
                   />
                 )}
-                {payment === true ? <div onClick={()=> togglePayment(false)}>I am Payment</div> : name === "Winnings" &&
-                  winnings.map((element, idx) => {
+                {name === 'Winnings' && payment === true ? <PayNow togglePayment = {togglePayment}  /> : name === "Winnings" &&  winnings.map((element, idx) => {
                     return (
                       <div key={idx} className="">
                         <Winnings payment = {payment} togglePayment = {togglePayment} time = {element.time} title = {element.title} productId = {element.productId} wonFor = {element.wonFor} dateTime = {element.dateTime} status = {element.status}/>

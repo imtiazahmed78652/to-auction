@@ -1,17 +1,15 @@
 // components/FloatingInput.tsx
-'use client'
-
 import React, { useState, useEffect } from 'react';
 
 interface FloatingInputProps {
   label: string;
   className: string;
   value?: string;
-  relative?:string;
-  onChange?: (newValue: string) => void; // Make onChange optional
+  relative?: string;
+  onChange?: (newValue: string) => void;
 }
 
-const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, onChange,relative }) => {
+const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, onChange, relative }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -19,28 +17,20 @@ const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, 
   };
 
   const handleBlur = () => {
-    if(value) {
-        setIsFocused(true);
+    if (value) {
+      setIsFocused(true);
     } else {
-        setIsFocused(false)
+      setIsFocused(false);
     }
-    
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     if (onChange && typeof onChange === 'function') {
-      onChange(newValue); // Call onChange if it's a valid function
+      onChange(newValue);
     }
   };
 
-  useEffect(() => {
-    // Check if the input has a non-empty value, and keep the label at the top
-    if (value) {
-        
-      setIsFocused(false);
-    }
-  }, [value]);
 
   return (
     <div className="relative">
@@ -50,13 +40,13 @@ const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, 
         className={className}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        onChange={handleInputChange}
+        onChange={handleInputChange} // Call handleInputChange to trigger onChange
         value={value}
       />
       <label
         htmlFor="myInput"
         className={`absolute text-xs top-[15px] left-3 text-[#878787] bg-white z-10 transition-all duration-300 ${
-          isFocused  ? 'text-black text-xs -translate-y-[22px] left-3' : ''
+          isFocused ? 'text-black text-xs -translate-y-[22px] left-3' : ''
         }`}
       >
         {label}

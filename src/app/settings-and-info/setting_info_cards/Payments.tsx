@@ -69,8 +69,6 @@ function Payments({
         <Image src = '/add-circle-plus.png' width = {24} height = {24} alt = 'Plus'/>
         Add Payment Method
         </h1>
-
-
         <div className="mt-6 relative flex flex-row items-center gap-6">
         {
           cardDetails.map((element,idx)=> {

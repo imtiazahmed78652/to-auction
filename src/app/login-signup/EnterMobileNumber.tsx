@@ -2,11 +2,24 @@ import Image from "next/image";
 import React from "react";
 import { Pagination } from "swiper/modules";
 import Paginations from "./Paginations";
+import Button from "../components/Button/Button";
+
+import { useDispatch,useSelector } from "react-redux/es/exports";
+import {updateHeadingText} from '../GlobalRedux/Features/counterSlice'
+import { useAppSelector } from "../hooks";
+
+
+
 type Props = {
   headingText: string;
   onNext: (text:string) => void;
 };
 const EnterMobileNumber: React.FC<Props> = ({ headingText, onNext }) => {
+  const pagination = useAppSelector((state) => state.counter.pagination);
+  const dispatch = useDispatch();
+  console.log(pagination,'pagination');
+
+  
   return (
     <div className="flex flex-col items-center justify-center mt-[49px]">
       <Paginations />
@@ -27,15 +40,10 @@ const EnterMobileNumber: React.FC<Props> = ({ headingText, onNext }) => {
         />
       </div>
       <div className="mt-16 w-[400px]">
-        <button className="w-[188px] h-[56px] text-[#3AAE2A] hover:text-[#457540]">
+        <button className="w-[188px] h-[56px] text-green hover:text-hover-green">
           I&apos;ll do it later
         </button>
-        <button
-          className="w-[188px] h-[56px] text-white bg-[#3AAE2A] hover:bg-[#386832] rounded-[8px]"
-          onClick={() => onNext("Select interest")}
-        >
-          Verify
-        </button>
+        <Button className="w-[188px] h-[56px] rounded-[8px] text-white" btnText="Verify" onClick={() => {onNext("Select interest");dispatch(updateHeadingText('Select Interest'))}}/>
       </div>
     </div>
   );

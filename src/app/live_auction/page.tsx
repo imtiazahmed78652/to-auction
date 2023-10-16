@@ -32,6 +32,33 @@ function LiveAuction() {
             price:'',
         },
     ]
+
+    const auctionItems = [
+        {
+            img:'/ring-2',
+            price:'101',
+        },
+        {
+            img:'/watch5',
+            price:'102',
+        },
+        {
+            img:'ring-5',
+            price:'103',
+        },
+        {
+            img:'ring-6',
+            price:'104'
+        },
+        {
+            img:'ring-8',
+            price:'105',
+        },
+        {
+            img:'ring-8',
+            price:'105',
+        },
+    ]
   return (
     <div className='flex flex-col items-center justify-center'>
         <div className='w-[1440px]'>
@@ -79,19 +106,56 @@ function LiveAuction() {
                             </p>
                             </div>
                         </div>
-                        <div className='flex flex-row items-center gap-[208px] mt-[38px]'>
+                        <div className='flex flex-row items-center  gap-[208px] mt-[38px]'>
                             <div className='flex flex-col'>
                                 <h1 className='font-normal text-[14px] leading-[18px]'>HIGHEST BID</h1>
                                 <p className='font-medium text-[24px] leadin-[18px]'>$200</p>
                             </div>
-                            <div className='flex flex-row items-center gap-[10px]'>
+                            <div className='flex flex-row items-center pb-3 gap-[10px]'>
                                 <div>Closes in</div>
-                                <div className='w-[77px] h-[55px] bg-[#F4F4F4] rounded-[8px] flex flex-row items-center justify-center font-bold text-[24px] leading-[18px] text-[#878787]'> 55 <span>s</span></div>
+                                <div className='w-[77px] h-[55px] bg-[#F4F4F4] rounded-[8px] flex flex-row items-center justify-center font-bold text-[24px] leading-[18px] text-[#878787]'> 55 <span className=''>s</span></div>
                             </div>
                         </div>
                 </div>
             </div>
+
+            
+
+            
         </div>
+
+        <div className='bg-[#F4F4F4] py-8 flex flex-col items-center justify-center  w-full'>
+            <div className='flex flex-row items-center justify-center gap-6 w-[1440px]'>
+                 <div className='w-[48px] h-[48px] flex flex-row items-center justify-center rounded-full border-[1px] border-[#3AAE2A80] border-opacity-[50%] bg-white'>
+                    <Image src = '/Group 395701.png' width = {27} height = {16} alt = ''/>
+                    </div>      
+                  {
+                    auctionItems.map((element,idx)=> {
+                        return <div key = {idx} className='flex flex-col' >
+                        <div className='w-[177px] h-[183px] bg-white border-[1px]  p-2'>
+                            <Image src = '/ring-3.png' width = {177} height={183} alt = ''/>
+                        </div>
+                        <div className='w-[177px] h-[97px] border-[1px] flex flex-row items-center justify-center bg-white border-[#AEAEAE]'>101</div>
+                        </div>
+                    })
+                  }     
+                       <div className='w-[48px] h-[48px] flex flex-row items-center justify-center rounded-full border-[1px] border-[#3AAE2A80] border-opacity-[50%] bg-white'>
+                        <Image src = '/Group 39570.png' width = {27} height = {16} alt = ''/>
+                       </div>
+
+                        
+
+                         
+                        
+        </div>  
+
+        <div className='w-[1400px] mt-[43px] h-[10px] border-[1px] border-[#D9D9D9] flex flex-row items-center'>
+                <div className='w-1/2'></div>
+                <div className='w-12 h-12 rounded-full bg-white'></div>
+                <div className='w-1/2 bg-white h-[10px]'></div>
+        </div>
+        </div>
+
     </div>
   )
 }

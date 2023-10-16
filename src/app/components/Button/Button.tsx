@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface ButtonProps {
-    onClick?:()=> void;
+    onClick?:(e:any)=> void;
     btnText: string,
     className?:string,
 }

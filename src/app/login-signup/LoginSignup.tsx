@@ -13,13 +13,17 @@ import { useAppSelector } from "../hooks";
 import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
 import InputField from "../components/InputField/InputField";
 import { RootState } from "../GlobalRedux/store";
-import { setEmail, setInputValue, setPassword,setFormData, resetForm } from "../GlobalRedux/Features/inputSlice";
+import { setEmail, setInputValue, setPassword,setFormData, resetForm,setFullName,setConfirmPassword } from "../GlobalRedux/Features/inputSlice";
 
 
 const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
   onClose,
 }) => {
+  const [emailErr,setEmailErr] = useState('');
+  const [passwordErr,setPasswordErr] = useState('');
+  const [fullNameErr, setFullNameErr] = useState('');
+  const [confirmPasswordErr,setConfirmPasswordErr] = useState('');
   const paginationText = useAppSelector((state)=> state.counter.pagination);
   const dispatch = useDispatch();
   
@@ -46,39 +50,117 @@ const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     }
   }, [isEnterMobileNumber]);
 
-
+  const validateEmail = (email:string) => {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    if (!email) {
+      setEmailErr('Email is required');
+      console.log('nothing happend')
+      return false;
+    }
+    if(email) {
+      setEmailErr('');
+    }
+    if (!emailRegex.test(email)) {
+      setEmailErr('Invalid email format');
+      return false;
+    }
+    return true;
+  };
+  function validatePassword(password:string) {
+    // At least 8 characters
+    if (password.length < 8) {
+      setPasswordErr('Password Must be 8 letters long')
+      return false;
+    }
+  
+    // At least one uppercase letter
+    if (!/[A-Z]/.test(password)) {
+      setPasswordErr('At least one uppercase letter')
+      return false;
+    }
+  
+    // At least one lowercase letter
+    if (!/[a-z]/.test(password)) {
+      setPasswordErr('At least one lowercase letter')
+      return false;
+    }
+  
+    // At least one digit
+    if (!/\d/.test(password)) {
+      setPasswordErr('At least one digit')
+      return false;
+    }
+  
+    // At least one special character (e.g., !, @, #, $, etc.)
+    if (!/[!@#$%^&*]/.test(password)) {
+      setPasswordErr('At least one special character (e.g., !, @, #, $, etc.)')
+      return false;
+    }
+    if(password) {
+      setPasswordErr('');
+    }
+  
+    // All checks passed, the password is valid
+    return true;
+  }
+  
 
 
   const inputValue = useAppSelector((state: RootState) => state.input.inputValue);
   const email = useAppSelector((state:RootState)=> state.input.email);
   const password= useAppSelector((state:RootState)=> state.input.password)
+  const fullName = useAppSelector((state:RootState)=> state.input.fullName);
+  const confirmPassword= useAppSelector((state:RootState)=> state.input.confirmPassword);
   
-
-  
-const handleSubmit = (e:React.FormEvent) => {
+const handleLogin = (e:any) => {
   e.preventDefault();
   console.log(email,password);
-  if(dispatch(setFormData({email,password}))) {
-    alert(email)
+  
+  if(validateEmail(email) && validatePassword(password)) {
+    dispatch(setFormData({email,password,})) 
     dispatch(resetForm());
-  } ;
-
+  }
+  
 }
   const handleCreateAccount = (e:React.FormEvent) => {
     e.preventDefault();
+    if(fullName === '') {
+      setFullNameErr('Name is required')
+      return false; // dispatch(updateHeadingText('Enter Mobile Number'))}
+    }
+    if(!validateEmail(email) && !validatePassword(password)){
+      setEmailErr('Email Is Required');
+      setPassword('Password is Required');
+      return false; 
+    } 
+    if(confirmPassword === '') {
+      setConfirmPasswordErr('Password Required')
+      return false;
+    }
+    if(password === '') {
+      setPasswordErr('Password is Required');
+      return false;
+    }
+    return  dispatch(setFormData({email,password,fullName,confirmPassword})),dispatch(resetForm()),dispatch(updateHeadingText('Enter Mobile Number'));
+
   }
 
 const handleInputChange = (value: string,name:string) => {
-  // Do something with the input value
   if(name === 'Password'){
     dispatch(setPassword(value))
   } 
   if(name === 'Email') {
-
+    
     dispatch(setEmail(value))
   }
-  console.log('Input value:', value);
+  if(name === 'fullName') {
+    dispatch(setFullName(value));
+  }
+  if(name === 'confirmPassword') {
+    dispatch(setConfirmPassword(value))
+  }
   
+  console.log('Input value:', value);
 };
 console.log(email,'my email');
 console.log('password',password)
@@ -157,13 +239,18 @@ console.log('password',password)
           <div className="flex flex-col items-center gap-[8px]">
             <div className="flex flex-col items-center gap-[16px] mt-8 w-[400px]">
               {paginationText === "Register an Account" && (
+                <div className="flex flex-col items-end ">
                 <div className="w-[400px] h-[46px] border-[1px]  rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                   <FloatingInput
                     label="Full Name"
+                    value= {fullName}
                     className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-[100%] h-[46px]"
+                    onChange={(value)=> handleInputChange(value,'fullName')}
                   />
 
                   <Image alt="" src="/email-box.png" width={18} height={14} />
+                </div>
+                <p className="text-error-text font-bold text-xs mt-[8px]">{fullNameErr}</p>
                 </div>
               )}
 
@@ -171,18 +258,21 @@ console.log('password',password)
 
               {paginationText === "Login" || paginationText === "Register an Account" ? (
                 <>
+                <div className="flex flex-col items-end">
                   <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
                       label="Email"
                       className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                     
-                      value={email}
+                    value={email}
                       
                       onChange={(value)=> handleInputChange(value,'Email')}
                     />
                     <Image alt="" src="/email-box.png" width={18} height={14} />
                   </div>
-
+                  <p className="font-bold text-error-text text-xs mt-[8px]">{emailErr}</p>
+                  </div>
+                  <div className="flex flex-col items-end">
                   <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
                       label="Password"
@@ -193,18 +283,26 @@ console.log('password',password)
                     />
                     <Image alt="" src="/Lock.svg" width={18} height={14} />
                   </div>
+                  <p className="font-bold text-xs text-error-text mt-[8px]">{passwordErr}</p>
+                  </div>
                 </>
               ) : (
                 ""
               )}
               {paginationText === "Register an Account" && (
+                <div className="flex flex-col items-end"> 
                 <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                   <FloatingInput
                     label="Confirm Password"
+                    value = {confirmPassword}
+                    onChange={(value)=> handleInputChange(value,'confirmPassword')}
                     className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                   />
                   <Image alt="" src="/Lock.svg" width={18} height={14} />
                 </div>
+                <p className="text-error-text font-bold text-xs">{confirmPasswordErr}</p>
+                </div>
+                
               )}
             </div>
             {paginationText === "Login" ? (
@@ -260,11 +358,11 @@ console.log('password',password)
                 )}
                 {
                 paginationText === "Register an Account" && (
-                  <Button className="w-[400px] h-[56px] mt-[30px] bg-green rounded-[8px] text-white" btnText="Create" onClick={()=> {setHeadingText("Enter a mobile number");dispatch(updateHeadingText('Enter Mobile Number'))}}/>)
+                  <Button className="w-[400px] h-[56px] mt-[30px] bg-green rounded-[8px] text-white" btnText="Create" onClick={(e)=> handleCreateAccount(e)}/>)
                 }
 
                 {paginationText === "Login" && (
-                  <Button className="w-[400px] h-[56px] mt-[30px] bg-green hover:bg-hover-green rounded-[8px] text-white" btnText="Login" onClick={handleSubmit}/>
+                  <Button className="w-[400px] h-[56px] mt-[30px] bg-green hover:bg-hover-green rounded-[8px] text-white" btnText="Login" onClick={(e)=> handleLogin(e)}/>
                 )}
                 {paginationText === "Login" && (
                   <div className="mt-4 font-normal text-sm leading-[18px]">

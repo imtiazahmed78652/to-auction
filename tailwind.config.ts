@@ -21,6 +21,7 @@ const config: Config = {
       'hover-green' : '#457540',
       'dark-border' :'#878787',
       'light-border' : '#DDDDDD',
+      'error-text' : '#FF0000'
       
       
     },

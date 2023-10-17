@@ -118,6 +118,10 @@ function Footer() {
 
           </div>
 
+
+
+
+
         </div>
 
         <div className='flex flex-row gap-[190px]'>
@@ -152,7 +156,7 @@ function Footer() {
             
             <div className='flex flex-col gap-[25px] mt-[48px] text-white'>
               {
-               company.map((element,idx)=> {
+               support.map((element,idx)=> {
                     return <p className='font-normal text-[18px] leading-[18px]' key = {idx}>{element.name}</p>
                }) 
               }

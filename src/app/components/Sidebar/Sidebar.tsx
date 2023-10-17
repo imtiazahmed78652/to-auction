@@ -13,11 +13,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const sideBarData = [
     {
       name: "Home",
-      url: "",
+      url: "/",
     },
     {
       name: "Favourites",
-      url: "",
+      url: "/frequently_asked_questions",
     },
     {
       name: "Categories",
@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
     {
       name: "FAQs",
-      url: "",
+      url: "/faqs",
     },
     {
       name: "Download Mobile App",
@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
     {
       name: "Contact Us",
-      url: "",
+      url: "/contact_us",
     },
   ];
   return (
@@ -60,14 +60,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               <Link href={element.url} key={idx}>
               <h1
                 
-                className="text-base font-semibold text-[#4D4D4D] leading-[18px] cursor-pointer hover:text-[#3AAE2A]"
+                className="text-base font-semibold text-[#4D4D4D] leading-[18px] cursor-pointer hover:text-green"
               >
                 {element.name}
               </h1>
               </Link>
             );
           })}
-          {/* Add your sidebar content here */}
         </div>
       </div>
     </div>

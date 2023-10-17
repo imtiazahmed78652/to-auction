@@ -65,14 +65,14 @@ function Payments({
   return (
     <div className=''>
       <div className='w-[781px] relative   flex flex-col items-end'>
-        <h1 className=' flex flex-row items-center gap-[16px] font-bold text-sm leading-4 text-[#3AAE2A]'>
+        <h1 className='flex flex-row items-center gap-[16px] font-bold text-sm leading-4 text-[#3AAE2A]'>
         <Image src = '/add-circle-plus.png' width = {24} height = {24} alt = 'Plus'/>
         Add Payment Method
         </h1>
         <div className="mt-6 relative flex flex-row items-center gap-6">
         {
           cardDetails.map((element,idx)=> {
-            return <div key={idx} className={` bg-${element.color}  w-[378px] h-[245px] rounded-[12px] p-8 flex flex-col justify-between`}>
+            return <div key={idx} className={` ${element.color === 'blue-500' ? 'bg-blue-500' : "bg-purple-500"}  w-[378px] h-[245px] rounded-[12px] p-8 flex flex-col justify-between`}>
             <div className='flex flex-row items-center justify-between'>
               <div className=''>
                 <Image src = '/three-dot-button.png' width = {24} height={24} alt = ''/>
@@ -81,6 +81,8 @@ function Payments({
               <Image src = {element.img} width={45} height={45} alt = ''/>
               </div>
             </div>
+           
+           
             <div className='flex flex-row justify-between w-full text-white'>
               <div className='flex flex-col gap-1'>
                 <p className='font-normal text-sm leading-[18px]'>Account Holder</p>
@@ -104,6 +106,8 @@ function Payments({
                 <p className='font-medium text-sm leading-[18px]'>{element.cvv}</p>
               </div>
             </div>
+
+
         </div> 
           })
         }  

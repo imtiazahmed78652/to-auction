@@ -21,8 +21,7 @@ function Winnings({
   togglePayment,
   payment,
 }: WinningsProps) {
-  // const [payment,setPayment] = useState(false);
-  return (
+    return (
     <>
     
       <div className="flex flex-row gap-[24px] text-[#6C6C6C] w-[781px] h-[115px] border-[1px] border-[#D9D9D9] rounded-[8px] pl-[8px] pr-6 py-[8px]">

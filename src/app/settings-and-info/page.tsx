@@ -8,13 +8,15 @@ import Footer from "../components/footer/Footer";
 
 // import Payments from "./setting_info_cards/payments";
 import Payments from "./setting_info_cards/Payments";
+import PersonalInformation from "./setting_info_cards/PersonalInformation";
+import Logout from "./setting_info_cards/Logout";
+import PayNow from "./setting_info_cards/PayNow";
 function SettingsAndInfo() {
   const [name, setName] = useState("My Bids");
   const [index, setIndex] = useState(-5);
   const [payment,setPayments] = useState(false);
   const togglePayment =(value:boolean) => {
-    console.log('I am toggle payment function')
-    setPayments(value);
+       setPayments(value);
   }
   console.log("This is Index", index);
 
@@ -160,7 +162,7 @@ function SettingsAndInfo() {
     },
   ];
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <div className="grid place-content-center">
         <div className="w-[1440px] px-[128px]">
@@ -259,8 +261,7 @@ function SettingsAndInfo() {
                     winner="MySelf"
                   />
                 )}
-                {payment === true ? <div onClick={()=> togglePayment(false)}>I am Payment</div> : name === "Winnings" &&
-                  winnings.map((element, idx) => {
+                {name === 'Winnings' && payment === true ? <PayNow togglePayment = {togglePayment}  /> : name === "Winnings" &&  winnings.map((element, idx) => {
                     return (
                       <div key={idx} className="">
                         <Winnings payment = {payment} togglePayment = {togglePayment} time = {element.time} title = {element.title} productId = {element.productId} wonFor = {element.wonFor} dateTime = {element.dateTime} status = {element.status}/>
@@ -271,20 +272,28 @@ function SettingsAndInfo() {
                  <Payments/> 
                 )}
                 {name === "Personal Information" && (
-                  <SettingsInfoCard
-                    title="Audemars Piguet"
-                    productId={110066447}
-                    bidAmount={5200}
-                    date="01-08-1996"
-                    time="5:20"
-                    winner="MySelf"
-                  />
+                  <PersonalInformation/>
                 )}
+
+                
               </div>
             </div>
           </div>
         </div>
       </div>
+     {
+      
+     } 
+      {
+        name === 'Logout' &&                 <div className="absolute  top-0  w-full h-full bg-black bg-opacity-[50%] z-40 ">
+                    
+                    <div className="mt-[20%] ml-[35%] w-[528px]  rounded-[8px] bg-white pb-12">
+                    <Logout/>
+                    </div>
+                  
+                
+                </div>
+              }
       <div className="mt-12">
         <Footer />
       </div>

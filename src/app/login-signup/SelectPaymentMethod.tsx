@@ -1,11 +1,34 @@
 import React from "react";
 import Paginations from "./Paginations";
 import Image from "next/image";
+import Button from "../components/Button/Button";
+import { useAppSelector } from "../hooks";
+import { useDispatch } from "react-redux";
+import { getPaymentMethod, updateHeadingText } from "../GlobalRedux/Features/counterSlice";
+import { addInterest } from "../GlobalRedux/Features/interestSlice";
 const SelectPaymentMethod: React.FC<{
   headingText: string;
   onNext: (text:string) => void;
 }> = ({ headingText, onNext }) => {
+
+  const [selectedPaymentMethod,setSelectedPaymentMethod] = React.useState<string | null>(null)
+  console.log(selectedPaymentMethod)
+  const paginationText = useAppSelector((state)=> state.counter.pagination)
+  const paymentMethods = useAppSelector((state)=> state.counter.selectPayment)
+
+  const dispatch = useDispatch();
+  
+
+  const handlePaymentSelect = (value:string) => {
+      if (paymentMethods === value) {
+        dispatch(getPaymentMethod(value));
+      } else {
+        setSelectedPaymentMethod(value);
+        dispatch(getPaymentMethod(value));
+      }
+  }
   const paymentMethod = [
+
     {
       name: "MasterCard",
       img: "/master-card.png",
@@ -30,7 +53,8 @@ const SelectPaymentMethod: React.FC<{
           <div className="w-[400px] flex flex-col gap-6">
             {paymentMethod.map((element, idx) => {
               return (
-                <div key={idx} className="flex flex-row items-center justify-between border-[1px] rounded-[6px] h-[48px] px-6">
+                <button key={idx} className="flex hover:shadow-lg flex-row items-center justify-between border-[1px] border-light-border cursor-pointer rounded-[6px] h-[48px] px-6"
+                 onClick={() => handlePaymentSelect(element.name)}>
                   <div className="flex flex-row items-center gap-4">
                     <Image
                       src={element.img}
@@ -42,8 +66,14 @@ const SelectPaymentMethod: React.FC<{
                       {element.name}
                     </p>
                   </div>
-                  <input type="radio" name="" id="" />
-                </div>
+                  <div className={` ${selectedPaymentMethod === element.name ? 'border-green' : 'border-light-border'}  w-[20px] h-[20px] border-[1px]  rounded-full flex flex-row  items-center justify-center`}>
+                     {
+                      selectedPaymentMethod === element.name && <div className="w-[10px] h-[10px] border-[1px] rounded-full bg-green border-green">
+
+                      </div>
+                     } 
+                  </div>  
+                </button>
               );
             })}
           </div>
@@ -52,14 +82,13 @@ const SelectPaymentMethod: React.FC<{
           <button className="w-[188px] h-[56px] text-[#3AAE2A]">
             I&apos;ll do it later
           </button>
-          <button className="w-[188px] h-[56px] bg-[#3AAE2A] text-white rounded-[8px]" onClick={()=> onNext('Enter Card Details')}>
-            Verify
-          </button>
+          
+          <Button className="w-[188px] h-[56px] text-white rounded-[8px]" btnText="Verify" onClick={()=>  paymentMethods === '' ? "" : dispatch(updateHeadingText('Enter Card Details'))}/>
         </div>
 
         </div>
         
-      </div>
+    </div>
     </div>
   );
 };

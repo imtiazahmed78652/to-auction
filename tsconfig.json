@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/AuctionEnding/AuctionEnding.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/AuctionEnding/AuctionEnding.jsx", "src/app/GlobalRedux/provider.js", "src/app/GlobalRedux/store.js"],
   "exclude": ["node_modules"]
 }

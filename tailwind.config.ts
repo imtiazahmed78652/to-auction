@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     colors: {
       'light': '#D9D9D9',
+      
       'dark' : '#ACACAC',
       'light-2' :'#DADADA',
       'light-text' : '#8D8D8D',
@@ -22,6 +23,7 @@ const config: Config = {
       'dark-border' :'#878787',
       'light-border' : '#DDDDDD',
       'error-text' : '#FF0000'
+      
       
       
     },

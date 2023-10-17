@@ -1,0 +1,37 @@
+.react-tel-input{
+    width: 400px;
+    height: 48px;
+    display: flex;
+    flex-direction: row-reverse!important;
+    border: 0!important;
+    border-radius: 4px 4px;
+    
+    
+    
+}
+.form-control{
+    width: 306px !important;
+    height: 48px !important;
+    /* margin-left: 100px; */
+    padding-left: 18px !important;
+    color: #878787;
+}
+.flag-dropdown{
+    border:1px solid #DDDDDD!important;
+    border-radius: 6px!important;
+    width: 94px!important;
+    height: 48px;
+    display: flex;
+    justify-content: center!important;
+    background-color: white!important;
+    position: static!important;
+    translate: 10px;
+    
+    /* display: none; */
+    /* visibility: hidden; */
+}
+.country-list{
+    margin-top: 50px!important;
+    margin-left: 207px!important;
+    
+}

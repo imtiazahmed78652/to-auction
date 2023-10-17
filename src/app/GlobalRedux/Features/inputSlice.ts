@@ -1,4 +1,6 @@
+'use client'
 import { createSlice,PayloadAction } from "@reduxjs/toolkit";
+
 interface InputState {
     inputValue:string;
     email:string,
@@ -14,14 +16,17 @@ const initialState: InputState = {
     fullName:'',
     confirmPassword:'',
   };
+
   const inputSlice = createSlice({
     name: "input",
     initialState,
     reducers: {
         setFormData:(state,action) => {
-        const { email, password } = action.payload;
+        const { email, password,fullName,confirmPassword } = action.payload;
         state.email = email;
         state.password = password;
+        state.fullName = fullName;
+        state.confirmPassword = confirmPassword
         },
         resetForm: (state) => {
             // Reset the form values to their initial state

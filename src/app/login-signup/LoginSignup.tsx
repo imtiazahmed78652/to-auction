@@ -54,7 +54,7 @@ const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (!email) {
       setEmailErr('Email is required');
-      console.log('nothing happend')
+      
       return false;
     }
     if(email) {
@@ -107,44 +107,50 @@ const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
 
 
   const inputValue = useAppSelector((state: RootState) => state.input.inputValue);
-  const email = useAppSelector((state:RootState)=> state.input.email);
-  const password= useAppSelector((state:RootState)=> state.input.password)
-  const fullName = useAppSelector((state:RootState)=> state.input.fullName);
-  const confirmPassword= useAppSelector((state:RootState)=> state.input.confirmPassword);
+  // const email = useAppSelector((state:RootState)=> state.input.email);
+  // const password= useAppSelector((state:RootState)=> state.input.password)
+  // const fullName = useAppSelector((state:RootState)=> state.input.fullName);
+  // const confirmPassword= useAppSelector((state:RootState)=> state.input.confirmPassword);
+  const {email,password,fullName,confirmPassword}= useAppSelector((state:RootState)=> state.input);
+
   
-const handleLogin = (e:any) => {
+  const handleLogin = (e:any) => {
   e.preventDefault();
-  console.log(email,password);
-  
   if(validateEmail(email) && validatePassword(password)) {
-    dispatch(setFormData({email,password,})) 
-    dispatch(resetForm());
+  dispatch(setFormData({email,password,})) 
+  dispatch(resetForm());
   }
-  
 }
+
+
   const handleCreateAccount = (e:React.FormEvent) => {
     e.preventDefault();
-    if(fullName === '') {
-      setFullNameErr('Name is required')
-      return false; // dispatch(updateHeadingText('Enter Mobile Number'))}
-    }
-    if(!validateEmail(email) && !validatePassword(password)){
-      setEmailErr('Email Is Required');
-      setPassword('Password is Required');
-      return false; 
-    } 
-    if(confirmPassword === '') {
-      setConfirmPasswordErr('Password Required')
+    if(!email) {
+      setEmailErr('Email is required')
       return false;
     }
-    if(password === '') {
-      setPasswordErr('Password is Required');
+    if(!password) {
+      setPasswordErr('Password is required');
       return false;
     }
-    return  dispatch(setFormData({email,password,fullName,confirmPassword})),dispatch(resetForm()),dispatch(updateHeadingText('Enter Mobile Number'));
+    if(!fullName){
+      setFullNameErr('Full name is required');
+      return false;
+    }
+    if(!confirmPassword){
+      setConfirmPasswordErr('Confirm Password is required');
+      return false;
+    }
 
+    dispatch(setEmail(email));
+    dispatch(setPassword(password));
+    dispatch(setFullName(fullName));
+    dispatch(setConfirmPassword(confirmPassword));
+    dispatch(updateHeadingText('Enter Mobile Number'));
   }
 
+
+// console.log(fullName)
 const handleInputChange = (value: string,name:string) => {
   if(name === 'Password'){
     dispatch(setPassword(value))
@@ -160,10 +166,9 @@ const handleInputChange = (value: string,name:string) => {
     dispatch(setConfirmPassword(value))
   }
   
-  console.log('Input value:', value);
+  
 };
-console.log(email,'my email');
-console.log('password',password)
+
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 ${
@@ -177,15 +182,14 @@ console.log('password',password)
             <div
               className={`${monumentum.className} font-normal text-lg leading-[18px] text-[#9C9C9C]`}
             >
-              {/* {headingText} */}
               {paginationText}
             </div>
+
 
             <button onClick={onClose}>
               <Image src="/cross.png" alt="" width={9.26} height={9.26} />
             </button>
           </div>
-          {/* <InputField value = {inputValue} onChange={()=> handleInputChange(inputValue,'input-')} /> */}
           {paginationText === "Enter Mobile Number" && (
             <EnterMobileNumber headingText={headingText} onNext={nextModal} />
           )}
@@ -210,6 +214,7 @@ console.log('password',password)
           {paginationText === "Login" || paginationText === "Register an Account" ? (
             <div className="flex flex-row items-center justify-center mt-[53px]  ">
               <div className="flex flex-row items-center w-[400px] border-b-[1px]">
+                
                 <button
                   className={`w-[200px] h-[50px] hover:bg-green hover:bg-opacity-[15%] hover:border-b-[3px] border-green cursor-pointer ${
                     headingText === "Login"
@@ -243,8 +248,9 @@ console.log('password',password)
                 <div className="w-[400px] h-[46px] border-[1px]  rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                   <FloatingInput
                     label="Full Name"
+                    type = 'text'
                     value= {fullName}
-                    className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-[100%] h-[46px]"
+                    className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-[100%] h-[46px]"
                     onChange={(value)=> handleInputChange(value,'fullName')}
                   />
 
@@ -262,10 +268,9 @@ console.log('password',password)
                   <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
                       label="Email"
-                      className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
-                    
-                    value={email}
-                      
+                      type = 'email'
+                      className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-full h-[46px]"
+                     value={email}
                       onChange={(value)=> handleInputChange(value,'Email')}
                     />
                     <Image alt="" src="/email-box.png" width={18} height={14} />
@@ -277,9 +282,9 @@ console.log('password',password)
                     <FloatingInput
                       label="Password"
                       value = {password}
-                      
+                      type = 'password'
                       onChange={(value)=> handleInputChange(value,'Password')}
-                      className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
+                      className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-full h-[46px]"
                     />
                     <Image alt="" src="/Lock.svg" width={18} height={14} />
                   </div>
@@ -294,9 +299,10 @@ console.log('password',password)
                 <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                   <FloatingInput
                     label="Confirm Password"
+                    type = 'password'
                     value = {confirmPassword}
                     onChange={(value)=> handleInputChange(value,'confirmPassword')}
-                    className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
+                    className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-full h-[46px]"
                   />
                   <Image alt="" src="/Lock.svg" width={18} height={14} />
                 </div>

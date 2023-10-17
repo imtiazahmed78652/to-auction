@@ -4,16 +4,29 @@ import Image from "next/image";
 import Button from "../components/Button/Button";
 import { useAppSelector } from "../hooks";
 import { useDispatch } from "react-redux";
-import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
+import { getPaymentMethod, updateHeadingText } from "../GlobalRedux/Features/counterSlice";
+import { addInterest } from "../GlobalRedux/Features/interestSlice";
 const SelectPaymentMethod: React.FC<{
   headingText: string;
   onNext: (text:string) => void;
 }> = ({ headingText, onNext }) => {
 
   const [selectedPaymentMethod,setSelectedPaymentMethod] = React.useState<string | null>(null)
+  console.log(selectedPaymentMethod)
   const paginationText = useAppSelector((state)=> state.counter.pagination)
+  const paymentMethods = useAppSelector((state)=> state.counter.selectPayment)
+
   const dispatch = useDispatch();
   
+
+  const handlePaymentSelect = (value:string) => {
+      if (paymentMethods === value) {
+        dispatch(getPaymentMethod(value));
+      } else {
+        setSelectedPaymentMethod(value);
+        dispatch(getPaymentMethod(value));
+      }
+  }
   const paymentMethod = [
 
     {
@@ -40,7 +53,8 @@ const SelectPaymentMethod: React.FC<{
           <div className="w-[400px] flex flex-col gap-6">
             {paymentMethod.map((element, idx) => {
               return (
-                <button key={idx} className="flex hover:shadow-lg flex-row items-center justify-between border-[1px] border-light-border cursor-pointer rounded-[6px] h-[48px] px-6" onClick={()=> setSelectedPaymentMethod(element.name)}>
+                <button key={idx} className="flex hover:shadow-lg flex-row items-center justify-between border-[1px] border-light-border cursor-pointer rounded-[6px] h-[48px] px-6"
+                 onClick={() => handlePaymentSelect(element.name)}>
                   <div className="flex flex-row items-center gap-4">
                     <Image
                       src={element.img}
@@ -69,7 +83,7 @@ const SelectPaymentMethod: React.FC<{
             I&apos;ll do it later
           </button>
           
-          <Button className="w-[188px] h-[56px] text-white rounded-[8px]" btnText="Verify" onClick={()=> {onNext('Enter Card Details');dispatch(updateHeadingText('Enter Card Details'))}}/>
+          <Button className="w-[188px] h-[56px] text-white rounded-[8px]" btnText="Verify" onClick={()=>  paymentMethods === '' ? "" : dispatch(updateHeadingText('Enter Card Details'))}/>
         </div>
 
         </div>

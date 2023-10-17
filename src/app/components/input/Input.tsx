@@ -1,15 +1,17 @@
 // components/FloatingInput.tsx
+import { type } from 'os';
 import React, { useState, useEffect } from 'react';
 
 interface FloatingInputProps {
   label: string;
   className: string;
-  value?: string;
+  value?: string | number;
   relative?: string;
   onChange?: (newValue: string) => void;
+  type:string;
 }
 
-const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, onChange, relative }) => {
+const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, onChange, relative,type }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -35,7 +37,7 @@ const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, 
   return (
     <div className="relative">
       <input
-        type="text"
+        type={type}
         id="myInput"
         className={className}
         onFocus={handleFocus}
@@ -46,7 +48,7 @@ const FloatingInput: React.FC<FloatingInputProps> = ({ label, className, value, 
       <label
         htmlFor="myInput"
         className={`absolute text-xs top-[15px] left-3 text-[#878787] bg-white z-10 transition-all duration-300 ${
-          isFocused ? 'text-black text-xs -translate-y-[22px] left-3' : ''
+          isFocused ? ' text-xs -translate-y-[22px] left-3' : ''
         }`}
       >
         {label}

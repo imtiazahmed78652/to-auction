@@ -73,7 +73,7 @@ function LiveAuction() {
                     <div className='flex flex-col gap-6 mt-[47px]'>
                        {
                         data.map((element,idx)=> {
-                            return <p className='font-normal text-sm leading-[18px]'>{element.price}</p>
+                            return <p key = {idx} className='font-normal text-sm leading-[18px]'>{element.price}</p>
                         })
                        } 
                        </div>

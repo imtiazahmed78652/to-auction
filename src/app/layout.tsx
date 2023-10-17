@@ -18,6 +18,19 @@ export const monumentum = localFont({
   ],
   variable: '--font-momentum'
 })
+
+export const satoshiVariable = localFont({
+  src: [
+    {
+      path: '../../public/fonts/FontsFree-Net-Satoshi-Variable.ttf',
+      weight: '400'
+    },
+  ],
+  variable: '--font-satoshi'
+})
+
+
+
 export const manrope = Manrope({ subsets: ['latin'] })
  const metadata: Metadata = {
   title: 'Create Next App',

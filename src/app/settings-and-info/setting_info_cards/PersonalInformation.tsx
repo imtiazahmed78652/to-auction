@@ -20,6 +20,7 @@ function PersonalInformation() {
 
                     <div className="w-[378px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
+                    type='text'
                       label="First Name"
                       className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                     />
@@ -27,6 +28,7 @@ function PersonalInformation() {
                   </div>
                   <div className="w-[378px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
+                    type='text'
                       label="Last Name"
                       className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                     />
@@ -41,6 +43,7 @@ function PersonalInformation() {
 
                     <div className="w-[378px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
+                    type='text'
                       label="First Name"
                       className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                     />
@@ -49,6 +52,7 @@ function PersonalInformation() {
                   </div>
                   <div className="w-[378px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] ">
                     <FloatingInput
+                    type='text'
                       label="Last Name"
                       className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                     />
@@ -59,6 +63,7 @@ function PersonalInformation() {
 
                     <div className='w-full h-[46px] border-[1px] rounded-[6px] flex flex-row items-center pr-4 justify-between  text-[#878787]  border-[#DDDDDD] '>
                     <FloatingInput
+                    type='text'
                       label="Last Name"
                       className="outline-none bg-transparent rounded-[6px] pl-[24px]  w-full h-[46px]"
                     />

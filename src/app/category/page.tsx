@@ -102,20 +102,16 @@ function Category() {
       ],
     },
   ];
-  
-//   const filterName = "Brand";
 
+  //   const filterName = "Brand";
 
-const filter = filters.find((filter) => filter.name === 'Brand');
-const subArray = filter?.subArray || [];
-const mappedSubArray = subArray.map((item, index) => {
-  return <div key={index}>{item}</div>;
-});
+  const filter = filters.find((filter) => filter.name === "Brand");
+  const subArray = filter?.subArray || [];
+  const mappedSubArray = subArray.map((item, index) => {
+    return <div key={index}>{item}</div>;
+  });
 
-
-
-
-console.log(heading)
+  console.log(heading);
 
   return (
     <div className="relative">
@@ -135,7 +131,10 @@ console.log(heading)
                 ) : (
                   <div
                     className="cursor-pointer"
-                    onClick={() => {setHeading("Filters");setSelectedFilter(null)}}
+                    onClick={() => {
+                      setHeading("Filters");
+                      setSelectedFilter(null);
+                    }}
                   >
                     <Image
                       src="/arrow-back.png"
@@ -148,93 +147,120 @@ console.log(heading)
                 <p className="font-normal text-lg leading-[25px]">{heading}</p>
               </div>
 
-                  <div className="">
-              {
-                heading === 'Category' && <div className="">
-                        Category 
-                </div> 
-              }
+              <div className="">
+                {heading === "Category" && <div className="">Category</div>}
               </div>
-              {
-                heading === 'Condition' && <div>
-                  {
-                    [1, 2, 3, 4, 5].map((element,idx)=> {
-                      return <div key = {idx} className="mt-[65px] flex flex-row items-center gap-6">
-                            <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
-                            <p>{ '0' + element}</p>
+              {heading === "Condition" && (
+                <div>
+                  {[1, 2, 3, 4, 5].map((element, idx) => {
+                    return (
+                      <div
+                        key={idx}
+                        className="mt-[65px] flex flex-row items-center gap-6"
+                      >
+                        <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
+                        <p>{"0" + element}</p>
                       </div>
-                    })
-                  }
-                </div> 
-              }
+                    );
+                  })}
+                </div>
+              )}
 
               <div className="mt-[65px]">
-              {
-                heading === "Price Range" && <div className="flex flex-col">
-                        <div className="flex flex-col ">
-                          <label htmlFor="" className="font-bold text-[14px] font-satoshi">Min Price</label>
-                          <input type="text" placeholder="00" className="w-[343px] h-[48px] border-[1px] rounded-[6px] outline-none pl-3 border-[#DDDDDD]"/>
-                        </div>
-                        <div className="flex flex-col mt-[32px]">
-                        <label htmlFor="" className="font-bold text-[14px] font-satoshi">Max Price</label>
-                          <input type="text" placeholder="00" className="w-[343px] h-[48px] border-[1px] rounded-[6px] outline-none pl-3 border-[#DDDDDD]"/>
-                        </div>
-                </div>
-              }
-
-</div>
-
-
-
-
+                {heading === "Price Range" && (
+                  <div className="flex flex-col">
+                    <div className="flex flex-col ">
+                      <label
+                        htmlFor=""
+                        className="font-bold text-[14px] font-satoshi"
+                      >
+                        Min Price
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="00"
+                        className="w-[343px] h-[48px] border-[1px] rounded-[6px] outline-none pl-3 border-[#DDDDDD]"
+                      />
+                    </div>
+                    <div className="flex flex-col mt-[32px]">
+                      <label
+                        htmlFor=""
+                        className="font-bold text-[14px] font-satoshi"
+                      >
+                        Max Price
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="00"
+                        className="w-[343px] h-[48px] border-[1px] rounded-[6px] outline-none pl-3 border-[#DDDDDD]"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
 
               <div className="flex flex-col mt-[65px] gap-12">
-              {
-                heading === "Brand" && ['Breitling','Officine Panerai','Omega','Rolex','Tudor','Other'].map((element,idx)=> {
-                  return <div key = {idx}>
-                  <div className=" flex flex-row items-center gap-6 ">
-                            <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
-                            <p>{element}</p>
+                {heading === "Brand" &&
+                  [
+                    "Breitling",
+                    "Officine Panerai",
+                    "Omega",
+                    "Rolex",
+                    "Tudor",
+                    "Other",
+                  ].map((element, idx) => {
+                    return (
+                      <div key={idx}>
+                        <div className=" flex flex-row items-center gap-6 ">
+                          <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
+                          <p>{element}</p>
+                        </div>
                       </div>
-                </div>
-                })
-              }
+                    );
+                  })}
               </div>
               <div className="flex flex-col gap-[48px]">
-              {
-                heading === "Closing Date" && ['05-Oct-2023','10-Oct-2023','21-Oct-2023','21-Oct-2023','10-Oct-2023'].map((element,idx)=> {
-                  return <div className="flex flex-row items-center gap-6">
-
-                    <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
-                    <p>{element}</p>
-                  </div> 
-                }) 
-              }
+                {heading === "Closing Date" &&
+                  [
+                    "05-Oct-2023",
+                    "10-Oct-2023",
+                    "21-Oct-2023",
+                    "21-Oct-2023",
+                    "10-Oct-2023",
+                  ].map((element, idx) => {
+                    return (
+                      <div key = {idx} className="flex flex-row items-center gap-6">
+                        <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
+                        <p>{element}</p>
+                      </div>
+                    );
+                  })}
               </div>
               <div className="flex flex-col gap-8">
-                {
-                  heading === 'Filters' && filters.map((element, idx) => {
+                {heading === "Filters" &&
+                  filters.map((element, idx) => {
                     return (
                       <>
-                    { heading === 'Filters' && <div
-                      key = {idx}
-                        className="flex flex-row justify-between cursor-pointer"
-                        onClick={() => {
-                          setHeading(element.name);
-                          // setSelectedFilter(idx);
-                        }}
-                      >
-                        <h1> {element.name}</h1>
+                        {heading === "Filters" && (
+                          <div
+                            key={idx}
+                            className="flex flex-row justify-between cursor-pointer"
+                            onClick={() => {
+                              setHeading(element.name);
+                              // setSelectedFilter(idx);
+                            }}
+                          >
+                            <h1> {element.name}</h1>
 
-                        <Image
-                          src="/Chevron_Right_MD.png"
-                          width={22}
-                          height={22}
-                          alt=""
-                        />
-                      </div>
-                      }
-                      {/* {
+                            <Image
+                              src="/Chevron_Right_MD.png"
+                              width={22}
+                              height={22}
+                              alt=""
+                            />
+                          </div>
+                        )}
+                        {/* {
                         heading === element.name && element.subArray ? element?.subArray.map((item,idx)=> {
                           console.log(item)
                           return <div key = {idx} className="text-black">{item}fadsfdas</div>
@@ -259,7 +285,6 @@ console.log(heading)
                   </div>
                 } */}
               </div>
-              
             </div>
             <div className="flex flex-col justify-center items-center gap-4 mb-8">
               <Button

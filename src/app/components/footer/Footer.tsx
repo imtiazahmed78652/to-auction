@@ -91,9 +91,9 @@ function Footer() {
     },
   ]
   return (
-    <div className='h-[626px] bg-[#343434] px-[128px] pt-[94px] flex flex-col justify-between'>
+    <div className='h-[626px] bg-[#343434] text-[#FFFFFF]  pt-[94px] flex flex-col justify-center font-sans items-center'>
     
-    <div className='w-full    flex flex-row  gap-[214px]'>
+    <div className='flex flex-row gap-[173px] w-[1440px] px-[128px]'>
       
       
         <div className='flex flex-col'>
@@ -124,22 +124,25 @@ function Footer() {
 
         </div>
 
-        <div className='flex flex-row gap-[190px]'>
+
+        <div className='flex flex-row gap-[72px]'>
+          
           <div className='flex flex-col'>
-            <h1 className='text-[#3AAE2A] text-[20px] font-bold leading-[20px]'>Product</h1>
+            <h1 className='text-green text-[20px] font-bold leading-[20px] font-sans'>Product</h1>
             
             <div className='flex flex-col gap-[25px] mt-[48px] text-white'>
               {
                product.map((element,idx)=> {
-                    return <p className='font-normal text-[18px] leading-[18px]' key = {idx}>{element.name}</p>
+                    return <p className='font-normal text-[18px] leading-[18px] ' key = {idx}>{element.name}</p>
                }) 
               }
             </div>
           </div>
 
 
+
           <div className='flex flex-col'>
-            <h1 className='text-[#3AAE2A] text-[20px] font-bold leading-[20px]'>Company</h1>
+            <h1 className='text-green text-[20px] font-bold leading-[20px] font-sans'>Company</h1>
             
             <div className='flex flex-col gap-[25px] mt-[48px] text-white'>
               {
@@ -152,7 +155,7 @@ function Footer() {
 
 
           <div className='flex flex-col'>
-            <h1 className='text-[#3AAE2A] text-[20px] font-bold leading-[20px]'>Support</h1>
+            <h1 className='text-green text-[20px] font-bold leading-[20px] font-sans'>Support</h1>
             
             <div className='flex flex-col gap-[25px] mt-[48px] text-white'>
               {
@@ -165,7 +168,7 @@ function Footer() {
 
 
           <div className='flex flex-col'>
-            <h1 className='text-[#3AAE2A] text-[20px] font-bold leading-[20px]'>Support</h1>
+            <h1 className='text-green text-[20px] font-bold leading-[20px] font-sans'>Support</h1>
             
             <div className='flex flex-col gap-[25px] mt-[48px] text-white'>
               {
@@ -181,10 +184,17 @@ function Footer() {
           
         </div>
         
+
+
+
+
     </div>
-    <div className='border-t-[1px] py-[40px] border-white flex flex-row items-center justify-center '>
+
+    <div className=' flex flex-row justify-center   mt-[162px] '>
+      <div className='w-[1184px] border-white border-t-[1px] py-[40px] flex flex-row items-center justify-center'>
           Copyright © 2023 TPAuction | All Rights Reserved
           </div>
+    </div>
     </div>
   )
 }

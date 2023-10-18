@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
     {
       name: "Favourites",
-      url: "/frequently_asked_questions",
+      url: "",
     },
     {
       name: "Categories",
@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
     {
       name: "FAQs",
-      url: "/faqs",
+      url: "/frequently_asked_questions",
     },
     {
       name: "Download Mobile App",

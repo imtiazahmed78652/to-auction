@@ -59,7 +59,7 @@ function Navbar() {
         <div className="flex flex-row items-end justify-end gap-[38px] w-[1440px] px-[128px]">
           {navData.map((element, idx) => {
             return (
-              <>
+              < >
                 {" "}
                 <div
                   className="flex flex-row items-center gap-2 py-[11px]"

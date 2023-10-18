@@ -24,7 +24,8 @@ function page() {
   return (
     <>
     <Navbar/>
-    <div className='px-[128px] mb-[196px]'>
+    <div className='px-[128px] mb-[196px] flex justify-center'>
+      <div className='w-[1440px] px-[128px]'>
         <div className='flex flex-col mt-16'>
         <h1 className={`${monumentum.className} font-normal text-[30px] leading-[25px]`}>Category</h1>
         <div className='flex flex-row items-center gap-[16px] mt-6'>
@@ -41,7 +42,7 @@ function page() {
           {
             data.map((element,idx)=> {
                 return <Link key={idx} href={`/productDetails/${element.text}`}>
-                <div className='relative transition-transform transform scale-100 hover:scale-95 duration-100 ease-in-out w-[581px] h-[702px] rounded-[12px] flex flex-row items-center gap-[16px]' style = {{backgroundImage:`url(${element.img})`}}>
+                <div className='relative transition-transform transform scale-100 hover:scale-95 duration-100 ease-in-out w-[379px] h-[608px] rounded-[12px] flex flex-row bg-cover items-center gap-[16px]' style = {{backgroundImage:`url(${element.img})`}}>
                 <div className='flex flex-row items-center gap-[16px] absolute bottom-5 left-[37px] text-white'>
                 <div className={` ${monumentum.className} hover:shadow-2xl shadow-white`}>{element.text}</div>
                 <Image src = '/Vector.png' width = {22.5} height = {12.5} alt = ''/>
@@ -52,6 +53,8 @@ function page() {
           }  
             
         </div>
+        </div>
+
         </div>
     <Footer/>
     </>

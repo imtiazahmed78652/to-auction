@@ -105,12 +105,11 @@ function Category() {
 
   //   const filterName = "Brand";
 
-  const filter = filters.find((filter) => filter.name === "Brand");
-  const subArray = filter?.subArray || [];
-  const mappedSubArray = subArray.map((item, index) => {
-    return <div key={index}>{item}</div>;
-  });
-
+  // const filter = filters.find((filter) => filter.name === "Brand");
+  // const subArray = filter?.subArray || [];
+  // const mappedSubArray = subArray.map((item, index) => {
+  //   return <div key={index}>{item}</div>;
+  // });
   console.log(heading);
 
   return (
@@ -260,30 +259,12 @@ function Category() {
                             />
                           </div>
                         )}
-                        {/* {
-                        heading === element.name && element.subArray ? element?.subArray.map((item,idx)=> {
-                          console.log(item)
-                          return <div key = {idx} className="text-black">{item}fadsfdas</div>
-                        }) : <></> 
-
-                      } */}
+                        
                       </>
                     );
                   })}
 
-                {/* {
-                 selectedFilter && <div className="flex flex-col gap-9">
-                    
-                    {filters
-                      .find((filter) => filter.name === selectedFilter)
-                      ?.subArray?.map((item, index) => (
-                        <div key={index} className="flex flex-row gap-[24px]">
-                          <div className="border-[1px] w-[24px] h-[24px] rounded-[4px]"></div>
-                          <p>{item}</p>
-                        </div>
-                      ))}
-                  </div>
-                } */}
+                
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-4 mb-8">

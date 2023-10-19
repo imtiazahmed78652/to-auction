@@ -24,21 +24,22 @@ function page() {
   return (
     <>
     <Navbar/>
-    <div className='px-[128px] mb-[196px] flex justify-center'>
+    <div className='px-[128px] mb-[166px] flex justify-center'>
       <div className='w-[1440px] px-[128px]'>
-        <div className='flex flex-col mt-16'>
-        <h1 className={`${monumentum.className} font-normal text-[30px] leading-[25px]`}>Category</h1>
-        <div className='flex flex-row items-center gap-[16px] mt-6'>
+        <div className='flex flex-col mt-8'>
+        
+        <div className='flex flex-row items-center gap-[16px] '>
             <h1 className='font-medium text-base leading-[18px] text-[#BCBCBC]'>Home</h1>
             <Image src = '/dropdown.png' width={10} height={10} alt = '' className='transform -rotate-90'/>
             <h1 className='font-medium text-base leading-[18px] text-[#BCBCBC]' >Categories</h1>
             <Image src = '/dropdown.png' width={10} height={10} alt = '' className='transform -rotate-90'/>
             <h1 className='font-medium text-base leading-[18px] text-[#BCBCBC]'>Jewellery</h1>
         </div>
+        <h1 className={` font-satoshi font-normal text-[24px] leading-[25px] mt-[48px]`}>Category</h1>
         </div>
 
 
-        <div className='mt-[75.39px] flex flex-row items-center gap-[24px] justify-center '>
+        <div className='mt-[64px] flex flex-row items-center gap-[24px] justify-center '>
           {
             data.map((element,idx)=> {
                 return <Link key={idx} href={`/productDetails/${element.text}`}>
@@ -56,7 +57,7 @@ function page() {
         </div>
 
         </div>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

@@ -120,6 +120,8 @@ function FeatureLots() {
           </div>
           <CurrentAuction />
           <CompletedAuctions />
+          
+          
           <div className="mt-[220px] flex flex-col justify-center items-center">
             <h1
               className={`${monumentum.className} text-[#686868] font-normal text-[24px] leading-[46px] `}

@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/AuctionEnding/AuctionEnding.jsx", "src/app/GlobalRedux/provider.js", "src/app/GlobalRedux/store.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/AuctionEnding/FeatureLots.jsx", "src/app/GlobalRedux/provider.js", "src/app/GlobalRedux/store.js", "src/app/components/AuctionEnding/AuctionEndingData.js"],
   "exclude": ["node_modules"]
 }

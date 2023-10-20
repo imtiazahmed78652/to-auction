@@ -23,22 +23,23 @@ function AboutUs() {
   return (
     <div className='mt-[141px]'>
 <div className='flex flex-col items-center justify-center'>
-        <h1 className={`${monumentum.className} text-[#686868] font-normal text-4xl leading-[46px] text-[#686868]"`}>
+        <h1 className={`font-satoshi text-[#686868] font-normal text-[20px] leading-[46px] text-[#686868]"`}>
           About Us
         </h1>
         <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-8"></div>
         </div>
-    <div className='flex flex-row items-center justify-center bg-blue-100 mt-[66px] '>
+    <div className='flex flex-row items-center justify-center bg-[#E3F1EA] py-[81px]  mt-[48px] '>
         
         
-    <div className='px-[128px] w-full py-[98px] '>
-        <div className='w-[100%] flex flex-row items-center justify-center h-[606px] bg-cover  ' style = {{backgroundImage:'url(/Rectangle-5413555.png)'}}>
+    <div className='px-[128px] w-[1440px] flex justify-center flex-row'>
+        
+        <div className='w-[100%] flex flex-row items-center justify-center h-[606px] bg-cover rounded-[16px]  ' style = {{backgroundImage:'url(/Rectangle-5413555.png)'}}>
             <div className='w-[128px] cursor-pointer h-[128px] rounded-full bg-white flex flex-row items-center justify-center '>
                 <Image src = "/Play.png" width = {56} height = {56} alt = "Play Button"/>
             </div>
+        
+
         </div>
-
-
     </div>
     </div>
     </div>

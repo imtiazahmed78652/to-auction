@@ -34,9 +34,10 @@ const categories = [
     },
     
 ]
+
   return (
     <div className='mt-[315px] flex flex-col items-center justify-center overflow-hidden'>
-        <h1 className={`font-normal text-[36px] leading-[46px] text-[#686868] ${monumentum.className}`}>Popular Categories</h1>
+        <h1 className={`font-normal text-[20px] leading-[46px] text-[#686868] font-satoshi`}>Popular Categories</h1>
         <div className='w-[286px] h-[4px] bg-[#3AAE2A] mt-[32px]'></div>
         <div className='mt-[64px] w-full'>
         <Swiper

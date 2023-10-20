@@ -59,11 +59,10 @@ function Navbar() {
         <div className="flex flex-row items-end justify-end gap-[38px] w-[1440px] px-[128px]">
           {navData.map((element, idx) => {
             return (
-              <>
-                {" "}
+              <div key={idx}>
                 <div
                   className="flex flex-row items-center gap-2 py-[11px]"
-                  key={idx}
+                  
                   onClick={() =>
                     index === idx ? setIndex(null) : setIndex(idx)
                   }
@@ -83,7 +82,7 @@ function Navbar() {
                   <div className="absolute right-0 top-0 h-[100vh] bg-white flex flex-col  text-black w-[484px] px-[25px] py-[36px] text-center  z-40">
                     <div className="flex flex-row items-center justify-between">
                       <div
-                        className="w-[20px] h-[20px]"
+                        className="w-[20px] cursor-pointer h-[20px]"
                         onClick={() => setIndex(null)}
                       >
                         <Image
@@ -102,30 +101,31 @@ function Navbar() {
                     <div className="flex flex-col justify-between h-screen  mt-[67px]">
                       <div className="flex flex-col gap-9">
                         {element.elements?.map((item, idx) => {
-                          // const isLastElement = idx === element.elements.length - 1;
+                          
                           return (
                             <div
                               key={idx}
-                              className={` border-[#DDDDDD] flex flex-row items-center gap-6 }`}
+                              className={`border-[#DDDDDD] flex flex-row items-center gap-6 }`}
                             >
                               <div
-                                className={`w-[24px] h-[24px] border-[1px] flex flex-row items-center justify-center rounded-full ${
+                                className={`w-[24px] cursor-pointer h-[24px] border-[1px] flex flex-row items-center justify-center rounded-full ${
                                   color === idx
                                     ? "border-green"
                                     : "border-[#4D4D4D]"
                                 }`}
-                                // onClick={() => setColor(idx)}
+                                onClick={() => setColor(idx)}
                               >
                                 {color === idx && (
                                   <div className="w-2 h-2 rounded-full bg-green"></div>
                                 )}
                               </div>
                               <div
-                                className={`font-semibold text-base leading-[18px] ${
+                                className={`font-semibold cursor-pointer text-base leading-[18px] ${
                                   color === idx
                                     ? "text-green"
                                     : "text-[#4D4D4D]"
                                 }`}
+                                onClick={()=> setColor(idx)}
                               >
                                 {item}
                               </div>
@@ -139,7 +139,7 @@ function Navbar() {
                     </div>
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
         </div>

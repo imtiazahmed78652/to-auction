@@ -6,7 +6,7 @@ import SelectPaymentMethod from "./SelectPaymentMethod";
 import EnterCardDetails from "./EnterCardDetails";
 import CreditCardAuthorization from "./CreditCardAuthorization";
 import FloatingInput from "../components/input/Input";
-import { monumentum } from "../layout";
+import { monumentum, satoshiVariable } from "../layout";
 import Button from "../components/Button/Button";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../hooks";
@@ -54,7 +54,6 @@ const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     if (!email) {
       setEmailErr('Email is required');
-      
       return false;
     }
     if(email) {
@@ -66,6 +65,8 @@ const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     }
     return true;
   };
+
+
   function validatePassword(password:string) {
     // At least 8 characters
     if (password.length < 8) {
@@ -107,50 +108,72 @@ const LoginSignup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
 
 
   const inputValue = useAppSelector((state: RootState) => state.input.inputValue);
-  // const email = useAppSelector((state:RootState)=> state.input.email);
-  // const password= useAppSelector((state:RootState)=> state.input.password)
-  // const fullName = useAppSelector((state:RootState)=> state.input.fullName);
-  // const confirmPassword= useAppSelector((state:RootState)=> state.input.confirmPassword);
   const {email,password,fullName,confirmPassword}= useAppSelector((state:RootState)=> state.input);
-
+  console.log(email);
   
-  const handleLogin = (e:any) => {
+ const handleLogin = (e:any) => {
   e.preventDefault();
-  if(validateEmail(email) && validatePassword(password)) {
-  dispatch(setFormData({email,password,})) 
-  dispatch(resetForm());
-  }
+ if(!validateEmail(email)){
+  return;
+ }
+ if(!validatePassword(password)){
+  return;
+ }
+ dispatch(setEmail(email));
+  dispatch(setPassword(password));
+  onClose();
 }
 
 
-  const handleCreateAccount = (e:React.FormEvent) => {
-    e.preventDefault();
-    if(!email) {
-      setEmailErr('Email is required')
-      return false;
-    }
-    if(!password) {
-      setPasswordErr('Password is required');
-      return false;
-    }
-    if(!fullName){
-      setFullNameErr('Full name is required');
-      return false;
-    }
-    if(!confirmPassword){
-      setConfirmPasswordErr('Confirm Password is required');
-      return false;
-    }
 
+
+
+const handleCreateAccount = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // Reset any existing error messages
+  setFullNameErr('');
+  setEmailErr('');
+  setPasswordErr('');
+  setConfirmPasswordErr('');
+
+  let isValid = true; // Flag to track overall validation status
+
+  if (!fullName) {
+    setFullNameErr('Full name is required');
+    isValid = false;
+  }
+
+  if (!validateEmail(email)) {
+    // setEmailErr('Invalid email');
+    isValid = false;
+  }
+
+  const passwordValidationResult = validatePassword(password);
+  if (validatePassword(password)) {
+    // setPasswordErr(passwordValidationResult);
+    isValid = false;
+  }
+
+  if (password !== confirmPassword) {
+    setPasswordErr('Passwords do not match');
+    setConfirmPasswordErr('Passwords do not match');
+    isValid = false;
+  }
+
+  if (isValid) {
+    // All validations passed, dispatch the data and update heading text
     dispatch(setEmail(email));
     dispatch(setPassword(password));
     dispatch(setFullName(fullName));
     dispatch(setConfirmPassword(confirmPassword));
     dispatch(updateHeadingText('Enter Mobile Number'));
   }
+};
 
 
-// console.log(fullName)
+
+
 const handleInputChange = (value: string,name:string) => {
   if(name === 'Password'){
     dispatch(setPassword(value))
@@ -164,14 +187,12 @@ const handleInputChange = (value: string,name:string) => {
   }
   if(name === 'confirmPassword') {
     dispatch(setConfirmPassword(value))
-  }
-  
-  
+  }  
 };
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center z-50 ${
+      className={`fixed inset-0 ${satoshiVariable.className} flex items-center justify-center z-50 ${
         isOpen ? "" : "hidden"
       }`}
     >
@@ -180,7 +201,7 @@ const handleInputChange = (value: string,name:string) => {
           <div className="h-[61px] w-full  px-[26.19px] py-[25px] flex flex-row items-center justify-between">
             <div></div>
             <div
-              className={`${monumentum.className} font-normal text-lg leading-[18px] text-[#9C9C9C]`}
+              className={`${satoshiVariable.className} font-normal text-base leading-[18px] text-satoshi-dark `}
             >
               {paginationText}
             </div>
@@ -195,7 +216,7 @@ const handleInputChange = (value: string,name:string) => {
           )}
 
           {paginationText === "Select Interest" && (
-            <SelectInterest headingText={headingText} onNext={nextModal} />
+            <SelectInterest  />
           )}
           {paginationText === "Choose Payment Method" && (
             <SelectPaymentMethod headingText={headingText} onNext={nextModal} />
@@ -216,20 +237,20 @@ const handleInputChange = (value: string,name:string) => {
               <div className="flex flex-row items-center w-[400px] border-b-[1px]">
                 
                 <button
-                  className={`w-[200px] h-[50px] hover:bg-green hover:bg-opacity-[15%] hover:border-b-[3px] border-green cursor-pointer ${
+                  className={`w-[200px] h-[50px] ${satoshiVariable.className} text-sm font-medium  leading-[18px] hover:bg-green hover:bg-opacity-[15%] hover:border-b-[3px] border-green cursor-pointer ${
                     headingText === "Login"
-                      ? "bg-green bg-opacity-[15%] border-b-[3px] border-green"
-                      : ""
+                      ? "bg-green bg-opacity-[15%] border-b-[3px] border-green text-green"
+                      : "text-dark-border"
                   }`}
                   onClick={() => {setHeadingText("Login");dispatch(updateHeadingText('Login'));}}
                 >
                   Login
                 </button>
                 <button
-                  className={`w-[200px] h-[50px] hover:bg-green hover:bg-opacity-[15%] hover:border-b-[3px] border-green cursor-pointer ${
+                  className={`w-[200px] h-[50px] ${satoshiVariable.className} text-sm font-medium  leading-[18px] hover:bg-green hover:bg-opacity-[15%] hover:border-b-[3px] border-green cursor-pointer ${
                     headingText === "Register an Account"
-                      ? "bg-green bg-opacity-[15%] border-b-[3px] border-green"
-                      : ""
+                      ? "bg-green bg-opacity-[15%] border-b-[3px] border-green text-green"
+                      : "text-dark-border"
                   }`}
                   onClick={() => {setHeadingText("Register an Account");dispatch(updateHeadingText('Register an Account'))}}
                 >
@@ -250,7 +271,7 @@ const handleInputChange = (value: string,name:string) => {
                     label="Full Name"
                     type = 'text'
                     value= {fullName}
-                    className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-[100%] h-[46px]"
+                    className="outline-none bg-transparent border-light-border text-light w-[350px] rounded-[6px] pl-[24px]   h-[46px]"
                     onChange={(value)=> handleInputChange(value,'fullName')}
                   />
 
@@ -269,7 +290,7 @@ const handleInputChange = (value: string,name:string) => {
                     <FloatingInput
                       label="Email"
                       type = 'email'
-                      className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-full h-[46px]"
+                      className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-[350px] h-[46px]"
                      value={email}
                       onChange={(value)=> handleInputChange(value,'Email')}
                     />
@@ -284,7 +305,7 @@ const handleInputChange = (value: string,name:string) => {
                       value = {password}
                       type = 'password'
                       onChange={(value)=> handleInputChange(value,'Password')}
-                      className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-full h-[46px]"
+                      className="outline-none bg-transparent border-light-border text-light w-[350px] rounded-[6px] pl-[24px] h-[46px]"
                     />
                     <Image alt="" src="/Lock.svg" width={18} height={14} />
                   </div>
@@ -302,7 +323,7 @@ const handleInputChange = (value: string,name:string) => {
                     type = 'password'
                     value = {confirmPassword}
                     onChange={(value)=> handleInputChange(value,'confirmPassword')}
-                    className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-full h-[46px]"
+                    className="outline-none bg-transparent border-light-border w-[350px] text-light rounded-[6px] pl-[24px] h-[46px]"
                   />
                   <Image alt="" src="/Lock.svg" width={18} height={14} />
                 </div>

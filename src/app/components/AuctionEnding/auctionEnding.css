@@ -1,50 +1,35 @@
-/* .swiper-button-prev,
-.swiper-button-next {
-  display: none;
-} */
+.react-multiple-carousel__arrow{
+    background-color: white !important;
+    border: 1px solid #3AAE2A80 !important;
+    opacity: 50%;
+    width: 50px!important;
+    height: 50px!important;
+    
+} 
+
+.react-multiple-carousel__arrow--right{
+    right: calc(13% + 1px)!important;
+    background-image: url('/Group 39570.png')!important;
+    background-repeat: no-repeat!important;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    background-position: center!important;
+}
 
 
-.swiper-button-next::after{
-    /* background-color: black; */
-    content: '';
-    border: 1.5px solid #3AAE2A;
-    border-radius: 100%;
-    background-image: url("/Group 39570.png");
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    /* padding: 10px;    */
-    width: 48px;
-    height: 48px;
+.react-multiple-carousel__arrow--left{
+    /* background-color: red!important; */
+    background-image: url('/Group 395701.png')!important;
+    background-repeat: no-repeat!important;
+    background-position: center!important;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    right: 100px!important;
+    left: calc(13% + 1px)!important;
 }
 
-.swiper{
-    width: 100vw;
+
+.react-multi-carousel-list{
+    position: static!important;
 }
-.swiper-wrapper {
-    width: 100%;
-}
-.swiper-button-prev::after{
-    
-    content: '';
-    /* padding: 20px; */
-    border: 1.5px solid #3AAE2A;
-    border-radius: 100%;
-    background-image: url("/Group 395701.png");
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    /* padding: 10px; */
-    width: 48px;
-    height: 48px;
-    
-    
-}
-.swiper-pagination-bullet{
-    background-color: black;
-    width: 42px;
-    height: 3px;
-    margin-top: 106px;
-    border-radius: 0px;
-    
+.react-multi-carousel-item{
+    width: 273!important;
 }

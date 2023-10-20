@@ -1,8 +1,24 @@
-'use client'
+"use client";
+import { createContext, useState, useContext } from "react";
 
 import { Provider } from "react-redux";
 import { store } from "./store";
 
+export const HeadingTextContext = createContext(null);
 export function Providers({ children }) {
-  return <Provider store={store}>{children}</Provider>;
+  const [myHeadingText, setMyHeadingText] = useState("Login");
+  return (
+    
+      <Provider store={store}>
+    <HeadingTextContext.Provider
+      value={{
+        myHeadingText,
+        setMyHeadingText,
+      }}
+    ></HeadingTextContext.Provider>    
+        {children}
+      
+      </Provider>
+    
+  );
 }

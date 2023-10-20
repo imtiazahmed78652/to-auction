@@ -1,6 +1,6 @@
 'use client'
-import React from 'react'
-import { Pagination } from 'swiper/modules';
+import React,{useContext} from 'react'
+// import { Pagination } from 'swiper/modules';
 import Paginations from './Paginations';
 import FloatingInput from '../components/input/Input';
 import Button from '../components/Button/Button';
@@ -9,12 +9,11 @@ import { useDispatch } from 'react-redux';
 import { updateHeadingText } from '../GlobalRedux/Features/counterSlice';
 import { setCardHolderName, setCardNumber,setCardDate, setCvv } from '../GlobalRedux/Features/cardDetailsSlice';
 import { resetForm } from '../GlobalRedux/Features/inputSlice';
-
+import { MYPagination } from '../ContextApi/contextProvide';
 
 const EnterCardDetails: React.FC<{
-    headingText: string;
-    onNext: (text:string) => void;
-  }> = ({ headingText, onNext }) => {
+    
+  }> = ({ }) => {
 
     const [dates,setDates] = React.useState('Expiry Date')
     const [cardHolderNameErr,setCardHolderNameErr] = React.useState('');
@@ -22,29 +21,23 @@ const EnterCardDetails: React.FC<{
     const [selectExpiryDateErr,setSelectExpiryDateErr] = React.useState('');
     const [cvvErr,setCvvErr] = React.useState('')
     const paginationText = useAppSelector((state)=> state.counter.pagination);
-
+    const {myHeadingText,setMyHeadingText} = useContext(MYPagination);
     const {cardHolderName,cardNumber,cvv,expiryDate} = useAppSelector((state)=> state.cardDetails);
-    console.log(cardHolderName,'Card Holder Name');
-    console.log(cardNumber,'Card Number');
-    console.log(cvv,'CVV');
-    console.log(expiryDate,'Expiry Date');
-
+    const {fullName} = useAppSelector((state)=> state.input);
+    console.log(fullName,'full name inside enter card details');
+    
 
     const dispatch = useDispatch();
     const handleCardDetails = () => {
-      // Reset any existing error messages
       setCardHolderNameErr('');
       setCardNumberErr('');
       setSelectExpiryDateErr('');
       setCvvErr('');
-    
-      let isValid = true; // Flag to track overall validation status
-    
+      let isValid = true; 
       if (!cardHolderName) {
         setCardHolderNameErr('Enter card holder name');
         isValid = false;
       }
-    
       if (!cardNumber) {
         setCardNumberErr('Enter your card number');
         isValid = false;
@@ -58,7 +51,6 @@ const EnterCardDetails: React.FC<{
           dispatch(setCardNumber(numberValue));
         }
       }
-    
       if (!expiryDate) {
         setSelectExpiryDateErr('Select expiry date');
         isValid = false;
@@ -79,11 +71,8 @@ const EnterCardDetails: React.FC<{
           dispatch(setCvv(numberValue));
         }
       }
-    
       if (isValid) {
-        // All validations passed, you can continue with your logic here
-        // For example: 
-        dispatch(updateHeadingText('Credit Card Authorization')), dispatch(resetForm());
+        setMyHeadingText('Credit Card Authorization')        
       }
     };
     
@@ -105,9 +94,6 @@ const EnterCardDetails: React.FC<{
         const numberValue = Number(stringValue);
         dispatch(setCvv(numberValue));
       }
-      
-      
-      
     };
   return (
     <div className='flex flex-col items-center justify-center mt-[50px]'>

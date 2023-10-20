@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React,{useContext} from "react";
 import { Pagination } from "swiper/modules";
 import Paginations from "./Paginations";
 import Image from "next/image";
@@ -11,12 +11,18 @@ import {
   addInterest,
   removeInterest,
 } from "../GlobalRedux/Features/interestSlice";
+import { MYPagination } from "../ContextApi/contextProvide";
 
 const SelectInterest = () => {
   const [interest, setInterest] = React.useState<string[]>([]);
   const dispatch = useDispatch();
   const interestState = useAppSelector((state) => state.interest.interest);
-  console.log(interestState, "interestState");
+  const fullName = useAppSelector((state) => state.input.fullName);
+  console.log(fullName,'full name inside select interest');
+  
+  
+  const {myHeadingText,setMyHeadingText} = useContext(MYPagination)
+
   const data = [
     {
       img: "/hand-bag.png",
@@ -37,6 +43,7 @@ const SelectInterest = () => {
       return false;
     } else {
       dispatch(updateHeadingText("Choose Payment Method"));
+      setMyHeadingText('Choose Payment Method')
     }
   };
 

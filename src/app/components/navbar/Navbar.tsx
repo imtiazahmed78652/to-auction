@@ -59,11 +59,10 @@ function Navbar() {
         <div className="flex flex-row items-end justify-end gap-[38px] w-[1440px] px-[128px]">
           {navData.map((element, idx) => {
             return (
-              < >
-                {" "}
+              <div key={idx}>
                 <div
                   className="flex flex-row items-center gap-2 py-[11px]"
-                  key={idx}
+                  
                   onClick={() =>
                     index === idx ? setIndex(null) : setIndex(idx)
                   }
@@ -102,11 +101,11 @@ function Navbar() {
                     <div className="flex flex-col justify-between h-screen  mt-[67px]">
                       <div className="flex flex-col gap-9">
                         {element.elements?.map((item, idx) => {
-                          // const isLastElement = idx === element.elements.length - 1;
+                          
                           return (
                             <div
                               key={idx}
-                              className={` border-[#DDDDDD] flex flex-row items-center gap-6 }`}
+                              className={`border-[#DDDDDD] flex flex-row items-center gap-6 }`}
                             >
                               <div
                                 className={`w-[24px] cursor-pointer h-[24px] border-[1px] flex flex-row items-center justify-center rounded-full ${
@@ -140,7 +139,7 @@ function Navbar() {
                     </div>
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
         </div>

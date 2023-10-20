@@ -4,14 +4,16 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 
 import { manrope, monumentum } from "../layout";
-import useRouter from "next/router";
+import {useRouter} from "next/router";
 // import { Image } from 'next/image'
 import Image from "next/image";
 import Button from "../components/Button/Button";
 
+
 function ProductDetails() {
-  // const router = useRouter();
-  // console.log(router)
+  
+
+  
   const data = [
     {
       name: "Year",
@@ -116,7 +118,7 @@ function ProductDetails() {
     "/logo-four.png",
     // '/logo-five.png'
   ];
-
+  
   return (
     <>
       <Navbar />

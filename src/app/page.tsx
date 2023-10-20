@@ -13,8 +13,10 @@ import GetInTouch from './components/GetInTouch/GetInTouch'
 import Faqs from './frequently_asked_questions/page'
 import Subscribe from './components/Subscribe/Subscribe'
 import OurApp from './components/OurApp/OurApp'
-import FeatureLots from './components/AuctionEnding/AuctionEnding'
+import FeatureLots from './components/AuctionEnding/FeatureLots'
 import UpComingAuctions from './UpComingAuctions/UpComingAuctions'
+import CompletedAuctions from './components/CompletedAuctions/CompletedAuctions'
+import HowItWorks from './components/HowItWorks/HowItWorks'
 export default function Home() {
   return (
     <main className="w-full flex flex-col justify-center  bg-white ">
@@ -23,16 +25,13 @@ export default function Home() {
       <Hero/>
       <CurrentAuction/>
       <FeatureLots/>
-      {/* <AuctionEnding/> */}
-      {/* <UpComingAuctions/> */}
-
+      <UpComingAuctions/>
+      <CompletedAuctions/>
+      <HowItWorks/>
       <AboutUs/>
       <PopularCategories/>
       <WhatOurClientSays/>
-      {/* <OurApp/> */}
       <OurApp/>
-      {/* <GetInTouch/> */}
-      {/* <Faqs/> */}
       <Subscribe/>
       <Footer/>
       </div>

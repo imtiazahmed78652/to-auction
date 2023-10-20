@@ -6,7 +6,7 @@ function CompletedAuctions() {
     <div className=" mt-[180px] flex flex-col items-center justify-center">
     <div className="w-[1440px] flex flex-col items-center justify-center px-[128px]">
       <h1
-        className={`font-normal text-[24px] leading-[46px] text-[#686868] ${monumentum.className}`}
+        className={`font-normal text-[24px] leading-[46px] text-[#686868] font-satoshi`}
       >
         Completed Auctions
       </h1>

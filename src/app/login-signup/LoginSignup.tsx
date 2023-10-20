@@ -216,7 +216,7 @@ const handleInputChange = (value: string,name:string) => {
           )}
 
           {paginationText === "Select Interest" && (
-            <SelectInterest headingText={headingText} onNext={nextModal} />
+            <SelectInterest  />
           )}
           {paginationText === "Choose Payment Method" && (
             <SelectPaymentMethod headingText={headingText} onNext={nextModal} />

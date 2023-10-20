@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer'
 import localFont from '@next/font/local';
 import {Providers} from './GlobalRedux/provider'
 import { store } from './GlobalRedux/store'
+import ContextProvider from './ContextApi/contextProvide'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -48,7 +49,9 @@ export default function RootLayout({
       {/* <Navbar/> */}
       <body className={`${inter.className}`}>
    <Providers>
+    <ContextProvider>
    {children}
+   </ContextProvider>
     </Providers>        
         </body>
       {/* <Footer/> */}

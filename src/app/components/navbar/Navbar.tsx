@@ -1,24 +1,29 @@
 "use client";
+
 import LoginSignup from "@/app/login-signup/LoginSignup";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import SearchInput from "../Search/SearchInput";
-// import '../../src/app/globals.css'
+import { useAppSelector } from "@/app/hooks";
+import { HandleModal,MYPagination } from "@/app/ContextApi/contextProvide";
+
 
 function Navbar() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const [index, setIndex] = useState<number | null>(null);
   const [isSearchInputOpen, setIsSearchInputOpen] = useState(false);
   const [color, setColor] = useState<number | null>(null);
+  const {isModalOpen,setIsModalOpen} = useContext(HandleModal);
+  const {myHeadingText,setMyHeadingText} = useContext(MYPagination);
+  const fullName = useAppSelector((state)=> state.input.fullName)
+  // console.log(fullName,'Full Name');
+
   const handleButtonClick = () => {
     setIsSearchInputOpen(!isSearchInputOpen);
   };
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSidebarToggle = () => {
@@ -185,18 +190,20 @@ function Navbar() {
             <div className="text-white font-normal text-xs leading-[18px] hover:text-green cursor-pointer">
               BUY WITH US
             </div>
-            <button
-              className="bg-green w-[128px] h-[50px] rounded-[4px] hover:bg-transparent hover:border-[1px] hover:border-green hover:text-green "
-              onClick={toggleModal}
-            >
-              Login
-            </button>
+           {
+                myHeadingText === 'Payment Verified' ? <div>{fullName}</div> : <button
+                className="bg-green w-[128px] h-[50px] rounded-[4px] hover:bg-transparent hover:border-[1px] hover:border-green hover:text-green "
+                onClick={()=> setIsModalOpen(true)}
+              >
+                Login
+              </button>
+           } 
           </div>
         </div>
       </div>
 
       {isModalOpen && (
-        <LoginSignup isOpen={isModalOpen} onClose={toggleModal} />
+        <LoginSignup  />
       )}
 
       <Sidebar isOpen={isSidebarOpen} onClose={handleCloseSidebar} />

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import React from "react";
-import { Pagination } from "swiper/modules";
+import React,{useContext} from "react";
+
 import Paginations from "./Paginations";
 import Button from "../components/Button/Button";
 import { useDispatch, useSelector } from "react-redux/es/exports";
@@ -10,17 +10,23 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./mobileNumber.css";
 import { getPhoneNumber } from "../GlobalRedux/Features/phoneNumberSlice";
+import { MYPagination } from "../ContextApi/contextProvide";
 
 type Props = {
-  headingText: string;
-  onNext: (text: string) => void;
+  
 };
-const EnterMobileNumber: React.FC<Props> = ({ headingText, onNext }) => {
+
+
+const EnterMobileNumber: React.FC<Props> = () => {
   const [phoneError, setPhoneError] = React.useState('');
   const pagination = useAppSelector((state) => state.counter.pagination);
   const phoneNumber = useAppSelector((state) => state.phone.phoneNumber);
+  
+
   const {email,fullName,password,confirmPassword} = useAppSelector((state) => state.input);
+  console.log('full Name from Enter your mobile number', fullName);
   const dispatch = useDispatch();
+  const {myHeadingText,setMyHeadingText} = useContext(MYPagination);
   const handlePhoneNumber = () => {
     if(phoneNumber === '') {
       setPhoneError('Please enter your phone number')
@@ -29,7 +35,7 @@ const EnterMobileNumber: React.FC<Props> = ({ headingText, onNext }) => {
     }
 
     dispatch(getPhoneNumber(phoneNumber));
-    dispatch(updateHeadingText("Select Interest"));
+    setMyHeadingText('Select Interest');
   } 
   
 

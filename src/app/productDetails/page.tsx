@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 // import { Image } from 'next/image'
 import Image from "next/image";
 import Button from "../components/Button/Button";
+import dropDownNoti from '.././assets/dropDownNoti.png'
 
 
 function ProductDetails() {
@@ -110,7 +111,29 @@ function ProductDetails() {
       price: "$95",
     },
   ];
-
+  const conditionScore = [
+    {
+      number:1,
+      color:'#283926',
+    },
+    {
+      number:2,
+      color:'#2D5627',
+    },
+    {
+      number:3,
+      color:'#317428',
+    },
+    {
+      number:4,
+      color:'#317428',
+    },
+    {
+      number:5,
+      color:'#BFBFBF',
+    }
+    
+  ]
   const logos = [
     "/logo-one.png",
     "/logo-two.png",
@@ -126,7 +149,7 @@ function ProductDetails() {
         <div className="w-[1440px] px-[128px]">
           <div className="py-[22px] flex flex-row items-center justify-between border-b-[1px] border-[#C9C9C9]">
             <div className="flex flex-row items-center gap-[65px]">
-              <div className="flex flex-row items-center gap-4">
+              {/* <div className="flex flex-row items-center gap-4">
                 <Image
                   src="/arrow-back.png"
                   alt=""
@@ -136,7 +159,7 @@ function ProductDetails() {
                 <div className="font-satoshi text-sm leading-[25px] text-dark-text-two">
                   Previous Lot
                 </div>
-              </div>
+              </div> */}
               <div className="flex flex-row items-center gap-12">
                 <div className="flex flex-col ">
                   <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
@@ -167,35 +190,8 @@ function ProductDetails() {
 
             <div className="flex flex-row items-center gap-[32.73px]">
               <div className="flex flex-row items-center gap-6">
-                <div className="w-[143.22px] h-[48px] gap-2 flex flex-row items-center justify-center border-[1px] border-[#707070] rounded-[4px] ">
-                  <Image src="/cart.png" alt="" width={14.22} height={16} />
-                  <h1 className="font-medium text-xs text-two-text leading-[18px]">
-                    Add to Calendar
-                  </h1>
-                </div>
-                <div className="w-[143.22px] h-[48px] gap-2 flex flex-row items-center justify-center border-[1px] border-[#707070] rounded-[4px] ">
-                  <Image
-                    src="/like-heart.png"
-                    alt=""
-                    width={18.05}
-                    height={16}
-                  />
-                  <h1 className="font-medium text-xs text-two-text leading-[18px]">
-                    Add to Calendar
-                  </h1>
-                </div>
-              </div>
-
-              <div className="flex flex-row items-center gap-4">
-                <p className="font-satoshi text-sm leading-[25px] text-dark-text-two">
-                  Next lot
-                </p>
-                <Image
-                  src="/right-arrow.png"
-                  width={22.5}
-                  height={12.5}
-                  alt=""
-                />
+                <button className="w-[177px] h-[48px] rounded-[4px] bg-[#F2F2F2] font-bold text-[14px] leading-[18px] text-[#6D6D6D] flex flex-row items-center justify-center gap-[16px]">Set Max Bid <Image src = {dropDownNoti} width={16} height={12} alt=""/> </button>
+                <button className="bg-green w-[177px] h-[48px] rounded-[4px] text-white font-bold text-[14px] leading-[18px]">Place Bid</button>
               </div>
             </div>
           </div>
@@ -311,8 +307,32 @@ function ProductDetails() {
             </div>
 
             <div className="w-[479px] font-normal text-[30px] leading-[25px]">
+              <div className="mt-[48px] flex flex-row justify-between">
+                      <div className="flex flex-row items-center gap-4">
+                <Image
+                  src="/arrow-back.png"
+                  alt=""
+                  width={22.5}
+                  height={12.5}
+                />
+                <div className="font-satoshi text-sm leading-[25px] text-dark-text-two">
+                  Previous Lot
+                </div>
+              </div>
+               <div className="flex flex-row items-center gap-4">
+                <p className="font-satoshi text-sm leading-[25px] text-dark-text-two">
+                  Next lot
+                </p>
+                <Image
+                  src="/right-arrow.png"
+                  width={22.5}
+                  height={12.5}
+                  alt=""
+                />
+              </div>
+              </div>
               <h1
-                className={` font-satoshi mt-[96px] font-normal  text-3xl leading-[25px]'`}
+                className={` font-satoshi  mt-[33px] font-normal  text-3xl leading-[25px]'`}
               >
                 Centrix Automate Open Heart
               </h1>
@@ -320,23 +340,9 @@ function ProductDetails() {
                 Product ID: <span className="text-[#878787]">116519</span>
               </p>
               <div className="mt-[34px] w-full border-[1px] border-[#D9D9D9] px-[47px] py-[40px]">
-                <input
-                  type="text"
-                  className="px-[27px] w-[383px] h-[60px] rounded-[4px] bg-[#E7E7E7] outline-none text-base font-medium leading-[18px] "
-                  placeholder="$200"
-                />
-                <div className="mt-6 flex flex-row items-center justify-between">
-                  {/* <button className='bg-[#3AAE2A]  hover:bg-[#345d2f] '>Place Bid</button> */}
-                  <Button
-                    btnText="Place Bid"
-                    className="w-[183px] h-[60px] hover:shadow-xl rounded-[4px] font-semibold text-xl text-white leading-[18px]"
-                  />
-
-                  <button className="w-[183px] h-[60px] rounded-[4px] border-[1px] border-[#E7E7E7] font-semibold text-[20px] text-[#AAAAAA] hover:text-dark-border leading-[18px]">
-                    Set Max Bid
-                  </button>
-                </div>
-                <div className="flex flex-row items-end gap-[42px] mt-[91px]">
+                
+                
+                <div className="flex flex-col items-start ">
                   <div className="flex flex-col">
                     <h1 className="font-medium text-[14px] leading-[18px] text-green">
                       Condition Score:
@@ -349,17 +355,16 @@ function ProductDetails() {
                       </span>
                     </div>
                   </div>
-                  <div className="w-[234px] h-[124px]">
-                    <Image
-                      src="/Group 39730.png"
-                      width={234}
-                      height={124}
-                      alt=""
-                    />
+                  <div className="py-[37px] flex flex-row items-center gap-[1px] overflow-hidden">
+                    {
+                      conditionScore.map((element,idx)=> {
+                        return <div className={`w-[83px] h-[32px] flex flex-row items-center justify-center text-white font-bold text-[16px] leading-[25px] bg-${element.color}`} style={{ backgroundColor: element.color }}>{element.number}</div>
+                      })
+                    }
                   </div>
                 </div>
 
-                <div className="mt-[45px] pt-[30px] border-t-[1px] border-[#D9D9D9]">
+                <div className="pt-[30px] border-t-[1px] border-[#D9D9D9]">
                   <div className="flex flex-row items-center  gap-[35px]">
                     {logos.map((element, idx) => {
                       return (

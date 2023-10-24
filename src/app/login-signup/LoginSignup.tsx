@@ -8,26 +8,13 @@ import CreditCardAuthorization from "./CreditCardAuthorization";
 import FloatingInput from "../components/input/Input";
 import { monumentum, satoshiVariable } from "../layout";
 import Button from "../components/Button/Button";
-import { useDispatch } from "react-redux";
-import { useAppSelector } from "../hooks";
-import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
 import InputField from "../components/InputField/InputField";
-import { RootState } from "../GlobalRedux/store";
-import {
-  // setEmail,
-  setInputValue,
-  // setPassword,
-  setFormData,
-  resetForm,
-  // setFullName,
-  // setConfirmPassword,
-} from "../GlobalRedux/Features/inputSlice";
-import { HeadingTextContext } from "../GlobalRedux/provider";
 import {
   MYPagination,
   HandleModal,
   UserAuth,
 } from "../ContextApi/contextProvide";
+import PaymentVerified from "./PaymentVerified";
 
 const LoginSignup: React.FC<{}> = () => {
   const [emailErr, setEmailErr] = useState("");
@@ -47,12 +34,6 @@ const LoginSignup: React.FC<{}> = () => {
     confirmPassword,
     setConfirmPassword,
   } = useContext(UserAuth);
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    if (isEnterMobileNumber === 1) {
-    }
-  }, [isEnterMobileNumber]);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -115,9 +96,9 @@ const LoginSignup: React.FC<{}> = () => {
     if (!validatePassword(password)) {
       return;
     }
-    // dispatch(setEmail(email));
+    
     setEmail(email);
-    // dispatch(setPassword(password));
+    
     setIsModalOpen(false);
   };
   const handleCreateAccount = (e: React.FormEvent) => {
@@ -151,7 +132,6 @@ const LoginSignup: React.FC<{}> = () => {
 
       isValid = false;
     }
-
     if (password !== confirmPassword) {
       setPasswordErr("Passwords do not match");
       setConfirmPasswordErr("Passwords do not match");
@@ -159,16 +139,12 @@ const LoginSignup: React.FC<{}> = () => {
     }
     if (isValid) {
       setEmail(email);
-      // dispatch(setPassword(password));
-      // dispatch(setFullName(fullName));
-      // dispatch(setConfirmPassword(confirmPassword));
       setMyHeadingText("Enter Mobile Number");
     }
   };
 
   const handleInputChange = (value: string, name: string) => {
     if (name === "confirmPassword") {
-      // dispatch(setConfirmPassword(value));
     }
   };
 
@@ -207,14 +183,13 @@ const LoginSignup: React.FC<{}> = () => {
             </button>
           </div>
           {myHeadingText === "Enter Mobile Number" && <EnterMobileNumber />}
-
           {myHeadingText === "Select Interest" && <SelectInterest />}
           {myHeadingText === "Choose Payment Method" && <SelectPaymentMethod />}
           {myHeadingText === "Enter Card Details" && <EnterCardDetails />}
           {myHeadingText === "Credit Card Authorization" && (
             <CreditCardAuthorization />
           )}
-
+          {myHeadingText === "Payment Verified" && <PaymentVerified />}
           {myHeadingText === "Login" ||
           myHeadingText === "Register an Account" ? (
             <div className="flex flex-row items-center justify-center mt-[53px]  ">
@@ -317,7 +292,7 @@ const LoginSignup: React.FC<{}> = () => {
                 ""
               )}
               {myHeadingText === "Register an Account" && (
-               <div className="flex flex-col items-end">
+                <div className="flex flex-col items-end">
                   <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                     <FloatingInput
                       label="Confirm Password"

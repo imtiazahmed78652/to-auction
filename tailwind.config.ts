@@ -9,7 +9,6 @@ const config: Config = {
   theme: {
     colors: {
       light: "#D9D9D9",
-
       "satoshi-dark": "#9C9C9C",
       dark: "#ACACAC",
       "light-2": "#DADADA",

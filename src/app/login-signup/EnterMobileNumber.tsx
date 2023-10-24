@@ -16,24 +16,21 @@ type Props = {};
 
 const EnterMobileNumber: React.FC<Props> = () => {
   const [phoneError, setPhoneError] = React.useState("");
-  const pagination = useAppSelector((state) => state.counter.pagination);
-  const dispatch = useDispatch();
+
   const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
 
-  const { phoneNumber, setPhoneNumber, fullName, email } = useContext(UserAuth);
+  const { phoneNumber, setPhoneNumber } = useContext(UserAuth);
 
   const handlePhoneNumber = () => {
     if (phoneNumber === "") {
       setPhoneError("Please enter your phone number");
       return false;
     }
-    // dispatch(getPhoneNumber(phoneNumber));
     setPhoneNumber(phoneNumber);
     setMyHeadingText("Select Interest");
   };
 
   const handleChange = (e: string) => {
-    // dispatch(getPhoneNumber(e));
     setPhoneNumber(e);
   };
   return (

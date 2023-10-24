@@ -5,14 +5,21 @@ type CardContextType = {
   setCardHolderName: (cardHolderName: string) => void;
   cardNumber: number | null;
   setCardNumber: (cardNumber: number | null) => void;
-  expiryDate: number | null;
-  setExpiryDate: (expiryDate: number | null) => void;
+  expiryDate: any;
+  setExpiryDate: (expiryDate: any) => void;
   cvv: number | null;
   setCvv: (cvv: number | null) => void;
 };
-export const HandleCardDetails = createContext<CardContextType | undefined>(
-  undefined
-);
+export const HandleCardDetails = createContext<CardContextType>({
+  cardHolderName: '',
+  setCardHolderName: (cardHolderName: string) => {},
+  cardNumber: null,
+  setCardNumber: (cardNumber: number | null) => {},
+  expiryDate: null,
+  setExpiryDate: (expiryDate: any) => {},
+  cvv: null,
+  setCvv: (cvv: number | null) => {},
+});
 
 export const MYPagination = createContext({
   myHeadingText: "Login",
@@ -81,7 +88,9 @@ function ContextProvider({ children }: ContextProviderProps) {
           setPaymentMethod,
         }}
       >
-        <HandleCardDetails.Provider
+        
+          <HandleInterest.Provider value={{ interest, setInterest }}>
+          <HandleCardDetails.Provider
           value={{
             cardHolderName,
             setCardHolderName,
@@ -93,7 +102,6 @@ function ContextProvider({ children }: ContextProviderProps) {
             setCvv,
           }}
         >
-          <HandleInterest.Provider value={{ interest, setInterest }}>
             <HandleModal.Provider
               value={{
                 isModalOpen,
@@ -102,8 +110,9 @@ function ContextProvider({ children }: ContextProviderProps) {
             >
               {children}
             </HandleModal.Provider>
+            </HandleCardDetails.Provider>
           </HandleInterest.Provider>
-        </HandleCardDetails.Provider>
+        
       </UserAuth.Provider>
     </MYPagination.Provider>
   );

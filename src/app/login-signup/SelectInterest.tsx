@@ -4,23 +4,18 @@ import { Pagination } from "swiper/modules";
 import Paginations from "./Paginations";
 import Image from "next/image";
 import Button from "../components/Button/Button";
-import { useAppSelector } from "../hooks";
-import { useDispatch } from "react-redux";
-import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
 
-import { MYPagination, UserAuth,HandleInterest } from "../ContextApi/contextProvide";
+import {
+  MYPagination,
+  UserAuth,
+  HandleInterest,
+} from "../ContextApi/contextProvide";
 
 const SelectInterest = () => {
-  // const [interest, setInterest] = React.useState<string[]>([]);
-
-  const dispatch = useDispatch();
-  const interestState = useAppSelector((state) => state.interest.interest);
-  const fullName = useAppSelector((state) => state.input.fullName);
-
   const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
-  const {interest,setInterest} = useContext(HandleInterest);
+  const { interest, setInterest } = useContext(HandleInterest);
   const { phoneNumber } = useContext(UserAuth);
-  
+
   const data = [
     {
       img: "/hand-bag.png",
@@ -35,16 +30,14 @@ const SelectInterest = () => {
       name: "Ring",
     },
   ];
-
   const handleSubmit = () => {
-    console.log(interest,'on Click');
+    console.log(interest, "on Click");
     if (interest.length === 0) {
       return false;
     } else {
-    setMyHeadingText("Choose Payment Method");
+      setMyHeadingText("Choose Payment Method");
     }
   };
-
   const handleAddMyInterests = (e: string) => {
     setInterest((prevInterests) => [...prevInterests, e]);
   };
@@ -65,10 +58,8 @@ const SelectInterest = () => {
               <div
                 onClick={() => {
                   if (interest.includes(element.name)) {
-                    // dispatch(removeInterest(element.name));
-                  handleRemoveMyInterest(element.name);
+                    handleRemoveMyInterest(element.name);
                   } else {
-                    // dispatch(addInterest(element.name));
                     handleAddMyInterests(element.name);
                   }
                 }}

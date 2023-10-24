@@ -23,31 +23,31 @@ import {
   // setConfirmPassword,
 } from "../GlobalRedux/Features/inputSlice";
 import { HeadingTextContext } from "../GlobalRedux/provider";
-import { MYPagination, HandleModal, UserAuth } from "../ContextApi/contextProvide";
+import {
+  MYPagination,
+  HandleModal,
+  UserAuth,
+} from "../ContextApi/contextProvide";
 
 const LoginSignup: React.FC<{}> = () => {
   const [emailErr, setEmailErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const [fullNameErr, setFullNameErr] = useState("");
   const [confirmPasswordErr, setConfirmPasswordErr] = useState("");
-  const dispatch = useDispatch();
-
-  const socialIcons = [
-    {
-      img: "",
-    },
-    {
-      img: "",
-    },
-    {
-      img: "",
-    },
-  ];
-
   const [isEnterMobileNumber, setIsEnterMobileNumber] = useState(0);
   const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
   const { isModalOpen, setIsModalOpen } = useContext(HandleModal);
-  const {email,setEmail,password,setPassword,fullName,setFullName,confirmPassword,setConfirmPassword} = useContext(UserAuth);
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    fullName,
+    setFullName,
+    confirmPassword,
+    setConfirmPassword,
+  } = useContext(UserAuth);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (isEnterMobileNumber === 1) {
@@ -107,14 +107,6 @@ const LoginSignup: React.FC<{}> = () => {
     // All checks passed, the password is valid
     return true;
   }
-
-  const inputValue = useAppSelector(
-    (state: RootState) => state.input.inputValue
-  );
-  // const { confirmPassword } = useAppSelector(
-  //   (state: RootState) => state.input
-  // );
-
   const handleLogin = (e: any) => {
     e.preventDefault();
     if (!validateEmail(email)) {
@@ -124,15 +116,13 @@ const LoginSignup: React.FC<{}> = () => {
       return;
     }
     // dispatch(setEmail(email));
-    setEmail(email)
+    setEmail(email);
     // dispatch(setPassword(password));
     setIsModalOpen(false);
   };
-
   const handleCreateAccount = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Reset any existing error messages
+    //Reset any existing error messages
     setFullNameErr("");
     setEmailErr("");
     setPasswordErr("");
@@ -153,12 +143,12 @@ const LoginSignup: React.FC<{}> = () => {
     const passwordValidationResult = validatePassword(password);
     if (validatePassword(password)) {
       // setPasswordErr(passwordValidationResult);
-      if(passwordValidationResult) {
-        setPassword(password)
+      if (passwordValidationResult) {
+        setPassword(password);
       } else {
-        setPasswordErr('Password require')
+        setPasswordErr("Password require");
       }
-      
+
       isValid = false;
     }
 
@@ -167,44 +157,36 @@ const LoginSignup: React.FC<{}> = () => {
       setConfirmPasswordErr("Passwords do not match");
       isValid = false;
     }
-    console.log(isValid);
     if (isValid) {
-      
       setEmail(email);
       // dispatch(setPassword(password));
       // dispatch(setFullName(fullName));
       // dispatch(setConfirmPassword(confirmPassword));
-      setMyHeadingText("Enter Mobile Number"); 
+      setMyHeadingText("Enter Mobile Number");
     }
   };
 
   const handleInputChange = (value: string, name: string) => {
-    
-    
-    
     if (name === "confirmPassword") {
       // dispatch(setConfirmPassword(value));
     }
   };
 
-  
-  const handleEmailChange = (value:string, name:string) => {
-    if(name === 'Email') {
+  const handleEmailChange = (value: string, name: string) => {
+    if (name === "Email") {
       setEmail(value);
     }
-    if(name === 'Password'){
+    if (name === "Password") {
       setPassword(value);
     }
-    if(name === 'FullName'){
+    if (name === "FullName") {
       setFullName(value);
     }
-    if(name === 'confirmPassword') {
+    if (name === "confirmPassword") {
       setConfirmPassword(value);
     }
-
   };
-  console.log(confirmPassword);
-  
+
   return (
     <div
       className={`fixed inset-0 ${
@@ -220,7 +202,6 @@ const LoginSignup: React.FC<{}> = () => {
             >
               {myHeadingText}
             </div>
-
             <button onClick={() => setIsModalOpen(false)}>
               <Image src="/cross.png" alt="" width={9.26} height={9.26} />
             </button>
@@ -290,7 +271,6 @@ const LoginSignup: React.FC<{}> = () => {
                   </p>
                 </div>
               )}
-
               {myHeadingText === "Login" ||
               myHeadingText === "Register an Account" ? (
                 <>
@@ -301,7 +281,7 @@ const LoginSignup: React.FC<{}> = () => {
                         type="email"
                         className="outline-none bg-transparent border-light-border text-light rounded-[6px] pl-[24px]  w-[350px] h-[46px]"
                         value={email}
-                        onChange={(value)=> handleEmailChange(value,'Email')}
+                        onChange={(value) => handleEmailChange(value, "Email")}
                       />
                       <Image
                         alt=""
@@ -314,6 +294,7 @@ const LoginSignup: React.FC<{}> = () => {
                       {emailErr}
                     </p>
                   </div>
+
                   <div className="flex flex-col items-end">
                     <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787]  border-[#DDDDDD] ">
                       <FloatingInput
@@ -336,7 +317,7 @@ const LoginSignup: React.FC<{}> = () => {
                 ""
               )}
               {myHeadingText === "Register an Account" && (
-                <div className="flex flex-col items-end">
+               <div className="flex flex-col items-end">
                   <div className="w-[400px] h-[46px] border-[1px] rounded-[6px] flex flex-row items-center justify-between pr-4 text-[#878787] p-1 border-[#DDDDDD] ">
                     <FloatingInput
                       label="Confirm Password"

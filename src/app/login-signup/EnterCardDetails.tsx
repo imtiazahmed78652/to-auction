@@ -23,10 +23,7 @@ const EnterCardDetails: React.FC<{
     const paginationText = useAppSelector((state)=> state.counter.pagination);
     const {myHeadingText,setMyHeadingText} = useContext(MYPagination);
     const {cardHolderName,cardNumber,cvv,expiryDate} = useAppSelector((state)=> state.cardDetails);
-    const {fullName} = useAppSelector((state)=> state.input);
-    console.log(fullName,'full name inside enter card details');
-    
-
+  
     const dispatch = useDispatch();
     const handleCardDetails = () => {
       setCardHolderNameErr('');

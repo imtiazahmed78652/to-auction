@@ -1,5 +1,5 @@
 "use client";
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { Pagination } from "swiper/modules";
 import Paginations from "./Paginations";
 import Image from "next/image";
@@ -7,22 +7,20 @@ import Button from "../components/Button/Button";
 import { useAppSelector } from "../hooks";
 import { useDispatch } from "react-redux";
 import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
-import {
-  addInterest,
-  removeInterest,
-} from "../GlobalRedux/Features/interestSlice";
-import { MYPagination } from "../ContextApi/contextProvide";
+
+import { MYPagination, UserAuth,HandleInterest } from "../ContextApi/contextProvide";
 
 const SelectInterest = () => {
-  const [interest, setInterest] = React.useState<string[]>([]);
+  // const [interest, setInterest] = React.useState<string[]>([]);
+
   const dispatch = useDispatch();
   const interestState = useAppSelector((state) => state.interest.interest);
   const fullName = useAppSelector((state) => state.input.fullName);
-  console.log(fullName,'full name inside select interest');
-  
-  
-  const {myHeadingText,setMyHeadingText} = useContext(MYPagination)
 
+  const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
+  const {interest,setInterest} = useContext(HandleInterest);
+  const { phoneNumber } = useContext(UserAuth);
+  
   const data = [
     {
       img: "/hand-bag.png",
@@ -39,14 +37,21 @@ const SelectInterest = () => {
   ];
 
   const handleSubmit = () => {
-    if (interestState.length === 0) {
+    console.log(interest,'on Click');
+    if (interest.length === 0) {
       return false;
     } else {
-      dispatch(updateHeadingText("Choose Payment Method"));
-      setMyHeadingText('Choose Payment Method')
+    setMyHeadingText("Choose Payment Method");
     }
   };
 
+  const handleAddMyInterests = (e: string) => {
+    setInterest((prevInterests) => [...prevInterests, e]);
+  };
+  const handleRemoveMyInterest = (e: string) => {
+    setInterest((prevInterest) => prevInterest.filter((item) => item !== e));
+  };
+  console.log(interest, "my interest");
   return (
     <div className="mt-[50px] grid place-items-center">
       <div className="w-[400px]">
@@ -55,14 +60,16 @@ const SelectInterest = () => {
       <div className="grid place-items-center mt-12">
         <div className="w-[400px] grid grid-cols-2 gap-6 place-items-center">
           {data.map((element, idx) => {
-            const selectedInterest = interestState.includes(element.name);
+            const selectedInterest = interest.includes(element.name);
             return (
               <div
                 onClick={() => {
-                  if (interestState.includes(element.name)) {
-                    dispatch(removeInterest(element.name));
+                  if (interest.includes(element.name)) {
+                    // dispatch(removeInterest(element.name));
+                  handleRemoveMyInterest(element.name);
                   } else {
-                    dispatch(addInterest(element.name));
+                    // dispatch(addInterest(element.name));
+                    handleAddMyInterests(element.name);
                   }
                 }}
                 key={idx}

@@ -20,8 +20,7 @@ reducers:{
         state.interest = state.interest.filter((item)=> item != action.payload);
     }
 }   
-
-})
+});
 
 export const  {addInterest, removeInterest} = interestSlice.actions;
 export default interestSlice.reducer;

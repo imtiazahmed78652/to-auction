@@ -9,16 +9,18 @@ export function Providers({ children }) {
   const [myHeadingText, setMyHeadingText] = useState("Login");
   return (
     
-      <Provider store={store}>
+      // <Provider store={store}>
     <HeadingTextContext.Provider
       value={{
         myHeadingText,
         setMyHeadingText,
       }}
-    ></HeadingTextContext.Provider>    
-        {children}
+    >
+      {children}
+    </HeadingTextContext.Provider>    
+        
       
-      </Provider>
+      // </Provider>
     
   );
 }

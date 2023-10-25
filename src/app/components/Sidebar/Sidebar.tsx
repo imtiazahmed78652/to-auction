@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-
+import { usePathname } from "next/navigation";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -40,6 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       url: "/contact_us",
     },
   ];
+  const pathName = usePathname();
   return (
     <div
       className={`fixed  h-full  w-full top-0 z-50  left-0  shadow-lg transform transition-transform ${
@@ -60,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               <Link href={element.url} key={idx}>
               <h1
                 
-                className="text-base font-semibold text-[#4D4D4D] leading-[18px] cursor-pointer hover:text-green"
+                className={`text-base font-semibold text-[#4D4D4D] leading-[18px] cursor-pointer hover:text-hover-green ${pathName === element.url && 'text-green hover:text-hover-green'} `}
               >
                 {element.name}
               </h1>

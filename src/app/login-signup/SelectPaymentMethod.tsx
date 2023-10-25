@@ -2,32 +2,23 @@ import React, { useContext } from "react";
 import Paginations from "./Paginations";
 import Image from "next/image";
 import Button from "../components/Button/Button";
-import { useAppSelector } from "../hooks";
-import { useDispatch } from "react-redux";
 import {
-  getPaymentMethod,
-  updateHeadingText,
-} from "../GlobalRedux/Features/counterSlice";
-import { addInterest } from "../GlobalRedux/Features/interestSlice";
-import { MYPagination } from "../ContextApi/contextProvide";
+  HandleInterest,
+  MYPagination,
+  UserAuth,
+} from "../ContextApi/contextProvide";
 
 const SelectPaymentMethod: React.FC<{}> = () => {
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = React.useState<string | null>(null);
-  const paginationText = useAppSelector((state) => state.counter.pagination);
-  const paymentMethods = useAppSelector((state) => state.counter.selectPayment);
-  const fullName = useAppSelector((state)=> state.input.fullName);
-  console.log(fullName,'full name from choose payment method');
-  const dispatch = useDispatch();
 
   const handlePaymentSelect = (value: string) => {
-    if (paymentMethods === value) {
-      dispatch(getPaymentMethod(value));
+    if (paymentMethod === value) {
+      setPaymentMethod(value);
     } else {
-      setSelectedPaymentMethod(value);
-      dispatch(getPaymentMethod(value));
+      setPaymentMethod(value);
     }
   };
-  const paymentMethod = [
+
+  const paymentMethodData = [
     {
       name: "MasterCard",
       img: "/master-card.png",
@@ -43,6 +34,8 @@ const SelectPaymentMethod: React.FC<{}> = () => {
   ];
 
   const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
+  const { paymentMethod, setPaymentMethod } = useContext(UserAuth);
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-[400px] mt-[50px]">
@@ -50,7 +43,7 @@ const SelectPaymentMethod: React.FC<{}> = () => {
 
         <div className="flex flex-col items-center mt-10">
           <div className="w-[400px] flex flex-col gap-6">
-            {paymentMethod.map((element, idx) => {
+            {paymentMethodData.map((element, idx) => {
               return (
                 <button
                   key={idx}
@@ -70,12 +63,12 @@ const SelectPaymentMethod: React.FC<{}> = () => {
                   </div>
                   <div
                     className={` ${
-                      selectedPaymentMethod === element.name
+                      paymentMethod === element.name
                         ? "border-green"
                         : "border-light-border"
                     }  w-[20px] h-[20px] border-[1px]  rounded-full flex flex-row  items-center justify-center`}
                   >
-                    {selectedPaymentMethod === element.name && (
+                    {paymentMethod === element.name && (
                       <div className="w-[10px] h-[10px] border-[1px] rounded-full bg-green border-green"></div>
                     )}
                   </div>
@@ -93,8 +86,7 @@ const SelectPaymentMethod: React.FC<{}> = () => {
               className="w-[188px] h-[56px] text-white rounded-[8px]"
               btnText="Verify"
               onClick={() => {
-                if (paymentMethods !== "") {
-                  dispatch(updateHeadingText("Enter Card Details"));
+                if (paymentMethod !== "") {
                   setMyHeadingText("Enter Card Details");
                 }
               }}

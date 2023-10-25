@@ -356,6 +356,7 @@ function ProductDetails() {
                     {conditionScore.map((element, idx) => {
                       return (
                         <div
+                        key  = {idx}
                           className={`w-[83px] h-[32px] flex flex-row items-center justify-center text-white font-bold text-[16px] leading-[25px] bg-${element.color}`}
                           style={{ backgroundColor: element.color }}
                         >

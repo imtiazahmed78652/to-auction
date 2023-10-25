@@ -86,6 +86,42 @@ function Navbar() {
     },
   ];
 
+  const nodeRef = React.useRef<HTMLDivElement | null>(null);
+  const secondNodeRef = React.useRef<HTMLDivElement | null>(null);
+  const handleClick = (
+    state: boolean,
+    setState: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    if (!state) {
+      document.addEventListener("click", handleOutsideClick, true);
+    } else {
+      document.removeEventListener("click", handleOutsideClick, true);
+    }
+    setState(false);
+    // setProfileDropDownState(false);
+  };
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (nodeRef.current && !nodeRef.current.contains(e.target as Node)) {
+      handleClick(profileDropDownState, setProfileDropDownState);
+    }
+    if (
+      secondNodeRef.current &&
+      !secondNodeRef.current.contains(e.target as Node)
+    ) {
+      handleClick(showNotification, setShowNotification);
+    }
+  };
+
+  React.useEffect(() => {
+    const handleDocumentClick = (e: MouseEvent) => {
+      handleOutsideClick(e);
+    };
+    document.addEventListener("mousedown", handleDocumentClick);
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentClick);
+    };
+  }, []);
+
   return (
     <div className="w-full sticky max-w-full left-auto right-auto top-0 z-50 block">
       <div className="grid place-items-center relative bg-black  w-full  ">
@@ -218,114 +254,125 @@ function Navbar() {
             </div>
             {myHeadingText === "Payment Verified" ? (
               <div className="flex flex-row items-center gap-4">
-                <div
-                  className="w-[36px] relative h-[36px] bg-[#4E4E4E] flex flex-row items-center justify-center rounded-full  cursor-pointer"
-                  onClick={() => setShowNotification(!showNotification)}
-                >
-                  <Image src={notification} width={16} height={16} alt="" />
-                  {showNotification && (
-                    <div className="absolute w-[486px] px-[32px]  h-[390px] bg-white top-10 right-0 rounded-[20px] flex flex-col">
-                      <div className="flex flex-row items-center justify-between py-[24px] border-b-[2px] border-[#D9D9D9] ">
-                        <div className="font-normal text-[14px] leading-[46px] text-green">
-                          Notification
+                <div ref={secondNodeRef}>
+                  <div
+                    className="w-[36px] relative h-[36px] bg-[#4E4E4E] flex flex-row items-center justify-center rounded-full  cursor-pointer"
+                    onClick={() => setShowNotification(!showNotification)}
+                  >
+                    <Image src={notification} width={16} height={16} alt="" />
+                    {showNotification && (
+                      <div className="absolute w-[486px] px-[32px]  h-[390px] bg-white top-10 right-0 rounded-[20px] flex flex-col">
+                        <div className="flex flex-row items-center justify-between py-[24px] border-b-[2px] border-[#D9D9D9] ">
+                          <div className="font-normal text-[14px] leading-[46px] text-green">
+                            Notification
+                          </div>
+                          <div className="flex flex-row items-center gap-[5px]  ">
+                            <span> All </span>
+                            <Image
+                              src={dropDownNoti}
+                              width={10}
+                              height={5}
+                              alt=""
+                            />
+                          </div>
                         </div>
-                        <div className="flex flex-row items-center gap-[5px]  ">
-                          <span> All </span>
-                          <Image
-                            src={dropDownNoti}
-                            width={10}
-                            height={5}
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <div className="mt-[24px]">
-                        <h1 className="text-[#686868] font-bold text-[14px] leading-[18.9px] font-satoshi">
-                          Earlier
-                        </h1>
-                        {data.map((element, idx) => {
-                          return (
-                            <div
-                              className="flex flex-row items-center gap-[10px] mt-[19px]"
-                              key={idx}
-                            >
-                              {element.img ? (
-                                <div className="w-[6px] h-[6px] bg-green rounded-full" />
-                              ) : (
-                                <div className="w-[6px] h-[6px] rounded-full" />
-                              )}
-                              <div className="w-[48px] h-[48px] rounded-full bg-[#D9D9D9]"></div>
+                        <div className="mt-[24px]">
+                          <h1 className="text-[#686868] font-bold text-[14px] leading-[18.9px] font-satoshi">
+                            Earlier
+                          </h1>
+                          {data.map((element, idx) => {
+                            return (
+                              <div
+                                className="flex flex-row items-center gap-[10px] mt-[19px]"
+                                key={idx}
+                              >
+                                {element.img ? (
+                                  <div className="w-[6px] h-[6px] bg-green rounded-full" />
+                                ) : (
+                                  <div className="w-[6px] h-[6px] rounded-full" />
+                                )}
+                                <div className="w-[48px] h-[48px] rounded-full bg-[#D9D9D9]"></div>
 
-                              <div className="flex flex-col max-w-[350px]">
-                                <p className="font-bold text-[12px] leading-[16.2px] font-satoshi">
-                                  {element.des}
-                                </p>
-                                <p className="font-satoshi font-normal text-[12px]">
-                                  {element.time}
-                                </p>
+                                <div className="flex flex-col max-w-[350px]">
+                                  <p className="font-bold text-[12px] leading-[16.2px] font-satoshi">
+                                    {element.des}
+                                  </p>
+                                  <p className="font-satoshi font-normal text-[12px]">
+                                    {element.time}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          })}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
 
-                <div
-                  className="w-[36px] h-[36px] rounded-full cursor-pointer relative hover:shadow-xl shadow-white"
-                  onClick={() => setProfileDropDownState(!profileDropDownState)}
-                >
-                  {" "}
-                  <Image
-                    src={profilePic}
-                    width={36}
-                    height={36}
-                    alt="Profile Picture"
-                  />{" "}
-                  <div className="absolute w-[12px] h-[12px] rounded-full bg-white flex flex-row  justify-center items-center right-0 bottom-0 z-6">
-                    <Image src={profileDropDown} height={10} width={8} alt="" />
-                  </div>{" "}
-                  {profileDropDownState && (
-                    <div
-                      className="absolute flex flex-col top-10 right-0 w-[227px] px-[18px] py-[16px]  bg-white rounded-[12px] shadow-xl"
-                      style={{ backgroundImage: `url(${dropDownImage})` }}
-                    >
-                      <div className="flex flex-row items-center gap-[8px]">
-                        <div className="w-[36px] h-[36px] rounded-full border-[1px] border-[#B9B9B9]">
+                <div ref={nodeRef} className="fads">
+                  <div
+                    className="w-[36px] h-[36px] rounded-full cursor-pointer relative hover:shadow-xl shadow-white"
+                    onClick={() =>
+                      setProfileDropDownState(!profileDropDownState)
+                    }
+                  >
+                    {" "}
+                    <Image
+                      src={profilePic}
+                      width={36}
+                      height={36}
+                      alt="Profile Picture"
+                    />{" "}
+                    <div className="absolute w-[12px] h-[12px] rounded-full bg-white flex flex-row  justify-center items-center right-0 bottom-0 z-6">
+                      <Image
+                        src={profileDropDown}
+                        height={10}
+                        width={8}
+                        alt=""
+                      />
+                    </div>{" "}
+                    {profileDropDownState && (
+                      <div
+                        className="absolute flex flex-col top-10 right-0 w-[227px] px-[18px] py-[16px]  bg-white rounded-[12px] shadow-xl"
+                        style={{ backgroundImage: `url(${dropDownImage})` }}
+                      >
+                        <div className="flex flex-row items-center gap-[8px]">
+                          <div className="w-[36px] h-[36px] rounded-full border-[1px] border-[#B9B9B9]">
+                            <Image
+                              src={profilePic}
+                              width={36}
+                              height={36}
+                              alt=""
+                            />
+                          </div>
+                          <h1 className="text-green font-medium text-[12px]">
+                            abc@email.com
+                          </h1>
+                        </div>
+                        <Link href="/seller-dashboard">
+                          <div className="mt-[13px] py-[18px] border-t-[1px] border-b-[1px] border-[#DDDDDD]  text-xs leading-[18px] font-satoshi text-[#999999] hover:text-green">
+                            Seller Dashboard
+                          </div>
+                        </Link>
+                        <Link href="/settings-and-info">
+                          <div className=" py-[18px] border-b-[1px] border-[#DDDDDD] text-xs leading-[18px] font-satoshi text-[#999999] hover:text-green">
+                            Setting & Info
+                          </div>
+                        </Link>
+                        <div className="flex flex-row items-center text-[#FF6666] gap-[8px] mt-[12px]">
+                          {" "}
                           <Image
-                            src={profilePic}
-                            width={36}
-                            height={36}
-                            alt=""
-                          />
+                            src="/logout.png"
+                            width={20}
+                            height={20}
+                            alt="Logout button"
+                          />{" "}
+                          Logout
                         </div>
-                        <h1 className="text-green font-medium text-[12px]">
-                          abc@email.com
-                        </h1>
                       </div>
-                      <Link href="/seller-dashboard">
-                        <div className="mt-[13px] py-[18px] border-t-[1px] border-b-[1px] border-[#DDDDDD]  text-xs leading-[18px] font-satoshi text-[#999999] hover:text-green">
-                          Seller Dashboard
-                        </div>
-                      </Link>
-                      <Link href="/settings-and-info">
-                        <div className=" py-[18px] border-b-[1px] border-[#DDDDDD] text-xs leading-[18px] font-satoshi text-[#999999] hover:text-green">
-                          Setting & Info
-                        </div>
-                      </Link>
-                      <div className="flex flex-row items-center text-[#FF6666] gap-[8px] mt-[12px]">
-                        {" "}
-                        <Image
-                          src="/logout.png"
-                          width={20}
-                          height={20}
-                          alt="Logout button"
-                        />{" "}
-                        Logout
-                      </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             ) : (

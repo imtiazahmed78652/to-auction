@@ -4,17 +4,13 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 
 import { manrope, monumentum } from "../layout";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 // import { Image } from 'next/image'
 import Image from "next/image";
 import Button from "../components/Button/Button";
-import dropDownNoti from '.././assets/dropDownNoti.png'
-
+import dropDownNoti from ".././assets/dropDownNoti.png";
 
 function ProductDetails() {
-  
-
-  
   const data = [
     {
       name: "Year",
@@ -113,35 +109,33 @@ function ProductDetails() {
   ];
   const conditionScore = [
     {
-      number:1,
-      color:'#283926',
+      number: 1,
+      color: "#283926",
     },
     {
-      number:2,
-      color:'#2D5627',
+      number: 2,
+      color: "#2D5627",
     },
     {
-      number:3,
-      color:'#317428',
+      number: 3,
+      color: "#317428",
     },
     {
-      number:4,
-      color:'#317428',
+      number: 4,
+      color: "#317428",
     },
     {
-      number:5,
-      color:'#BFBFBF',
-    }
-    
-  ]
+      number: 5,
+      color: "#BFBFBF",
+    },
+  ];
   const logos = [
     "/logo-one.png",
     "/logo-two.png",
     "/logo-three.png",
     "/logo-four.png",
-    // '/logo-five.png'
   ];
-  
+
   return (
     <>
       <Navbar />
@@ -190,8 +184,13 @@ function ProductDetails() {
 
             <div className="flex flex-row items-center gap-[32.73px]">
               <div className="flex flex-row items-center gap-6">
-                <button className="w-[177px] h-[48px] rounded-[4px] bg-[#F2F2F2] font-bold text-[14px] leading-[18px] text-[#6D6D6D] flex flex-row items-center justify-center gap-[16px]">Set Max Bid <Image src = {dropDownNoti} width={16} height={12} alt=""/> </button>
-                <button className="bg-green w-[177px] h-[48px] rounded-[4px] text-white font-bold text-[14px] leading-[18px]">Place Bid</button>
+                <button className="w-[177px] h-[48px] rounded-[4px] bg-[#F2F2F2] font-bold text-[14px] leading-[18px] text-[#6D6D6D] flex flex-row items-center justify-center gap-[16px]">
+                  Set Max Bid{" "}
+                  <Image src={dropDownNoti} width={16} height={12} alt="" />{" "}
+                </button>
+                <button className="bg-green w-[177px] h-[48px] rounded-[4px] text-white font-bold text-[14px] leading-[18px]">
+                  Place Bid
+                </button>
               </div>
             </div>
           </div>
@@ -308,28 +307,28 @@ function ProductDetails() {
 
             <div className="w-[479px] font-normal text-[30px] leading-[25px]">
               <div className="mt-[48px] flex flex-row justify-between">
-                      <div className="flex flex-row items-center gap-4">
-                <Image
-                  src="/arrow-back.png"
-                  alt=""
-                  width={22.5}
-                  height={12.5}
-                />
-                <div className="font-satoshi text-sm leading-[25px] text-dark-text-two">
-                  Previous Lot
+                <div className="flex flex-row items-center gap-4">
+                  <Image
+                    src="/arrow-back.png"
+                    alt=""
+                    width={22.5}
+                    height={12.5}
+                  />
+                  <div className="font-satoshi text-sm leading-[25px] text-dark-text-two">
+                    Previous Lot
+                  </div>
                 </div>
-              </div>
-               <div className="flex flex-row items-center gap-4">
-                <p className="font-satoshi text-sm leading-[25px] text-dark-text-two">
-                  Next lot
-                </p>
-                <Image
-                  src="/right-arrow.png"
-                  width={22.5}
-                  height={12.5}
-                  alt=""
-                />
-              </div>
+                <div className="flex flex-row items-center gap-4">
+                  <p className="font-satoshi text-sm leading-[25px] text-dark-text-two">
+                    Next lot
+                  </p>
+                  <Image
+                    src="/right-arrow.png"
+                    width={22.5}
+                    height={12.5}
+                    alt=""
+                  />
+                </div>
               </div>
               <h1
                 className={` font-satoshi  mt-[33px] font-normal  text-3xl leading-[25px]'`}
@@ -340,8 +339,6 @@ function ProductDetails() {
                 Product ID: <span className="text-[#878787]">116519</span>
               </p>
               <div className="mt-[34px] w-full border-[1px] border-[#D9D9D9] px-[47px] py-[40px]">
-                
-                
                 <div className="flex flex-col items-start ">
                   <div className="flex flex-col">
                     <h1 className="font-medium text-[14px] leading-[18px] text-green">
@@ -356,11 +353,16 @@ function ProductDetails() {
                     </div>
                   </div>
                   <div className="py-[37px] flex flex-row items-center gap-[1px] overflow-hidden">
-                    {
-                      conditionScore.map((element,idx)=> {
-                        return <div className={`w-[83px] h-[32px] flex flex-row items-center justify-center text-white font-bold text-[16px] leading-[25px] bg-${element.color}`} style={{ backgroundColor: element.color }}>{element.number}</div>
-                      })
-                    }
+                    {conditionScore.map((element, idx) => {
+                      return (
+                        <div
+                          className={`w-[83px] h-[32px] flex flex-row items-center justify-center text-white font-bold text-[16px] leading-[25px] bg-${element.color}`}
+                          style={{ backgroundColor: element.color }}
+                        >
+                          {element.number}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 

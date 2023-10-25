@@ -41,7 +41,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     },
   ];
   const pathName = usePathname();
-  console.log(pathName);
   return (
     <div
       className={`fixed  h-full  w-full top-0 z-50  left-0  shadow-lg transform transition-transform ${

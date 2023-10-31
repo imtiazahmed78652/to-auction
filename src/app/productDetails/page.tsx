@@ -9,183 +9,84 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Button from "../components/Button/Button";
 import dropDownNoti from ".././assets/dropDownNoti.png";
+import eyeGreen from ".././assets/eyegreen.png";
+import { data, biddingHistory, conditionScore, logos } from "./data";
+import whatsapp from '../assets/whatsapp.png'
+import calenderWhite from '../assets/calender-white.png'
+import heartWhite from '../assets/heartWhite.png'
+import share from '../assets/share.png'
+import Link from "next/link";
 
 function ProductDetails() {
-  const data = [
-    {
-      name: "Year",
-      value: "2017",
-    },
-    {
-      name: "Condition",
-      value: "Good",
-    },
-    {
-      name: "Model",
-      value: "GMT Master II",
-    },
-    {
-      name: "manufacturerWarranty",
-      value: "Yes",
-    },
-    {
-      name: "modelNumber",
-      value: "116710BLNR",
-    },
-    {
-      name: "vatIncluded",
-      value: "40mm",
-    },
-    {
-      name: "Year",
-      value: "2017",
-    },
-    {
-      name: "Include Papers",
-      value: "Yes",
-    },
-    {
-      name: "Case Dimension",
-      value: "No",
-    },
-    {
-      name: "Bezel Material",
-      value: "Oystersteel",
-    },
-    {
-      name: "Service Recomended",
-      value: "Yes",
-    },
-    {
-      name: "Bracelet Material",
-      value: "4/5",
-    },
-    {
-      name: "Includes",
-      value: "4/5",
-    },
-  ];
-  const biddingHistory = [
-    {
-      name: "Joseph Martinez",
-      time: "12 Minutes ago",
-      price: "$123",
-    },
-    {
-      name: "Daniel Hall",
-      time: "23 Minutes ago",
-      price: "$120",
-    },
-    {
-      name: "William Davis",
-      time: "59 Minutes ago",
-      price: "$115",
-    },
-    {
-      name: "Michal Jones",
-      time: "23 hours ago",
-      price: "$110",
-    },
-    {
-      name: "James Rodriguez",
-      time: "23 hours ago",
-      price: "$105",
-    },
-    {
-      name: "William Davis",
-      time: "23 hours ago",
-      price: "$105",
-    },
-    {
-      name: "Mia Taylor",
-      time: "23 hours ago",
-      price: "$98",
-    },
-    {
-      name: "Isabella Anderson",
-      time: "23 hours ago",
-      price: "$95",
-    },
-  ];
-  const conditionScore = [
-    {
-      number: 1,
-      color: "#283926",
-    },
-    {
-      number: 2,
-      color: "#2D5627",
-    },
-    {
-      number: 3,
-      color: "#317428",
-    },
-    {
-      number: 4,
-      color: "#317428",
-    },
-    {
-      number: 5,
-      color: "#BFBFBF",
-    },
-  ];
-  const logos = [
-    "/logo-one.png",
-    "/logo-two.png",
-    "/logo-three.png",
-    "/logo-four.png",
-  ];
-
   return (
     <>
       <Navbar />
       <div className="flex justify-center font-satoshi">
-        <div className="w-[1440px] px-[128px]">
-          <div className="py-[22px] flex flex-row items-center justify-between border-b-[1px] border-[#C9C9C9]">
-            <div className="flex flex-row items-center gap-[65px]">
-              <div className="flex flex-row items-center gap-12">
-                <div className="flex flex-col ">
-                  <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
-                    $200
-                  </h1>
-                  <p className="font-normal text-dark-text-two font-satoshi text-sm leading-[18px] mt-[11px]">
-                    Highest Bid
-                  </p>
-                </div>
-                <div className="flex flex-col ">
-                  <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
-                    19h 27m 55s
-                  </h1>
-                  <p className="font-normal text-dark-text-two font-satoshi text-sm leading-[18px] mt-[11px]">
-                    TIME
-                  </p>
-                </div>
-                <div className="flex flex-col ">
-                  <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
-                    31
-                  </h1>
-                  <p className="font-normal text-dark-text-two font-satoshi text-sm leading-[18px] mt-[11px]">
-                    BIDS
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div className="w-[1440px] px-[128px] bg-white relative flex justify-center">
+          <div className="px-[128px] py-[22px] flex flex-row items-center justify-between border-b-[1px] bg-white border-[#C9C9C9]  fixed z-50 w-[1440px]">
+            <div className="flex flex-row items-center bg-white justify-between w-full">
 
-            <div className="flex flex-row items-center gap-[32.73px]">
-              <div className="flex flex-row items-center gap-6">
-                <button className="w-[177px] h-[48px] rounded-[4px] bg-[#F2F2F2] font-bold text-[14px] leading-[18px] text-[#6D6D6D] flex flex-row items-center justify-center gap-[16px]">
-                  Set Max Bid{" "}
-                  <Image src={dropDownNoti} width={16} height={12} alt="" />{" "}
-                </button>
-                <Button btnText="Place Bid" className="w-[177px] h-[48px] rounded-[4px] text-white"/>
-                
+                <div className="flex flex-row items-center gap-[125px]">
+                  <div className="flex flex-col ">
+                    <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
+                      $200
+                    </h1>
+                    <p className="font-normal text-dark-text-two font-satoshi text-sm leading-[18px] mt-[11px]">
+                      Highest Bid
+                    </p>
+                  </div>
+                  <div className="flex flex-col ">
+                    <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
+                      19h 27m 55s
+                    </h1>
+                    <p className="font-normal text-dark-text-two font-satoshi text-sm leading-[18px] mt-[11px]">
+                      TIME
+                    </p>
+                  </div>
+                  <div className="flex flex-col ">
+                    <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
+                      31
+                    </h1>
+                    <p className="font-normal text-dark-text-two font-satoshi text-sm leading-[18px] mt-[11px]">
+                      BIDS
+                    </p>
+                  </div>
+                </div>
+
+
+              <div className="flex flex-row items-center gap-[32.73px]">
+                <div className="flex flex-row items-center gap-6">
+                  <button className="w-[143px] h-[48px] rounded-[4px] bg-[#F2F2F2] font-bold text-[14px] leading-[18px] text-[#6D6D6D] flex flex-row items-center justify-center gap-[16px]">
+                    <span className="text-green">$250</span>
+                    <Image
+                      src="/drop-down-green.png"
+                      width={16}
+                      height={12}
+                      alt=""
+                    />{" "}
+                  </button>
+                  <Button
+                    btnText="Set Max Bid"
+                    className="w-[144px] h-[48px] text-white rounded-[4px]"
+                  />
+                  <Button
+                    btnText="Place Bid"
+                    className="w-[177px] h-[48px] border-[1px] border-[#6D6D6D] bg-white hover:bg-white hover:shadow text-[#6D6D6D] rounded-[4px] "
+                  />
+                </div>
               </div>
+<div className="fixed bottom-10 right-[15%] w-[62px] h-[62px] rounded-full bg-white shadow-2xl flex flex-row items-center justify-center">
+  <Link href='https://web.whatsapp.com/' target="_blank">
+  <Image src = {whatsapp} width={38} height={38} alt="Whatsapp"/> 
+  </Link>
+</div> 
+
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-28">
         <div className="w-[1440px]">
           <div className="flex flex-row w-full  gap-[100px]">
             <div className="w-[732px]">
@@ -231,6 +132,21 @@ function ProductDetails() {
                 </div>
               </div>
               <div className="pl-[128px] flex flex-col">
+
+                <div className="py-8 flex flex-row items-center gap-6">
+                  <button className="flex flex-row items-center justify-center gap-[8px] w-[177px] h-[48px] rounded-[4px] bg-[#4B4B4B]">
+                  <Image src = {calenderWhite} width = {14.22} height = {8} alt = ''/>
+                  <span className="text-white font-bold text-[12px] leading-[18px]">Add to Calendar</span>
+                  </button>
+                  <button className="flex flex-row items-center justify-center gap-[8px] w-[177px] h-[48px] rounded-[4px] bg-[#4B4B4B]">
+                  <Image src = {heartWhite} width = {14.22} height = {8} alt = ''/>
+                  <span className="text-white font-bold text-[12px] leading-[18px]">Add to Calendar</span>
+                  </button>
+                  <button className="flex flex-row items-center justify-center gap-[8px] w-[177px] h-[48px] rounded-[4px] bg-[#4B4B4B]">
+                  <Image src = {share} width = {14.22} height = {8} alt = ''/>
+                  <span className="text-white font-bold text-[12px] leading-[18px]">Add to Calendar</span>
+                  </button>
+                </div>
                 <div className=" mt-8 font-semibold text-xs leading-[18px] text-dark-border gap-[16px] flex flex-row items-center">
                   <span>Home</span>{" "}
                   <span>
@@ -254,6 +170,7 @@ function ProductDetails() {
                   </span>{" "}
                   <span className="text-light">Jewellery</span>
                 </div>
+
                 <div className="mt-12 font-normal font-satoshi text-dark-border text-sm leading-[18px]">
                   Lorem ipsum dolor sit amet consectetur. Magna elementum risus
                   eu tellus id viverra. Purus commodo augue nibh odio cursus
@@ -294,6 +211,8 @@ function ProductDetails() {
             </div>
 
             <div className="w-[479px] font-normal text-[30px] leading-[25px]">
+             
+             
               <div className="mt-[48px] flex flex-row justify-between">
                 <div className="flex flex-row items-center gap-4">
                   <Image
@@ -305,6 +224,11 @@ function ProductDetails() {
                   <div className="font-satoshi text-sm leading-[25px] text-dark-text-two">
                     Previous Lot
                   </div>
+                </div>
+
+                <div className="flex items-center text-[16px] gap-[8p x] leading-[25px] font-normal">
+                  <span className="text-[#6D6D6D] ">Lot:</span>
+                  <span className="text-green font-bold">12</span>
                 </div>
                 <div className="flex flex-row items-center gap-4">
                   <p className="font-satoshi text-sm leading-[25px] text-dark-text-two">
@@ -318,45 +242,30 @@ function ProductDetails() {
                   />
                 </div>
               </div>
-              <h1
-                className={` font-satoshi  mt-[33px] font-normal  text-3xl leading-[25px]'`}
-              >
-                Centrix Automate Open Heart
-              </h1>
-              <p className="font-semibold text-base leading-[18px] mt-6 text-[#878787]">
-                Product ID: <span className="text-[#878787]">116519</span>
-              </p>
-              <div className="mt-[34px] w-full border-[1px] border-[#D9D9D9] px-[47px] py-[40px]">
-                <div className="flex flex-col items-start ">
-                  <div className="flex flex-col">
-                    <h1 className="font-medium text-[14px] leading-[18px] text-green">
-                      Condition Score:
-                    </h1>
-
-                    <div className="font-bold  mt-[24px] text-[18px] leading-[18px]">
-                      <p> 3/5 {"  "}</p>
-                      <span className="font-semibold text-[18px] leading-[18px] text-[#878787] ">
-                        Pre-Owned
-                      </span>
-                    </div>
-                  </div>
-                  <div className="py-[37px] flex flex-row items-center gap-[1px] overflow-hidden">
-                    {conditionScore.map((element, idx) => {
-                      return (
-                        <div
-                        key  = {idx}
-                          className={`w-[83px] h-[32px] flex flex-row items-center justify-center text-white font-bold text-[16px] leading-[25px] bg-${element.color}`}
-                          style={{ backgroundColor: element.color }}
-                        >
-                          {element.number}
-                        </div>
-                      );
-                    })}
-                  </div>
+              <div className="flex flex-row items-center justify-between">
+                <div>
+                  <h1
+                    className={`font-satoshi  mt-[33px] font-normal  text-2xl leading-[25px]`}
+                  >
+                    Centrix Automate Open Heart
+                  </h1>
+                  <p className="font-semibold text-base leading-[18px] mt-6 text-[#878787]">
+                    Product ID: <span className="text-[#878787]">116519</span>
+                  </p>
                 </div>
+                <div className="bg-[#F4F4F4] w-[77px] h-[32px] flex flex-row items-center justify-center rounded-[2px] gap-[9.67px]">
+                  <Image src={eyeGreen} alt="" width={16.67} height={11.67} />
+                  <span className="text-green font-medium text-[12px] leading-[18px]">
+                    198
+                  </span>
+                </div>
+              </div>
 
-                <div className="pt-[30px] border-t-[1px] border-[#D9D9D9]">
-                  <div className="flex flex-row items-center  gap-[35px]">
+
+
+              <div className="mt-[34px] w-full border-[1px] border-[#D9D9D9]  pt-[40px]">
+                <div className="pb-[30px] border-b-[1px] border-[#D9D9D9]">
+                  <div className="flex flex-row items-center justify-center  gap-[35px]">
                     {logos.map((element, idx) => {
                       return (
                         <Image
@@ -368,6 +277,55 @@ function ProductDetails() {
                         />
                       );
                     })}
+                  </div>
+                </div>
+                <div className="flex flex-col items-start  ">
+                  <h1 className="font-medium text-[14px] ml-[31px] leading-[18px] mt-6 text-green">
+                    Condition Score:
+                  </h1>
+
+                  <div className="py-[37px] flex flex-row relative  items-center border-b-[1px] border-[#D9D9D9] justify-center gap-[1px] w-full mt-[68px] ">
+                    <div className="w-[419px] flex flex-row relative items-center justify-between">
+                      <div className="w-[28px] h-[28px] border-[2px] border-[#D9D9D9] rounded-full bg-[#0E6D00] flex flex-row justify-center items-center"></div>
+                      <div className="h-[10px] bg-[#0E6D00] absolute border-b-[2px] border-t-[2px] left-[25.5px] w-[74.8px] z-20 border-[#D9D9D9]"></div>
+                      <div className="w-[28px] h-[28px] border-[2px] border-[#D9D9D9] rounded-full bg-[#0E6D00]"></div>
+                      <div className="h-[10px] bg-[#0E6D00] absolute border-b-[2px] border-t-[2px] left-[123px] w-[75px] z-20 border-[#D9D9D9]"></div>
+                      <div className="w-[28px] h-[28px] border-[2px] border-[#D9D9D9] rounded-full bg-[#0E6D00]"></div>
+                      <div className="h-[10px] bg-[#0E6D00] absolute border-b-[2px] border-t-[2px] left-[221.3px] w-[74.5px] z-20 border-[#D9D9D9]"></div>
+
+                      <div className="w-[28px] h-[28px] border-[2px] border-[#D9D9D9] rounded-full bg-[#0E6D00]"></div>
+
+                      <div className="h-[10px] bg-[#D9D9D9] absolute border-b-[2px] border-t-[2px] left-[318.5px] w-[75.4px] z-20 border-[#D9D9D9]"></div>
+
+                      <div className="w-[28px] h-[28px] border-[2px] border-[#D9D9D9] rounded-full bg-[#0E6D00]"></div>
+                      <div className="w-[28px] absolute right-0 h-[28px] border-[2px] border-[#D9D9D9] rounded-full bg-[#D9D9D9] z-20"></div>
+
+                      <div className="w-[410px]  h-[9px] left-1 right-1 absolute z-10 bg-[#0E6D00]"></div>
+
+                      <div className="absolute w-[40px] h-[40px] left-[285px] rounded-full bg-white flex flex-row items-center justify-center z-30">
+                        <div className="w-[32px] h-[32px] bg-[#D9D9D9] rounded-full flex flex-row items-center justify-center">
+                          <div className="w-[16px] h-[16px] bg-[#0E6D00] rounded-full"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center left-[64%] absolute -top-[30px]">
+                      <div className="w-[54px] h-[38px] bg-[#0E6D00] rounded-[10px] flex flex-row items-center justify-center text-white font-bold text-[18px] leading-[18px]">
+                        4
+                      </div>
+                      <div className=" h-0 w-0 border-x-[10px]  border-x-transparent border-b-[12px] border-b-[#0E6D00]  rotate-180"></div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row justify-center items-center w-full mt-4 pb-[22px]">
+                    <h1 className="bg-[#F0F0F0] p-6 font-medium text-[14px] leading-[25px] w-[434px] rounded-[8px] text-[#868686]">
+                      The Buyer’s Premium is charged in addition to the sale
+                      price and is payable directly to Watch Collecting. The fee
+                      and whether you are charged sales tax is based on your
+                      location.Buyer’s premium is 15%
+                      <br />
+                      <br />
+                      For more information, please check our fees
+                    </h1>
                   </div>
                 </div>
               </div>
@@ -482,6 +440,8 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+
+      {/* <div></div> */}
       <div className="mt-[91px]">
         <Footer />
       </div>

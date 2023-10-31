@@ -1,9 +1,8 @@
 
-import { useAppSelector } from '@/app/hooks';
+
 import React from 'react'
-import { RootState } from '@/app/GlobalRedux/store';
-import { useDispatch } from 'react-redux';
-import { setInputValue } from '@/app/GlobalRedux/Features/inputSlice';
+
+
 interface InputTypes {
     value?:string
     onChange?:(newValue:string)=> void;

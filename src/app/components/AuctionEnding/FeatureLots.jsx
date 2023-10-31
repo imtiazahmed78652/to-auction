@@ -59,7 +59,7 @@ function FeatureLots() {
           <div className="flex flex-col items-center">
             {" "}
             <h1
-              className={`text-[20px] font-satoshi font-normal leading-[46px] text-[#686868] `}
+              className={`text-[24px] font-satoshi font-normal leading-[46px] text-[#686868] ${monumentum.className}`}
             >
               {" "}
               Feature Lots
@@ -71,13 +71,14 @@ function FeatureLots() {
               <Carousel responsive={responsive} centerMode={true}>
                 {mySwiperData.map((element, idx) => {
                   return (
-                    
-                    <div key = {idx} onClick={()=> handleSliderClick(element)}>
+
+                    <div key = {idx} >
                     <ProductCard
                       productImg={element.img}
                       productName={element.name}
                       productPrice={element.price}
                       auctionEnd={element.ending}
+                      onClick={()=> handleSliderClick(element)}
                     />
                     
                     </div>

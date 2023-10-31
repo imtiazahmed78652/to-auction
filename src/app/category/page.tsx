@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import Button from "../components/Button/Button";
-
+import { watches, data, filters } from "./data";
 function Category() {
   const [grid, setGrid] = React.useState(false);
   const [isFilter, setIsFilter] = React.useState(false);
@@ -12,106 +12,6 @@ function Category() {
   const [selectedFilter, setSelectedFilter] = React.useState<number | null>(
     null
   );
-  const data = [
-    {
-      brand: "Omega",
-    },
-    {
-      brand: "Omega",
-    },
-    {
-      brand: "Omega",
-    },
-  ];
-  const watches = [
-    {
-      img: "/watch-01.png",
-      name: "Decorative Objects Auction (Modern)",
-      condition: "3/5 Pre-Owned",
-      price: "200",
-      end: "End Today 17:00",
-    },
-    {
-      img: "/watch-01.png",
-      name: "Decorative Objects Auction (Modern)",
-      condition: "3/5 Pre-Owned",
-      price: "200",
-      end: "End Today 17:00",
-    },
-    {
-      img: "/watch-01.png",
-      name: "Decorative Objects Auction (Modern)",
-      condition: "3/5 Pre-Owned",
-      price: "200",
-      end: "End Today 17:00",
-    },
-    {
-      img: "/watch-01.png",
-      name: "Decorative Objects Auction (Modern)",
-      condition: "3/5 Pre-Owned",
-      price: "200",
-      end: "End Today 17:00",
-    },
-    {
-      img: "/watch-01.png",
-      name: "Decorative Objects Auction (Modern)",
-      condition: "3/5 Pre-Owned",
-      price: "200",
-      end: "End Today 17:00",
-    },
-    {
-      img: "/watch-01.png",
-      name: "Decorative Objects Auction (Modern)",
-      condition: "3/5 Pre-Owned",
-      price: "200",
-      end: "End Today 17:00",
-    },
-  ];
-
-  const filters = [
-    {
-      name: "Category",
-    },
-    {
-      name: "Condition",
-      subArray: [1, 0o2, 0o3, 0o4, 0o5],
-    },
-    {
-      name: "Price Range",
-    },
-    {
-      name: "Brand",
-      subArray: [
-        "Breitling",
-        "Officine Panerai",
-        "Omega",
-        "Rolex",
-        "Tudor",
-        "Other",
-      ],
-    },
-    {
-      name: "Closing Date",
-      subArray: [
-        "15-Oct-2023",
-        "10-Oct-2023",
-        "21-Oct-2023",
-        "29-Oct-2023",
-        "06-Nov-2023",
-        "17-Nov-2023",
-      ],
-    },
-  ];
-
-  //   const filterName = "Brand";
-
-  // const filter = filters.find((filter) => filter.name === "Brand");
-  // const subArray = filter?.subArray || [];
-  // const mappedSubArray = subArray.map((item, index) => {
-  //   return <div key={index}>{item}</div>;
-  // });
-  console.log(heading);
-
   return (
     <div className="relative">
       <Navbar />
@@ -218,6 +118,7 @@ function Category() {
                     );
                   })}
               </div>
+
               <div className="flex flex-col gap-[48px]">
                 {heading === "Closing Date" &&
                   [
@@ -228,13 +129,17 @@ function Category() {
                     "10-Oct-2023",
                   ].map((element, idx) => {
                     return (
-                      <div key = {idx} className="flex flex-row items-center gap-6">
+                      <div
+                        key={idx}
+                        className="flex flex-row items-center gap-6"
+                      >
                         <div className="w-[24px] h-[24px] border-[1.5px] border-[#4D4D4D] rounded-[4px]"></div>
                         <p>{element}</p>
                       </div>
                     );
                   })}
               </div>
+
               <div className="flex flex-col gap-8">
                 {heading === "Filters" &&
                   filters.map((element, idx) => {
@@ -259,27 +164,24 @@ function Category() {
                             />
                           </div>
                         )}
-                        
                       </>
                     );
                   })}
-
-                
               </div>
             </div>
+
             <div className="flex flex-col justify-center items-center gap-4 mb-8">
               <Button
                 btnText="Clear All"
                 className="w-[342px] h-[60px] text-green rounded-[4px] hover:bg-white bg-white border-[1px] border-green"
               />
               <Button
-                btnText="Clear All"
-                className="w-[342px] h-[60px] bg-green rounded-[4px]"
+                btnText="Apply"
+                className="w-[342px] text-white h-[60px] bg-green rounded-[4px]"
               />
             </div>
           </div>
         )}
-
         <div className="w-[1440px] px-[128px]">
           <div className="flex flex-row items-center gap-[16px] mt-8">
             <h1 className="font-medium text-base leading-[18px] text-[#878787]">
@@ -324,19 +226,47 @@ function Category() {
             </div>
             <div className="flex flex-row items-center gap-8">
               <div
-                className="flex flex-row items-center gap-[10px] border-[1px] border-[#D9D9D9] group hover:border-green cursor-pointer rounded-[4px] px-4 py-3"
+                className={`flex flex-row items-center  gap-[10px] hover:shadow-xl border-[1px]  group hover:border-green cursor-pointer rounded-[4px] px-4 py-3 ${
+                  isFilter
+                    ? "border-green text-green shadow-xl"
+                    : "border-[#D9D9D9]"
+                } `}
                 onClick={() => setIsFilter(true)}
               >
-                {/* <p className="w-[20px] h-[20px] rounded-full bg-[#3AAE2A] text-white flex flex-row items-center justify-center text-[12px]">
-                  4
-                </p> */}
-                <p className="group-hover:text-green">Filter</p>
-                <Image src="/filter.png" alt="" width={24} height={24} />
+                <div className="text-white w-[20px] h-[20px] rounded-full flex justify-center items-center text-[12px] bg-green">
+                  3
+                </div>
+                <p
+                  className={`group-hover:text-green  ${
+                    isFilter ? "text-green" : "text-[#777777]"
+                  } `}
+                >
+                  Filter
+                </p>
+                <div className="flex flex-col w-[24px] gap-1 h-[24px] items-center justify-center">
+                  <span
+                    className={`w-[17px]  border-[1px] h-[1px] hover:border-green ${
+                      isFilter ? " border-green" : "border-[#777777]"
+                    } `}
+                  ></span>
+                  <span
+                    className={`w-[11px]  border-[1px] h-[1px] hover:border-green ${
+                      isFilter ? " border-green" : "border-[#777777]"
+                    } `}
+                  ></span>
+                  <span
+                    className={`w-[6px]  border-[1px] h-[1px] hover:border-green ${
+                      isFilter ? " border-green" : "border-[#777777]"
+                    } `}
+                  ></span>
+                </div>
               </div>
 
               <div className="flex flex-row items-center gap-4">
                 <div
-                  className="border-[1px] border-[#D9D9D9] w-[48px] h-[48px] rounded-[4px]  gap-[2px]  flex flex-col items-center justify-center cursor-pointer"
+                  className={`border-[1px]  ${
+                    grid ? "border-green shadow-xl " : "border-[#D9D9D9]"
+                  } hover:shadow-xl w-[48px] h-[48px] rounded-[4px]  gap-[2px]  flex flex-col items-center justify-center cursor-pointer`}
                   onClick={() => setGrid(true)}
                 >
                   <div className="flex flex-row items-center gap-[2px]">
@@ -351,7 +281,9 @@ function Category() {
                 </div>
 
                 <div
-                  className="border-[1px] border-[#D9D9D9] w-[48px] h-[48px] rounded-[4px] flex flex-col items-center justify-center gap-[2px] cursor-pointer"
+                  className={`border-[1px] ${
+                    grid ? "border-[#D9D9D9]" : "border-green shadow-xl"
+                  } hover:shadow-xl w-[48px] h-[48px] rounded-[4px] flex flex-col items-center justify-center gap-[2px] cursor-pointer`}
                   onClick={() => setGrid(false)}
                 >
                   <div className="w-6 h-[11px] border-[2px] border-[#3AAE2A]"></div>

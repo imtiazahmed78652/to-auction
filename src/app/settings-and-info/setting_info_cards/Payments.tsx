@@ -16,8 +16,6 @@ function Payments({
   productId,
   wonFor,
   dateTime,
-  
-  
 }: PaymentsProps) {
   const paymentHistory = [
     {
@@ -72,7 +70,7 @@ function Payments({
         <div className="mt-6 relative flex flex-row items-center gap-6">
         {
           cardDetails.map((element,idx)=> {
-            return <div key={idx} className={` ${element.color === 'blue-500' ? 'bg-blue-500' : "bg-purple-500"}  w-[378px] h-[245px] rounded-[12px] p-8 flex flex-col justify-between`}>
+            return <div key={idx} className={` ${element.color === 'blue-500' ? 'bg-[hsla(240,100%,50%,1)]' : "bg-[#800080]"}  w-[378px] h-[245px] rounded-[12px] p-8 flex flex-col justify-between`}>
             <div className='flex flex-row items-center justify-between'>
               <div className=''>
                 <Image src = '/three-dot-button.png' width = {24} height={24} alt = ''/>
@@ -102,7 +100,7 @@ function Payments({
                 <p className='font-medium text-sm leading-[18px]'>{element.expiryDate}</p>
               </div>
               <div className='flex flex-col gap-1'>
-              <p className='font-normal text-sm leading-[18px]'>CVV</p>
+               <p className='font-normal text-sm leading-[18px]'>CVV</p>
                 <p className='font-medium text-sm leading-[18px]'>{element.cvv}</p>
               </div>
             </div>
@@ -126,10 +124,13 @@ function Payments({
             <h1 className='flex flex-row items-center gap-[8px] font-bold text-sm leading-[18.9px] text-[#CCCCCC]'>Bid on: <span className='text-[#6C6C6C]'>Decorative Objects Auction (Modern)</span></h1>
             <p className='flex flex-row items-center gap-[8px] text-[#CCCCCC] text-[12px]'>Date & Time: <span className='font-normal  leading-[18px] text-[#6C6C6C]'>29-09-2023</span></p>
             </div>
+
+
             <div className='flex flex-row items-center gap-[24px]'>
             <h1 className='text-[#CF2D2D] font-bold text-2xl leading-[34px]'>$240</h1>
             <p className='font-medium text-base leading-[34px] text-[#6C6C6C] underline'>View Item</p>
             </div>
+            
           </div>
         })
       }  

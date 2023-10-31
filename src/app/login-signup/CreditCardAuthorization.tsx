@@ -1,13 +1,11 @@
 import Image from "next/image";
 import React, { useContext } from "react";
 import Button from "../components/Button/Button";
-import { useAppSelector } from "../hooks";
-import { useDispatch } from "react-redux";
-import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
+
 import { MYPagination, HandleCardDetails } from "../ContextApi/contextProvide";
 const CreditCardAuthorization: React.FC<{}> = ({}) => {
   const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
-  
+
   const { cardHolderName, setCardHolderName } = useContext(HandleCardDetails);
   const [oneDollar, setOneDollar] = React.useState(false);
   console.log(oneDollar);

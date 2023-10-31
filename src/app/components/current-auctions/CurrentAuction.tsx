@@ -7,7 +7,7 @@ function CurrentAuction() {
     <div className=" mt-[180px] flex flex-col items-center justify-center">
       <div className="w-[1440px] flex flex-col items-center justify-center px-[128px]">
         <h1
-          className={`font-normal text-[36px] leading-[46px] text-[#686868] ${monumentum.className}`}
+          className={`font-normal text-[24px] leading-[46px] text-[#686868] ${monumentum.className}`}
         >
           Current Auction
         </h1>
@@ -74,7 +74,7 @@ function CurrentAuction() {
                   Started: 05 September, 19:58 UTC+4
                 </p>
                 <div className="mt-8 flex flex-row items-center gap-4 text-[#3AAE2A] text-lg font-normal">
-                  Enter Live Auctions{" "}
+                  Enter Close Auctions{" "}
                   <Image
                     src="/arrow-green.png"
                     width={22.5}
@@ -82,6 +82,11 @@ function CurrentAuction() {
                     alt=""
                   />{" "}
                 </div>
+              </div>
+
+              <div className="flex flex-col items-end">
+                <h1 className="font-normal text-[14px] leading-[18px] text-[#424242]">Closes in</h1>
+                <div className="text-[#FF9696] text-[20px] font-bold">19h 27m 55s</div>
               </div>
             </div>
           </div>
@@ -151,7 +156,7 @@ function CurrentAuction() {
                   Started: 05 September, 19:58 UTC+4
                 </p>
                 <div className="mt-8 flex flex-row items-center gap-4 text-[#3AAE2A] text-lg font-normal">
-                  Enter Live Auctions{" "}
+                  Enter Close Auctions{" "}
                   <Image
                     src="/arrow-green.png"
                     width={22.5}
@@ -159,6 +164,11 @@ function CurrentAuction() {
                     alt=""
                   />{" "}
                 </div>
+              </div>
+
+              <div className="flex flex-col items-end">
+                <h1 className="font-normal text-[14px] leading-[18px] text-[#424242]">Closes in</h1>
+                <div className="text-[#FF9696] text-[20px] font-bold">19h 27m 55s</div>
               </div>
             </div>
           </div>

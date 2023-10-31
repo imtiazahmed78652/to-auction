@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
 import Image from 'next/image'
+import Button from '../components/Button/Button'
 
 function ContactUs() {
   const data = [
@@ -63,12 +64,10 @@ function ContactUs() {
           <input type="text" placeholder='Company' className='w-1/2  py-[27px] px-[28px] border-[1px] border-[#ADADAD]  rounded-[4px] outline-none'/>
           </div>
           </div>
-          {/* <div className='w-full h-[150px] border-[1px] border-[#ADADAD] rounded-[4px]'> */}
+ 
             <textarea className='w-full h-[150px] border-[1px] border-[#ADADAD] rounded-[4px] outline-none py-[29px] px-[27px]' placeholder='Write in detail' name="" id="" cols={30} rows={6}></textarea>
-          {/* </div> */}
-          <button className='bg-[#3AAE2A] w-[162px] h-[72px] rounded-[4px] text-white font-medium text-[16px] leading-[18px]'>
-            Send Message
-          </button>
+            <Button btnText='Send Message' className='bg-[#3AAE2A] w-[162px] h-[72px] rounded-[4px] text-white font-medium text-[16px] leading-[18px]'/>
+          
         </div>
 
 

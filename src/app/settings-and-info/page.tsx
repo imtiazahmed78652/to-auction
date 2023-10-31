@@ -5,162 +5,19 @@ import Navbar from "../components/navbar/Navbar";
 import SettingsInfoCard from "./setting_info_cards/SettingsInfoCard";
 import Winnings from "./setting_info_cards/Winnings";
 import Footer from "../components/footer/Footer";
-
-// import Payments from "./setting_info_cards/payments";
+import { sideBar, winnings, cardData, detail } from "./setting_info_cards/data";
 import Payments from "./setting_info_cards/Payments";
 import PersonalInformation from "./setting_info_cards/PersonalInformation";
 import Logout from "./setting_info_cards/Logout";
 import PayNow from "./setting_info_cards/PayNow";
+
 function SettingsAndInfo() {
   const [name, setName] = useState("My Bids");
   const [index, setIndex] = useState(-5);
-  const [payment,setPayments] = useState(false);
-  const togglePayment =(value:boolean) => {
-       setPayments(value);
-  }
-  console.log("This is Index", index);
-
-  const sideBar = [
-    {
-      name: "My Bids",
-      img: "/myBids.png",
-    },
-    {
-      name: "Wish List",
-      img: "/wish-list.png",
-    },
-    {
-      name: "Winnings",
-      img: "/badge.png",
-    },
-    {
-      name: "Payments",
-      img: "/payments.png",
-    },
-    {
-      name: "Personal Information",
-      img: "/personal-information.png",
-    },
-    {
-      name: "Logout",
-      img: "/logout.png",
-    },
-  ];
-  const detail = [
-    {
-      name: "All",
-      number: "14",
-    },
-    {
-      name: "WON",
-      number: "03",
-    },
-    {
-      name: "Loose",
-      number: "11",
-    },
-  ];
-  const cardData = [
-    {
-      title: "Rolex",
-      productId: 116519,
-      bidFor: 4100,
-      dateTime: "21-22-2022",
-      time: "15:12",
-      winner: "Closed",
-    },
-    {
-      title: "Omega",
-      productId: 116519,
-      bidFor: 4100,
-      dateTime: "21-22-2022",
-      time: "15:12",
-      winner: "Winner",
-    },
-    {
-      title: "Patek Philipe",
-      productId: 116519,
-      bidFor: 4100,
-      dateTime: "21-22-2022",
-      time: "15:12",
-      winner: "Closed",
-    },
-    {
-      title: "TAG Heuer",
-      productId: 116519,
-      bidFor: 4100,
-      dateTime: "21-22-2022",
-      time: "15:12",
-      winner: "Winner",
-    },
-    {
-      title: "Seiko",
-      productId: 116519,
-      bidFor: 4100,
-      dateTime: "21-22-2022",
-      time: "15:12",
-      winner: "Closed",
-    },
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      bidFor: 4100,
-      dateTime: "21-22-2022",
-      time: "15:12",
-      winner: "Winner",
-    },
-  ];
-
-  const winnings = [
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      wonFor: 4100,
-      dateTime: "21-22-2022",
-      status:'Delivered',
-      time:'23:25'
-    },
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      wonFor: 4100,
-      dateTime: "21-22-2022",
-      status:'Not Delivered',
-      time:'23:25'
-    },
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      wonFor: 4100,
-      dateTime: "21-22-2022",
-      status:'',
-      time:'23:25'
-    },
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      wonFor: 4100,
-      dateTime: "21-22-2022",
-      status:"Delivered",
-      time:'23:25'
-    },
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      wonFor: 4100,
-      dateTime: "21-22-2022",
-      status:'Not Delivered',
-      time:'23:25'
-    },
-    {
-      title: "A. Lange  & Sohne",
-      productId: 116519,
-      wonFor: 4100,
-      dateTime: "21-22-2022",
-      status:'',
-      time:'23:25'
-    },
-  ];
+  const [payment, setPayments] = useState(false);
+  const togglePayment = (value: boolean) => {
+    setPayments(value);
+  };
   return (
     <div className="relative">
       <Navbar />
@@ -177,8 +34,9 @@ function SettingsAndInfo() {
             Settings & info
           </h1>
           <div className="flex flex-row justify-between gap-[125px]">
+         
             <div className="w-[278px] h-[709px] shadow-md mt-16 px-6 py-8 flex flex-col gap-4">
-              {sideBar.map((item, idx) => {
+              {sideBar?.map((item, idx) => {
                 return (
                   <div
                     key={idx}
@@ -210,9 +68,12 @@ function SettingsAndInfo() {
             <div className="w-[781px]">
               {name === "My Bids" ? (
                 <div className="flex flex-row items-center gap-6">
-                  {detail.map((element, idx) => {
+                  {detail?.map((element, idx) => {
                     return (
-                      <div key={idx} className="px-[16px] h-[34px] rounded-[25px] border-[1px] border-[#E1E1E1] hover:border-[#3AAE2A]  flex flex-row items-center justify-center gap-[8px]">
+                      <div
+                        key={idx}
+                        className="px-[16px] h-[34px] rounded-[25px] border-[1px] border-[#E1E1E1] hover:border-[#3AAE2A]  flex flex-row items-center justify-center gap-[8px]"
+                      >
                         <p className="font-normal text-sm leading-[18px]">
                           {element.name}
                         </p>
@@ -252,7 +113,7 @@ function SettingsAndInfo() {
 
                 {name === "Wish List" && (
                   <SettingsInfoCard
-                  bids = {'bids'}
+                    bids={"bids"}
                     title="Omega"
                     productId={110066447}
                     bidAmount={5200}
@@ -261,39 +122,43 @@ function SettingsAndInfo() {
                     winner="MySelf"
                   />
                 )}
-                {name === 'Winnings' && payment === true ? <PayNow togglePayment = {togglePayment}  /> : name === "Winnings" &&  winnings.map((element, idx) => {
+                {name === "Winnings" && payment === true ? (
+                  <PayNow togglePayment={togglePayment} />
+                ) : (
+                  name === "Winnings" &&
+                  winnings?.map((element, idx) => {
                     return (
                       <div key={idx} className="">
-                        <Winnings payment = {payment} togglePayment = {togglePayment} time = {element.time} title = {element.title} productId = {element.productId} wonFor = {element.wonFor} dateTime = {element.dateTime} status = {element.status}/>
+                        <Winnings
+                          payment={payment}
+                          togglePayment={togglePayment}
+                          time={element.time}
+                          title={element.title}
+                          productId={element.productId}
+                          wonFor={element.wonFor}
+                          dateTime={element.dateTime}
+                          status={element.status}
+                        />
                       </div>
                     );
-                  })}
-                {name === "Payments" && (
-                 <Payments/> 
+                  })
                 )}
-                {name === "Personal Information" && (
-                  <PersonalInformation/>
-                )}
-
-                
+                {name === "Payments" && <Payments />}
+                {name === "Personal Information" && <PersonalInformation />}
               </div>
             </div>
+
+            
           </div>
         </div>
       </div>
-     {
-      
-     } 
-      {
-        name === 'Logout' &&                 <div className="absolute  top-0  w-full h-full bg-black bg-opacity-[50%] z-40 ">
-                    
-                    <div className="mt-[20%] ml-[35%] w-[528px]  rounded-[8px] bg-white pb-12">
-                    <Logout/>
-                    </div>
-                  
-                
-                </div>
-              }
+      {name === "Logout" && (
+        <div className="absolute  top-0  w-full h-full bg-black bg-opacity-[50%] z-40 ">
+          <div className="mt-[20%] ml-[35%] w-[528px]  rounded-[8px] bg-white pb-12">
+            <Logout />
+          </div>
+        </div>
+      )}
       <div className="mt-12">
         <Footer />
       </div>

@@ -23,7 +23,7 @@ function AboutUs() {
   return (
     <div className='mt-[141px]'>
 <div className='flex flex-col items-center justify-center'>
-        <h1 className={`font-satoshi text-[#686868] font-normal text-[20px] leading-[46px] text-[#686868]"`}>
+        <h1 className={`font-satoshi text-[#686868] font-normal text-[20px] leading-[46px]  ${monumentum.className}`}>
           About Us
         </h1>
         <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-8"></div>

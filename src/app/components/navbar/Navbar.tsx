@@ -17,6 +17,7 @@ import profilePic from "../../assets/profile-pic.png";
 import profileDropDown from "../../assets/profile-dropdown.png";
 import dropDownImage from "../../assets/Rectangle 5382.png";
 import dropDownNoti from "../../assets/dropDownNoti.png";
+import Button from "../Button/Button";
 
 function Navbar() {
   const [index, setIndex] = useState<number | null>(null);
@@ -132,7 +133,7 @@ function Navbar() {
                 <div
                   className="flex flex-row items-center gap-2 py-[11px]"
                   onClick={() =>
-                    index === idx ? setIndex(null) : setIndex(idx)
+                      index === 1 && index === idx ? setIndex(null) : setIndex(idx)
                   }
                 >
                   <Image
@@ -161,7 +162,7 @@ function Navbar() {
                         />
                       </div>
                       <div className="font-normal text-xl leading-[25px]">
-                        {element.des}
+                        { element.des}
                       </div>
                       <div></div>
                     </div>
@@ -200,9 +201,7 @@ function Navbar() {
                           );
                         })}
                       </div>
-                      <button className="w-[420px] h-[60px] bg-green text-white rounded-[4px]">
-                        Apply
-                      </button>
+                      <Button btnText="Apply" className="w-[420px] h-[60px] bg-green text-white rounded-[4px]" onClick={() => setIndex(null)}/>
                     </div>
                   </div>
                 )}
@@ -234,6 +233,9 @@ function Navbar() {
               />
             </div>
           </div>
+         
+         
+         
           <div className="">
             <Link href="/">
               <Image
@@ -245,6 +247,8 @@ function Navbar() {
               />
             </Link>
           </div>
+
+
           <div className="flex flex-row items-center gap-12">
             <div className="text-white font-normal text-xs leading-[18px] hover:text-green cursor-pointer">
               SELL WITH US

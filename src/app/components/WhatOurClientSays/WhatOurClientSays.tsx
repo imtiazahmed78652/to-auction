@@ -27,7 +27,7 @@ function WhatOurClientSays() {
       <div className="w-[1440px] px-[128px]">
         <div className="text-center flex flex-col items-center gap-[32px]">
           <h1
-            className={`font-satoshi font-normal text-[20px] leading-[46px] text-[#686868]`}
+            className={`${monumentum.className} font-normal text-[20px] leading-[46px] text-[#686868]`}
           >
             What our clients say
           </h1>

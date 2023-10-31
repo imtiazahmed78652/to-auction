@@ -25,6 +25,8 @@ const config: Config = {
       "light-border": "#DDDDDD",
       "error-text": "#FF0000",
       "two-text": "#707070",
+      'blue1' : 'bg-blue-500',
+      'purple1' : 'bg-purple-500',
     },
     extend: {
       backgroundImage: {

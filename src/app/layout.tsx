@@ -4,11 +4,8 @@ import { Inter, Manrope } from 'next/font/google'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import localFont from '@next/font/local';
-import {Providers} from './GlobalRedux/provider'
-import { store } from './GlobalRedux/store'
 import ContextProvider from './ContextApi/contextProvide'
 const inter = Inter({ subsets: ['latin'] })
-
 
 export const monumentum = localFont({
   src: [
@@ -31,7 +28,6 @@ export const satoshiVariable = localFont({
 })
 
 
-
 export const manrope = Manrope({ subsets: ['latin'] })
  const metadata: Metadata = {
   title: 'Create Next App',
@@ -46,15 +42,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" >
-      {/* <Navbar/> */}
       <body className={`${inter.className}`}>
-   <Providers>
     <ContextProvider>
    {children}
    </ContextProvider>
-    </Providers>        
         </body>
-      {/* <Footer/> */}
     </html>
   )
 }

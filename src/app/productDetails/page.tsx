@@ -143,17 +143,6 @@ function ProductDetails() {
         <div className="w-[1440px] px-[128px]">
           <div className="py-[22px] flex flex-row items-center justify-between border-b-[1px] border-[#C9C9C9]">
             <div className="flex flex-row items-center gap-[65px]">
-              {/* <div className="flex flex-row items-center gap-4">
-                <Image
-                  src="/arrow-back.png"
-                  alt=""
-                  width={22.5}
-                  height={12.5}
-                />
-                <div className="font-satoshi text-sm leading-[25px] text-dark-text-two">
-                  Previous Lot
-                </div>
-              </div> */}
               <div className="flex flex-row items-center gap-12">
                 <div className="flex flex-col ">
                   <h1 className="text-black font-medium font-satoshi text-base leading-[18px]">
@@ -188,9 +177,8 @@ function ProductDetails() {
                   Set Max Bid{" "}
                   <Image src={dropDownNoti} width={16} height={12} alt="" />{" "}
                 </button>
-                <button className="bg-green w-[177px] h-[48px] rounded-[4px] text-white font-bold text-[14px] leading-[18px]">
-                  Place Bid
-                </button>
+                <Button btnText="Place Bid" className="w-[177px] h-[48px] rounded-[4px] text-white"/>
+                
               </div>
             </div>
           </div>

@@ -1,11 +1,12 @@
 import React from 'react'
+import { monumentum } from '@/app/layout'
 
 function HowItWorks() {
   return (
     <>
     <div className="mt-[220px] flex flex-col justify-center items-center">
             <h1
-              className={`font-satoshi text-[#686868] font-normal text-[24px] leading-[46px] `}
+              className={` ${monumentum.className} text-[#686868] font-normal text-[24px] leading-[46px] `}
             >
               How It Works?
             </h1>

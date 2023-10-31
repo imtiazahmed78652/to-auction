@@ -6,12 +6,23 @@ function UpComingAuctions() {
   return (
     <div className=" mt-[180px] flex flex-col items-center justify-center">
     <div className="w-[1440px] flex flex-col items-center justify-center px-[128px]">
-      <h1
-        className={`font-normal text-[20px] leading-[46px] text-[#686868] font-satoshi`}
+
+      <div className='flex flex-row w-full items-center justify-between'>
+        <div></div>
+        <div className='flex flex-col items-center'> 
+        <h1
+        className={`font-normal text-[20px] leading-[46px] text-[#686868] ${monumentum.className}`}
       >
         Upcoming Auction
       </h1>
-      <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-[32px]"></div>
+        <div className="bg-[#3AAE2A] w-[286px] h-[2px] mt-[32px]"></div>
+        </div>
+      
+      <div className='flex flex-row items-center gap-5 font-normal text-[18px] leading-[25px] cursor-pointer hover:underline text-green'> <span> See All</span> <Image src = '/arrow-green.png' width = {22.5} height={12.5} alt = ''/></div>
+      </div>
+
+
+      
       <div className="flex flex-row items-center mt-[64px] gap-6 w-full">
         <div className="flex flex-col w-[580px] ">
           <div className=" h-[320px] bg-[#584440] p-4 flex flex-row gap-4 ">
@@ -73,16 +84,22 @@ function UpComingAuctions() {
               <p className="mt-4 font-medium text-base leading-[25px] text-[#AAAAAA]">
                 Started: 05 September, 19:58 UTC+4
               </p>
-              <div className="mt-8 flex flex-row items-center gap-4 text-[#3AAE2A] text-lg font-normal">
-                Enter Live Auctions{" "}
+              <div className="mt-8 flex flex-row items-center gap-4 text-[#3AAE2A] text-[17px] font-normal">
+               <span> Add to Calender</span>
                 <Image
-                  src="/arrow-green.png"
-                  width={22.5}
-                  height={12.5}
+                  src="/calender.png"
+                  width={16}
+                  height={18}
                   alt=""
                 />{" "}
               </div>
             </div>
+
+
+            <div className="flex flex-col items-end">
+                <h1 className="font-normal text-[14px] leading-[18px] text-[#424242]">Closes in</h1>
+                <div className="text-green text-[20px] font-bold">19h 27m 55s</div>
+              </div>
           </div>
         </div>
 
@@ -150,16 +167,22 @@ function UpComingAuctions() {
               <p className="mt-4 font-medium text-base leading-[25px] text-[#AAAAAA]">
                 Started: 05 September, 19:58 UTC+4
               </p>
-              <div className="mt-8 flex flex-row items-center gap-4 text-[#3AAE2A] text-lg font-normal">
-                Enter Live Auctions{" "}
+              <div className="mt-8 flex flex-row items-center gap-4 text-[#3AAE2A] text-[17px] font-normal">
+               <span> Add to Calender</span>
                 <Image
-                  src="/arrow-green.png"
-                  width={22.5}
-                  height={12.5}
+                  src="/calender.png"
+                  width={16}
+                  height={18}
                   alt=""
                 />{" "}
               </div>
             </div>
+
+
+            <div className="flex flex-col items-end">
+                <h1 className="font-normal text-[14px] leading-[18px] text-[#424242]">Closes in</h1>
+                <div className="text-green text-[20px] font-bold">19h 27m 55s</div>
+              </div>
           </div>
         </div>
       </div>

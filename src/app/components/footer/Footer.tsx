@@ -1,101 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-// import '../../src/app/globals.css'
+import { product, company, support, downloads } from "./data";
 function Footer() {
-  const product = [
-    {
-      name: "Features",
-      url: "",
-    },
-    {
-      name: "Pricing",
-      url: "",
-    },
-    {
-      name: "Case Studies",
-      url: "",
-    },
-    {
-      name: "Reviews",
-      url: "",
-    },
-    {
-      name: "Updates",
-      url: "",
-    },
-  ];
-  const company = [
-    {
-      name: "About",
-      url: "",
-    },
-    {
-      name: "Contact Us",
-      url: "/contact_us",
-    },
-    {
-      name: "Careers",
-      url: "",
-    },
-    {
-      name: "Culture",
-      url: "",
-    },
-    {
-      name: "Blog",
-      url: "",
-    },
-  ];
-  const support = [
-    {
-      name: "Getting Started",
-      url: "",
-    },
-    {
-      name: "Help Center",
-      url: "",
-    },
-    {
-      name: "Server Status",
-      url: "",
-    },
-    {
-      name: "Report A Bug",
-      url: "",
-    },
-    {
-      name: "Chat Support",
-      url: "",
-    },
-  ];
-  const downloads = [
-    {
-      name: "IOS",
-      url: "",
-    },
-    {
-      name: "Android",
-      url: "",
-    },
-    {
-      name: "Mac",
-      url: "",
-    },
-    {
-      name: "Windows",
-      url: "",
-    },
-    {
-      name: "Chrome",
-      url: "",
-    },
-  ];
   return (
     <div className="h-[626px] bg-[#343434] text-[#FFFFFF]  pt-[94px] flex flex-col justify-center font-sans items-center">
       <div className="flex flex-row gap-[173px] w-[1440px] px-[128px]">
-       
-       
         <div className="flex flex-col">
           <Image src="/tp-auction-logo.svg" alt="" width={295} height={41} />
           <p className="mt-[45px] font-normal text-lg leading-[30px] w-[408px] text-white">
@@ -120,13 +30,11 @@ function Footer() {
             </div>
           </div>
         </div>
-
         <div className="flex flex-row gap-[72px]">
           <div className="flex flex-col">
             <h1 className="text-green text-[20px] font-bold leading-[20px] font-sans">
               Product
             </h1>
-
             <div className="flex flex-col gap-[25px] mt-[48px] text-white">
               {product.map((element, idx) => {
                 return (
@@ -159,7 +67,6 @@ function Footer() {
               })}
             </div>
           </div>
-
           <div className="flex flex-col">
             <h1 className="text-green text-[20px] font-bold leading-[20px] font-sans">
               Support

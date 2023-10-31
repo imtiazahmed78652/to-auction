@@ -4,12 +4,11 @@ import React, { useContext } from "react";
 import Paginations from "./Paginations";
 import Button from "../components/Button/Button";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { updateHeadingText } from "../GlobalRedux/Features/counterSlice";
-import { useAppSelector } from "../hooks";
+
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import "./mobileNumber.css";
-import { getPhoneNumber } from "../GlobalRedux/Features/phoneNumberSlice";
+
 import { MYPagination, UserAuth } from "../ContextApi/contextProvide";
 
 type Props = {};

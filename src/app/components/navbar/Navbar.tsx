@@ -6,7 +6,6 @@ import Link from "next/link";
 import React, { useState, useEffect, useContext } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import SearchInput from "../Search/SearchInput";
-import { useAppSelector } from "@/app/hooks";
 import {
   HandleModal,
   MYPagination,

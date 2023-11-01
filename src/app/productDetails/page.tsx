@@ -23,7 +23,7 @@ function ProductDetails() {
       <Navbar />
       <div className="flex justify-center font-satoshi">
         <div className="w-[1440px] px-[128px] bg-white relative flex justify-center">
-          <div className="px-[128px] py-[22px] flex flex-row items-center justify-between border-b-[1px] bg-white border-[#C9C9C9]  fixed z-50 w-[1440px]">
+          <div className="px-[128px] py-[22px] flex flex-row items-center justify-between border-b-[1px] bg-white border-[#C9C9C9]  fixed z-30 w-[1440px]">
             <div className="flex flex-row items-center bg-white justify-between w-full">
 
                 <div className="flex flex-row items-center gap-[125px]">
@@ -75,6 +75,8 @@ function ProductDetails() {
                   />
                 </div>
               </div>
+
+
 <div className="fixed bottom-10 right-[15%] w-[62px] h-[62px] rounded-full bg-white shadow-2xl flex flex-row items-center justify-center">
   <Link href='https://web.whatsapp.com/' target="_blank">
   <Image src = {whatsapp} width={38} height={38} alt="Whatsapp"/> 
@@ -302,7 +304,7 @@ function ProductDetails() {
 
                       <div className="w-[410px]  h-[9px] left-1 right-1 absolute z-10 bg-[#0E6D00]"></div>
 
-                      <div className="absolute w-[40px] h-[40px] left-[285px] rounded-full bg-white flex flex-row items-center justify-center z-30">
+                      <div className="absolute w-[40px] h-[40px] left-[285px] rounded-full bg-white flex flex-row items-center justify-center z-20">
                         <div className="w-[32px] h-[32px] bg-[#D9D9D9] rounded-full flex flex-row items-center justify-center">
                           <div className="w-[16px] h-[16px] bg-[#0E6D00] rounded-full"></div>
                         </div>

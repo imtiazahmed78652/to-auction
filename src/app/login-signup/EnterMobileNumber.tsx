@@ -15,10 +15,9 @@ type Props = {};
 
 const EnterMobileNumber: React.FC<Props> = () => {
   const [phoneError, setPhoneError] = React.useState("");
-
   const { myHeadingText, setMyHeadingText } = useContext(MYPagination);
-
   const { phoneNumber, setPhoneNumber } = useContext(UserAuth);
+
 
   const handlePhoneNumber = () => {
     if (phoneNumber === "") {
@@ -32,6 +31,7 @@ const EnterMobileNumber: React.FC<Props> = () => {
   const handleChange = (e: string) => {
     setPhoneNumber(e);
   };
+
   return (
     <div className="flex flex-col items-center justify-center mt-[49px]">
       <Paginations />

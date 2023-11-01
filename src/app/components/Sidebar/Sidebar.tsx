@@ -16,16 +16,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       url: "/",
     },
     {
-      name: "Favourites",
-      url: "",
+      name: "Wish List",
+      url: "/settings-and-info",
     },
     {
       name: "Categories",
       url: "/categories",
-    },
-    {
-      name: "Testimonials",
-      url: "",
     },
     {
       name: "FAQs",

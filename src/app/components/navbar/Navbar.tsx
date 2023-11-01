@@ -42,10 +42,10 @@ function Navbar() {
     setIsSidebarOpen(false);
   };
   const navData = [
-    {
-      img: "/call.svg",
-      des: "800 (846374323)",
-    },
+    // {
+    //   img: "/call.svg",
+    //   des: "800 (846374323)",
+    // },
     {
       img: "/coin.svg",
       des: "Currency",
@@ -125,14 +125,31 @@ function Navbar() {
   return (
     <div className="w-full sticky max-w-full left-auto right-auto top-0 z-50 block">
       <div className="grid place-items-center relative bg-black  w-full  ">
-        <div className="flex flex-row items-end justify-end gap-[38px] w-[1440px] px-[128px]">
+        <div className="flex flex-row  justify-end items-center gap-[38px] w-[1440px] px-[128px]">
+          <div className="text-white flex flex-row items-center gap-2">
+            {/* img: "/call.svg",
+    //   des: "800 (846374323)", */}
+
+            <Image
+              src="/call.svg"
+              width={24}
+              height={24}
+              alt="phone-number"
+              // className={`${idx === 1 ? "" : ""}  cursor-pointer`}
+            />
+            <div className="text-white font-normal text-xs leading-[18px] cursor-pointer">
+              800 (846374323)
+            </div>
+          </div>
           {navData.map((element, idx) => {
             return (
               <div key={idx}>
                 <div
                   className="flex flex-row items-center gap-2 py-[11px]"
                   onClick={() =>
-                      index === 1 && index === idx ? setIndex(null) : setIndex(idx)
+                    index === 1 && index === idx
+                      ? setIndex(null)
+                      : setIndex(idx)
                   }
                 >
                   <Image
@@ -161,7 +178,7 @@ function Navbar() {
                         />
                       </div>
                       <div className="font-normal text-xl leading-[25px]">
-                        { element.des}
+                        {element.des}
                       </div>
                       <div></div>
                     </div>
@@ -200,7 +217,11 @@ function Navbar() {
                           );
                         })}
                       </div>
-                      <Button btnText="Apply" className="w-[420px] h-[60px] bg-green text-white rounded-[4px]" onClick={() => setIndex(null)}/>
+                      <Button
+                        btnText="Apply"
+                        className="w-[420px] h-[60px] bg-green text-white rounded-[4px]"
+                        onClick={() => setIndex(null)}
+                      />
                     </div>
                   </div>
                 )}
@@ -232,9 +253,7 @@ function Navbar() {
               />
             </div>
           </div>
-         
-         
-         
+
           <div className="">
             <Link href="/">
               <Image
@@ -246,7 +265,6 @@ function Navbar() {
               />
             </Link>
           </div>
-
 
           <div className="flex flex-row items-center gap-12">
             <div className="text-white font-normal text-xs leading-[18px] hover:text-green cursor-pointer">
